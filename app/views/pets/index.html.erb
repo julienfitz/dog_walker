@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Type</th>
+      <th>Species</th>
       <th>Name</th>
       <th>Photo</th>
       <th>Size</th>
@@ -22,18 +22,20 @@
   <tbody>
     <% @pets.each do |pet| %>
       <tr>
-        <td><%= pet.type %></td>
+        <td><%= pet.species %></td>
         <td><%= pet.name %></td>
-        <td><%= pet.photo %></td>
+        <td><%= image_tag pet.photo %></td>
         <td><%= pet.size %></td>
         <td><%= pet.household_id %></td>
         <td><%= pet.allergies %></td>
-        <td><%= pet.vet_id %></td>
+        <% if pet.vet %>
+          <td><%= pet.vet.name %></td>
+        <% else %>
+        <td><%= "No Vet Listed" %>
+        <% end %>
         <td><%= pet.age %></td>
         <td><%= pet.feeding %></td>
         <td><%= pet.notes %></td>
-        <td><%= pet.behavior_id %></td>
-        <td><%= pet.supply_id %></td>
         <td><%= link_to 'Show', pet %></td>
         <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
         <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>

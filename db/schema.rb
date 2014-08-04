@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804171537) do
+ActiveRecord::Schema.define(version: 20140804193148) do
 
   create_table "behaviors", force: true do |t|
     t.integer  "pet_id"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20140804171537) do
   end
 
   create_table "pets", force: true do |t|
-    t.string   "type"
+    t.string   "species"
     t.string   "name"
     t.string   "photo"
     t.string   "size"

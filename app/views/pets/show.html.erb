@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @pet.type %>
-</p>
-
-<p>
   <strong>Name:</strong>
   <%= @pet.name %>
 </p>
 
 <p>
+  <strong>Species:</strong>
+  <%= @pet.species %>
+</p>
+
+<p>
   <strong>Photo:</strong>
-  <%= @pet.photo %>
+  <%= image_tag @pet.photo %>
 </p>
 
 <p>
@@ -22,7 +22,6 @@
 
 <p>
   <strong>Household:</strong>
-  <%= @pet.household_id %>
 </p>
 
 <p>
@@ -32,7 +31,13 @@
 
 <p>
   <strong>Vet:</strong>
-  <%= @pet.vet_id %>
+  <% if @pet.vet %>
+    <%= @pet.vet.name %>
+    <%= @pet.vet.phone %>
+    <%= @pet.vet.address %>
+  <% else %>
+    <%= "No Vet Listed" %>
+  <% end %>
 </p>
 
 <p>
@@ -52,12 +57,10 @@
 
 <p>
   <strong>Behavior:</strong>
-  <%= @pet.behavior_id %>
 </p>
 
 <p>
   <strong>Supply:</strong>
-  <%= @pet.supply_id %>
 </p>
 
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
