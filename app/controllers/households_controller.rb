@@ -4,18 +4,19 @@ class HouseholdsController < ApplicationController
   # GET /households
   # GET /households.json
   def index
-    @households = Household.all
+     @user = User.find(params[:user_id])
+     @households = @user.households
   end
 
   # GET /households/1
   # GET /households/1.json
   def show
-
+    @user = User.find(params[:user_id])
   end
 
   # GET /households/new
   def new
-    @user = params[:user_id]
+    @user = User.find(params[:user_id])
     @household = Household.new
   end
 
@@ -27,9 +28,10 @@ class HouseholdsController < ApplicationController
   # POST /households.json
   def create
     @household = Household.new(household_params)
+    @household.walker_id = params[:user_id]
     respond_to do |format|
       if @household.save
-        format.html { redirect_to @household, notice: 'Household was successfully created.' }
+        format.html { redirect_to user_households_path, notice: 'Household was successfully created.' }
         format.json { render :show, status: :created, location: @household }
       else
         format.html { render :new }
@@ -70,6 +72,6 @@ class HouseholdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def household_params
-      params.require(:household).permit(:address, :key_info, :user_id, :walker_id, :owner_id, :owner_attributes => [:name, :phone, :email, :password, :password_confirmation])
+      params.require(:household).permit(:address, :key_info, :user_id, :walker_id)
     end
 end

@@ -14,9 +14,9 @@
       <tr>
         <td><%= household.address %></td>
         <td><%= household.key_info %></td>
-        <td><%= link_to 'Show', user_households_path %></td>
-        <td><%= link_to 'Edit', edit_household_path(household) %></td>
-        <td><%= link_to 'Destroy', households_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user_household_path(params[:user_id], household) %></td>
+        <td><%= link_to 'Edit', edit_user_household_path(params[:user_id], household) %></td>
+        <td><%= link_to 'Destroy', user_household_path(params[:user_id], household), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
