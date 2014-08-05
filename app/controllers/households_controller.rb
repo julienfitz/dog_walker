@@ -15,6 +15,7 @@ class HouseholdsController < ApplicationController
 
   # GET /households/new
   def new
+    @user = params[:user_id]
     @household = Household.new
   end
 
@@ -69,6 +70,6 @@ class HouseholdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def household_params
-      params.require(:household).permit(:address, :key_info, :walker_id, :owner_id, :owner_attributes => [:name, :phone, :email, :password, :password_confirmation])
+      params.require(:household).permit(:address, :key_info, :user_id, :walker_id, :owner_id, :owner_attributes => [:name, :phone, :email, :password, :password_confirmation])
     end
 end
