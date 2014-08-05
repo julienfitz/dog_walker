@@ -20,18 +20,22 @@
     <%= f.text_field :key_info %>
   </div>
   <div class="field">
-    <%= f.hidden_field :walker_id, :value => @user.id %>
+    <%= f.hidden_field :walker_id, :value => params[:id] %>
   </div>
 
   Owner:
   <div class="field">
-  <%= f.fields_for :users, User.new do |owner_form| %>
+  <%= f.fields_for :owner, User.create do |owner_form| %>
     <%= owner_form.label :name, "Name" %>
     <%= owner_form.text_field :name %>
     <%= owner_form.label :phone, "Phone" %>
     <%= owner_form.text_field :phone %>
     <%= owner_form.label :email, "Email" %>
-    <%= owner_form.text_field :email %>
+    <%= owner_form.text_field :email %><br />
+  <%= owner_form.label :password, "New password" %>
+    <%= owner_form.password_field :password, autofocus: true, autocomplete: "off", value: "password" %>
+  <%= owner_form.label :password_confirmation, "Confirm new password" %><br />
+    <%= owner_form.password_field :password_confirmation, autocomplete: "off", value: "password"  %>
   <% end %>
   </div>
 

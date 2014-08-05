@@ -10,6 +10,7 @@ class HouseholdsController < ApplicationController
   # GET /households/1
   # GET /households/1.json
   def show
+    @generated_password = Devise.friendly_token.first(8)
   end
 
   # GET /households/new
@@ -68,6 +69,6 @@ class HouseholdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def household_params
-      params.require(:household).permit(:address, :key_info, user_attributes: [:owner_id])
+      params.require(:household).permit(:address, :key_info, :owner_id, :owner_attributes => [:name, :phone, :email, :password, :password_confirmation])
     end
 end
