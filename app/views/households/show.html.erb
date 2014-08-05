@@ -10,5 +10,12 @@
   <%= @household.key_info %>
 </p>
 
+<% @household.pets.each do |pet| %>
+  <%= pet.name %>
+  <% end %>
+
+<%= render 'pets/form' %>
+
+
 <%= link_to 'Edit', edit_user_household_path %> |
 <%= link_to 'Back', user_households_path %>

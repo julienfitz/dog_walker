@@ -12,6 +12,7 @@ class HouseholdsController < ApplicationController
   # GET /households/1.json
   def show
     @user = User.find(params[:user_id])
+    @pet = Pet.new
   end
 
   # GET /households/new
