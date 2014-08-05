@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   def show
     @household = Household.new
   end
 
   def index
-    @users = User.all
+    redirect_to current_user
   end
 
   private

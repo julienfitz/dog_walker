@@ -1,25 +1,27 @@
 Rails.application.routes.draw do
   resources :pets
 
+  devise_for :users
+
   resources :users, :only => [:index, :show] do
     resources :households
   end
 
-  root 'pets#index'
+  root 'users#index'
 
-  devise_for :users
 
-  devise_scope :user do 
-    get "sign_out", to: "devise/sessions#destroy"
-  end
 
-  devise_scope :user do 
-    get "sign_in", to: "devise/sessions#new" 
-  end
+  # devise_scope :user do 
+  #   get "sign_out", to: "devise/sessions#destroy"
+  # end
 
-  devise_scope :user do 
-    get "sign_up", to: "devise/registrations#new" 
-  end
+  # devise_scope :user do 
+  #   get "sign_in", to: "devise/sessions#new" 
+  # end
+
+  # devise_scope :user do 
+  #   get "sign_up", to: "devise/registrations#new" 
+  # end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
