@@ -20,6 +20,7 @@ class PetsController < ApplicationController
 
   # GET /pets/1/edit
   def edit
+    @household = Pet.find(params[:id]).household
   end
 
   # POST /pets

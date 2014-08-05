@@ -1,7 +1,7 @@
 class CreatePets < ActiveRecord::Migration
   def change
     create_table :pets do |t|
-      t.string :type
+      t.string :species
       t.string :name
       t.string :photo
       t.string :size

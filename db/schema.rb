@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805030243) do
+ActiveRecord::Schema.define(version: 20140804171537) do
 
   create_table "behaviors", force: true do |t|
     t.integer  "pet_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140805030243) do
   end
 
   create_table "households", force: true do |t|
+    t.string   "owner_name"
     t.string   "address"
     t.string   "key_info"
     t.integer  "walker_id"
@@ -44,7 +45,6 @@ ActiveRecord::Schema.define(version: 20140805030243) do
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "pic"
   end
 
   create_table "supplies", force: true do |t|
