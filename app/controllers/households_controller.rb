@@ -25,7 +25,6 @@ class HouseholdsController < ApplicationController
   # POST /households.json
   def create
     @household = Household.new(household_params)
-
     respond_to do |format|
       if @household.save
         format.html { redirect_to @household, notice: 'Household was successfully created.' }
@@ -69,6 +68,6 @@ class HouseholdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def household_params
-      params.require(:household).permit(:address, :key_info)
+      params.require(:household).permit(:address, :key_info, user_attributes: [:owner_id])
     end
 end

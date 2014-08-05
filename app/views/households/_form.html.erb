@@ -19,7 +19,26 @@
     <%= f.label :key_info %><br>
     <%= f.text_field :key_info %>
   </div>
+  <div class="field">
+    <%= f.hidden_field :walker_id, :value => @user.id %>
+  </div>
+
+  Owner:
+  <div class="field">
+  <%= f.fields_for :users, User.new do |owner_form| %>
+    <%= owner_form.label :name, "Name" %>
+    <%= owner_form.text_field :name %>
+    <%= owner_form.label :phone, "Phone" %>
+    <%= owner_form.text_field :phone %>
+    <%= owner_form.label :email, "Email" %>
+    <%= owner_form.text_field :email %>
+  <% end %>
+  </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
+
 <% end %>

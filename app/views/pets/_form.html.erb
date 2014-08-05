@@ -49,7 +49,7 @@
   </div>
   Add a New Vet:
   <div class="field">
-  <%= f.fields_for :vets, Vet.new do |vet_form| %>
+  <%= f.fields_for :vet, Vet.new do |vet_form| %>
     <%= vet_form.label :name, "Name" %>
     <%= vet_form.text_field :name %>
     <%= vet_form.label :phone, "Phone" %>
