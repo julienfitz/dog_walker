@@ -10,7 +10,7 @@ class HouseholdsController < ApplicationController
   # GET /households/1
   # GET /households/1.json
   def show
-    @generated_password = Devise.friendly_token.first(8)
+
   end
 
   # GET /households/new

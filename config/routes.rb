@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   resources :pets
 
-  resources :households
-
   devise_for :users
 
+  resources :households
   resources :users, :only => [:index, :show] 
-
-  root 'pets#index'
+    
+  root 'households#index'
 
   devise_scope :user do 
     get "sign_out", to: "devise/sessions#destroy"
