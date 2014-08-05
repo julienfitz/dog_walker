@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Address:</strong>
+<%= link_to "#{@pet.household.address}", user_household_path(@pet.household.walker_id, @pet.household) %>
+</p>
+
+
+<p>
   <strong>Name:</strong>
   <%= @pet.name %>
 </p>
@@ -60,4 +66,4 @@
 </p>
 
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Back', pets_path %>
+<%= link_to 'Back', :back %>
