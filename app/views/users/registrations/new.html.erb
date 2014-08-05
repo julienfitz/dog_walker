@@ -18,6 +18,10 @@
   <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div> 
 
+  <div><%= check_box_tag :walker %></div> 
+  <%= label_tag :walker, "Walker?" %><br />
+
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
