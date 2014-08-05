@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Owner Name:</strong>
+  <%= @household.owner_name %>
+</p>
+
+<p>
   <strong>Address:</strong>
   <%= @household.address %>
 </p>
@@ -10,10 +15,13 @@
   <%= @household.key_info %>
 </p>
 
-<% @household.pets.each do |pet| %>
-  <%= pet.name %>
+<ul>
+  <% @household.pets.each do |pet| %>
+  <li><%= link_to "#{pet.name}", pet_path(pet) %></li>
   <% end %>
+</ul>
 
+Add a new pet to <%= @household.address %>:
 <%= render 'pets/form' %>
 
 

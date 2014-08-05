@@ -1,6 +1,7 @@
 class CreateHouseholds < ActiveRecord::Migration
   def change
     create_table :households do |t|
+      t.string :owner_name
       t.string :address
       t.string :key_info
       t.integer :walker_id

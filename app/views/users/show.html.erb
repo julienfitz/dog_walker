@@ -5,11 +5,13 @@
 <p><%= @user.phone %></p>
 <p><%= @user.email %></p>
 
-<p><% @user.households.each do |house| %>
-  <%= house.address %><br>
+<p>
+  <% @user.households.each do |house| %>
+  <strong><%= house.owner_name %></strong><br>
+  <%= link_to "#{house.address}", user_household_path(@user.id, house) %><br>
   <ul>
   <% house.pets.each do |pet| %>
-    <li><%= pet.name %><br></li>
+    <li><%= link_to "#{pet.name}", pet_path(pet) %><br></li>
   <% end %>
   </ul>
 <% end %>
