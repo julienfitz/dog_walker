@@ -59,18 +59,20 @@
     <%= vet_form.text_field :address %>
   <% end %>
   </div>
+
   Behavior:
   <div class="field">
   <%= f.fields_for :behavior, Behavior.new do |behavior| %>
-    Dog Aggressive? <%= f.radio_button :dog_aggro? %>
-    Human Aggressive? <%= f.radio_button :human_aggro? %>
+    Dog Aggressive? <%= behavior.check_box :dog_aggro? %>
+    Human Aggressive? <%= behavior.check_box :human_aggro? %>
+    <%= behavior.label :bad_habits %>
+    <%= behavior.text_field :bad_habits %>
   <% end %>
   </div>
 
-
   Supplies:
   <div class="field">
-  <%= f.fields_for :supplies, Supply.new do |supply_form| %>
+  <%= f.fields_for :supply, Supply.new do |supply_form| %>
     <%= supply_form.label :supply, "Supply" %>
     <%= supply_form.text_field :supply %>
     <%= supply_form.label :location, "Location" %>
