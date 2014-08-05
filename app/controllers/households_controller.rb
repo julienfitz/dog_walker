@@ -24,6 +24,7 @@ class HouseholdsController < ApplicationController
 
   # GET /households/1/edit
   def edit
+    @user = User.find(params[:user_id])
   end
 
   # POST /households
@@ -47,7 +48,7 @@ class HouseholdsController < ApplicationController
   def update
     respond_to do |format|
       if @household.update(household_params)
-        format.html { redirect_to @household, notice: 'Household was successfully updated.' }
+        format.html { redirect_to user_households_path, notice: 'Household was successfully updated.' }
         format.json { render :show, status: :ok, location: @household }
       else
         format.html { render :edit }
@@ -61,7 +62,7 @@ class HouseholdsController < ApplicationController
   def destroy
     @household.destroy
     respond_to do |format|
-      format.html { redirect_to households_url, notice: 'Household was successfully destroyed.' }
+      format.html { redirect_to user_households_path, notice: 'Household was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

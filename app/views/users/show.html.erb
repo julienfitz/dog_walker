@@ -5,5 +5,15 @@
 <p><%= @user.phone %></p>
 <p><%= @user.email %></p>
 
+<p><% @user.households.each do |house| %>
+  <%= house.address %><br>
+  <ul>
+  <% house.pets.each do |pet| %>
+    <li><%= pet.name %><br></li>
+  <% end %>
+  </ul>
+<% end %>
+</p>
+
 <%= link_to 'Edit Profile', edit_user_registration_path %>
 <%= link_to 'New Household', new_user_household_path(@user) %>
