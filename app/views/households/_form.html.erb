@@ -1,4 +1,6 @@
-<%= form_for(@household) do |f| %>
+<div class="well">
+
+  <%= form_for(@household) do |f| %>
   <% if @household.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@household.errors.count, "error") %> prohibited this household from being saved:</h2>
@@ -46,3 +48,5 @@
 
 
 <% end %>
+
+</div>

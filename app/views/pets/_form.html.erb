@@ -1,4 +1,5 @@
-<%= form_for(@pet) do |f| %>
+<div class="well">
+  <%= form_for(@pet) do |f| %>
   <% if @pet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
@@ -62,3 +63,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>
