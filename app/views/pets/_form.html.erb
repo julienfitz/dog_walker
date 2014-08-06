@@ -18,7 +18,9 @@
         <%= image_tag(@pet.avatar.url)  %>
       </div>
     <% else %>
-      <%= image_tag('assets/dog_bounty.jpg') %>
+      <div class="photo-lg">
+       <%= image_tag "dog_bounty.jpg" %>
+      </div>
     <% end %>
     <%= f.label "Upload a Photo" %>
     <%= f.file_field :avatar  %>
