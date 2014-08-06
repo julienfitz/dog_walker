@@ -16,7 +16,7 @@
 * put delete household link on household page & on home page
 * figure out how to add Behaviors and Supplies
 * make Owners exist and connect them to Households
-* have new household redirect to user's page
+* ~~have new household redirect to user's page~~
 * fix sign up/sign in
 
 ## Stretch goals
