@@ -13,6 +13,11 @@
   <% end %>
 
   <div>
+    <% if @pet.avatar.url.present? %>
+    <div class="photo-lg">
+      <%= image_tag(@pet.avatar.url)  %>
+    </div>
+    <% end %>
     <%= f.label "Upload a Photo" %>
     <%= f.file_field :avatar  %>
     <%= f.hidden_field :avatar_cache %>
