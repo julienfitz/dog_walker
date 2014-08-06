@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20140806013224) do
   end
 
   create_table "households", force: true do |t|
-    t.string   "owner_name"
     t.string   "address"
     t.string   "key_info"
     t.integer  "walker_id"
@@ -44,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140806013224) do
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "pic"
     t.string   "avatar"
   end
 
