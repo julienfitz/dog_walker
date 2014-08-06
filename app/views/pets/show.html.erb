@@ -1,63 +1,70 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Address:</strong>
-<%= link_to @pet.household.address, user_household_path(@pet.household.walker_id, @pet.household) %>
-</p>
+<div class="row">
+  <div class="col-sm-5 col-xs-12">
+    <div class="photo-lg"> 
+     <%= image_tag @pet.avatar_url.to_s %>
+    </div>
+    <div class="links">
+      <%= link_to 'Edit', edit_pet_path(@pet) %> | <%= link_to 'Remove Pet', @pet, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+      <%= link_to 'Back', :back %>
+    </div>
+  </div>
 
-<p>
-  <%= image_tag @pet.avatar_url.to_s %>
-</p>
+  <div class="col-sm-7 col-xs-12">
 
-<p>
-  <strong>Name:</strong>
-  <%= @pet.name %>
-</p>
+    <h2><strong>Household:</strong>
+    <%= link_to @pet.household.address, user_household_path(@pet.household.walker_id, @pet.household) %></h2>
 
-<p>
-  <strong>Species:</strong>
-  <%= @pet.species %>
-</p>
+    <p><strong>Owner:</strong> <%= @pet.household.owner_name %></p>
 
-<p>
-  <strong>Size:</strong>
-  <%= @pet.size %>
-</p>
 
-<p>
-  <strong>Allergies:</strong>
-  <%= @pet.allergies %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @pet.name %>
+    </p>
 
-<p>
-  <strong>Vet:</strong>
-  <% if @pet.vet %>
-    <%= @pet.vet.name %>
-    <%= @pet.vet.phone %>
-    <%= @pet.vet.address %>
-  <% else %>
-    <%= "No Vet Listed" %>
-  <% end %>
-</p>
+    <p>
+      <strong>Species:</strong>
+      <%= @pet.species %>
+    </p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @pet.age %>
-</p>
+    <p>
+      <strong>Size:</strong>
+      <%= @pet.size %>
+    </p>
 
-<p>
-  <strong>Feeding:</strong>
-  <%= @pet.feeding %>
-</p>
+    <p>
+      <strong>Allergies:</strong>
+      <%= @pet.allergies %>
+    </p>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @pet.notes %>
-</p>
+    <p>
+      <strong>Vet:</strong>
+      <% if @pet.vet %>
+        <%= @pet.vet.name %>
+        <%= @pet.vet.phone %>
+        <%= @pet.vet.address %>
+      <% else %>
+        <%= "No Vet Listed" %>
+      <% end %>
+    </p>
 
-<p>
-  <strong>Supply:</strong>
-</p>
+    <p>
+      <strong>Age:</strong>
+      <%= @pet.age %>
+    </p>
 
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Back', :back %>
+    <p>
+      <strong>Feeding:</strong>
+      <%= @pet.feeding %>
+    </p>
+
+    <p>
+      <strong>Notes:</strong>
+      <%= @pet.notes %>
+    </p>
+  </div>
+</div>
+
+

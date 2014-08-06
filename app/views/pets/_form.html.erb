@@ -63,6 +63,10 @@
   </div>
 
   <div class="actions">
+    <%= f.hidden_field :household_id, :value => @household.id %>
+  </div>
+
+  <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

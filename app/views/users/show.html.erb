@@ -1,22 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @user.avatar_url.to_s %>
-<p><%= @user.name %></p>
-<p><%= @user.phone %></p>
-<p><%= @user.email %></p>
+<div class="row">
+  <div class="col-sm-5 col-xs-12">
+    <div class="photo-lg"> 
+      <%= image_tag @user.avatar_url.to_s %>
+    </div>
+      <h1><%= @user.name %></h1>
+      <p><%= @user.phone %></p>
+      <p><%= @user.email %></p>
+      <div class="links">
+        <%= link_to 'Edit Profile', edit_user_registration_path %> | 
+        <%= link_to 'New Household', new_user_household_path(@user) %> | 
+        <%= link_to 'Back', :back %>
+      </div>
+  </div>
 
-<p>
-  <% @user.households.each do |house| %>
-  <strong><%= house.owner_name %></strong><br>
-  <%= link_to "#{house.address}", user_household_path(@user.id, house) %><br>
-  <ul>
-  <% house.pets.each do |pet| %>
-    <li><%= link_to "#{pet.name}", pet_path(pet) %><br></li>
-  <% end %>
-  </ul>
-<% end %>
-</p>
+  <div class="col-sm-7 col-xs-12">
 
-<%= link_to 'Edit Profile', edit_user_registration_path %>
-<%= link_to 'New Household', new_user_household_path(@user) %>
-<%= link_to 'Back', :back %>
+  <h2>Clients</h2>
+    <% @user.households.each do |house| %>
+      <h4><%= link_to house.owner_name, user_household_path(@user.id, house) %></h4>
+      <p><strong>Address:</strong> <%= house.address %></p>
+      <p><strong>Pets:</p>
+      <ul>
+      <% house.pets.each do |pet| %>
+        <%= image_tag pet.avatar_url(:thumb).to_s %>
+        <p><%= link_to pet.name, pet_path(pet) %></p>
+        <br/>
+      <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>
+
+

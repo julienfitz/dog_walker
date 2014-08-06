@@ -1,30 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Owner Name:</strong>
-  <%= @household.owner_name %>
-</p>
+<div class="row">
+  <div class="col-sm-5 col-xs-12">
+    <h2><%= @household.address %></h4>
 
-<p>
-  <strong>Address:</strong>
-  <%= @household.address %>
-</p>
+    <p>
+      <strong>Owner Name:</strong>
+      <%= @household.owner_name %>
+    </p>
 
-<p>
-  <strong>Key info:</strong>
-  <%= @household.key_info %>
-</p>
+    <p>
+      <strong>Key info:</strong>
+      <%= @household.key_info %>
+    </p>
 
-<ul>
-  <% @household.pets.each do |pet| %>
-  <%= image_tag pet.avatar_url(:thumb).to_s %>
-  <li><%= link_to pet.name, pet_path(pet) %></li>
-  <% end %>
-</ul>
+    <h4>Pets:</h4>
+      <% @household.pets.each do |pet| %>
+        <p><%= image_tag pet.avatar_url(:thumb).to_s %>
+        <%= link_to pet.name, pet_path(pet) %><p>
+      <% end %>
 
-Add a new pet to <%= @household.address %>:
-<%= render 'pets/form' %>
+      <%= link_to 'Edit', edit_user_household_path %> |
+      <%= link_to 'Back', :back %>
+  </div>
 
-
-<%= link_to 'Edit', edit_user_household_path %> |
-<%= link_to 'Back', :back %>
+  <div class="col-sm-7 col-xs-12">
+    <h3>Add a new pet to <%= @household.address %>:</h3>
+    <%= render 'pets/form' %>
+  </div>
+</div>
