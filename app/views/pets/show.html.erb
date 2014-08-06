@@ -2,9 +2,12 @@
 
 <p>
   <strong>Address:</strong>
-<%= link_to "#{@pet.household.address}", user_household_path(@pet.household.walker_id, @pet.household) %>
+<%= link_to @pet.household.address, user_household_path(@pet.household.walker_id, @pet.household) %>
 </p>
 
+<p>
+  <%= image_tag @pet.avatar_url.to_s %>
+</p>
 
 <p>
   <strong>Name:</strong>
@@ -14,11 +17,6 @@
 <p>
   <strong>Species:</strong>
   <%= @pet.species %>
-</p>
-
-<p>
-  <strong>Photo:</strong>
-  <%= image_tag @pet.photo %>
 </p>
 
 <p>
@@ -55,13 +53,6 @@
 <p>
   <strong>Notes:</strong>
   <%= @pet.notes %>
-</p>
-
-<p>
-  <strong>Behavior:</strong>
-    Dog aggressive?<%= @pet.behavior.dog_aggro %>
-    Human aggressive?<%= @pet.behavior.human_aggro %>
-    Bad habits: <%= @pet.behavior.bad_habits %>
 </p>
 
 <p>

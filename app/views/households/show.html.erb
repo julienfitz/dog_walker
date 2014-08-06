@@ -17,7 +17,8 @@
 
 <ul>
   <% @household.pets.each do |pet| %>
-  <li><%= link_to "#{pet.name}", pet_path(pet) %></li>
+  <%= image_tag pet.avatar_url(:thumb).to_s %>
+  <li><%= link_to pet.name, pet_path(pet) %></li>
   <% end %>
 </ul>
 

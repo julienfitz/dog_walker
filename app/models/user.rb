@@ -8,4 +8,9 @@ class User < ActiveRecord::Base
   has_many :households, foreign_key: "walker_id"
   has_many :pets, through: :household
 
+  mount_uploader :avatar, AvatarUploader
+
+  validates_presence_of   :avatar
+  validates_integrity_of  :avatar
+  validates_processing_of :avatar
 end

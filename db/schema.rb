@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804171537) do
+ActiveRecord::Schema.define(version: 20140806013224) do
 
   create_table "behaviors", force: true do |t|
     t.integer  "pet_id"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20140804171537) do
   create_table "pets", force: true do |t|
     t.string   "species"
     t.string   "name"
-    t.string   "photo"
     t.string   "size"
     t.integer  "household_id"
     t.string   "allergies"
@@ -45,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140804171537) do
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar"
   end
 
   create_table "supplies", force: true do |t|
@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 20140804171537) do
 
   create_table "users", force: true do |t|
     t.boolean  "walker"
-    t.string   "photo"
     t.string   "name"
     t.string   "phone"
     t.string   "email",                  default: "", null: false
@@ -72,6 +71,7 @@ ActiveRecord::Schema.define(version: 20140804171537) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

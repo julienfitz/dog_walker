@@ -24,7 +24,7 @@
       <tr>
         <td><%= pet.species %></td>
         <td><%= pet.name %></td>
-        <td><%= image_tag pet.photo %></td>
+        <td><%= image_tag @superhero.avatar_url(:thumb).to_s %></td>
         <td><%= pet.size %></td>
         <td><%= pet.household_id %></td>
         <td><%= pet.allergies %></td>

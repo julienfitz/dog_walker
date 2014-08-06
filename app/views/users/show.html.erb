@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @user.photo %>
+<%= image_tag @user.avatar_url.to_s %>
 <p><%= @user.name %></p>
 <p><%= @user.phone %></p>
 <p><%= @user.email %></p>

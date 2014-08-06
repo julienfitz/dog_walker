@@ -12,6 +12,12 @@
     </div>
   <% end %>
 
+  <div>
+    <%= f.label "Upload a Photo" %>
+    <%= f.file_field :avatar  %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -19,10 +25,6 @@
   <div class="field">
     <%= f.label :species %><br>
     <%= f.select :species, ["cat","dog","other"] %>
-  </div>
-  <div class="field">
-    <%= f.label :photo %><br>
-    <%= f.text_field :photo %>
   </div>
   <div class="field">
     <%= f.label :size %><br>
@@ -58,29 +60,6 @@
     <%= vet_form.label :address, "Address" %>
     <%= vet_form.text_field :address %>
   <% end %>
-  </div>
-
-  Behavior:
-  <div class="field">
-  <%= f.fields_for :behavior, Behavior.new do |behavior| %>
-    Dog Aggressive? <%= behavior.check_box :dog_aggro? %>
-    Human Aggressive? <%= behavior.check_box :human_aggro? %>
-    <%= behavior.label :bad_habits %>
-    <%= behavior.text_field :bad_habits %>
-  <% end %>
-  </div>
-
-  Supplies:
-  <div class="field">
-  <%= f.fields_for :supply, Supply.new do |supply_form| %>
-    <%= supply_form.label :supply, "Supply" %>
-    <%= supply_form.text_field :supply %>
-    <%= supply_form.label :location, "Location" %>
-    <%= supply_form.text_field :location %>
-  <% end %>
-  </div>
-  <div class="actions">
-    <%= f.hidden_field :household_id, :value => @household.id %>
   </div>
 
   <div class="actions">
