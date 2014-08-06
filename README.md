@@ -8,8 +8,8 @@
 * ~~make sure Walkers and Owners are connected to Households~~
 * ~~make sure back buttons on all pages actually go back~~
 * ~~add 'edit pet' field to individual pets on home page~~
-* have updated pet redirect to user home page
-* add 'edit household' field to individual households on home page
+* ~~have updated pet redirect to user home page~~
+* ~~add 'edit household' field to individual households on home page~~
 * put owner photo to the left of household info on household page
 * put pet photo to the left of pet info on pet show page
 * put default photo in the event of no photo available
