@@ -19,13 +19,13 @@
 
   <h2>Clients</h2>
     <% @user.households.each do |house| %>
-      <h4><%= link_to house.owner_name, user_household_path(@user.id, house) %></h4>
+      <h4><%= link_to house.owner_name, user_household_path(@user.id, house) %><small> | <%= link_to 'Edit Household Info', edit_user_household_path(@user.id, house) %> | <%= link_to 'Add New Pet', user_household_path(@user.id, house) %></small></h4> 
       <p><strong>Address:</strong> <%= house.address %></p>
       <p><strong>Pets:</p>
       <ul>
       <% house.pets.each do |pet| %>
         <%= image_tag pet.avatar_url(:thumb).to_s %>
-        <p><%= link_to pet.name, pet_path(pet) %></p>
+        <p><%= link_to pet.name, pet_path(pet) %> <small>| <%= link_to 'Edit Pet Info', edit_pet_path(pet) %></small></p>
         <br/>
       <% end %>
       </ul>

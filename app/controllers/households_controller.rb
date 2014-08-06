@@ -34,7 +34,7 @@ class HouseholdsController < ApplicationController
     @household.walker_id = params[:user_id]
     respond_to do |format|
       if @household.save
-        format.html { redirect_to user_households_path, notice: 'Household was successfully created.' }
+        format.html { redirect_to user_path(current_user), notice: 'Household was successfully created.' }
         format.json { render :show, status: :created, location: @household }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class HouseholdsController < ApplicationController
   def update
     respond_to do |format|
       if @household.update(household_params)
-        format.html { redirect_to user_households_path, notice: 'Household was successfully updated.' }
+        format.html { redirect_to user_path(current_user), notice: 'Household was successfully updated.' }
         format.json { render :show, status: :ok, location: @household }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class HouseholdsController < ApplicationController
   def destroy
     @household.destroy
     respond_to do |format|
-      format.html { redirect_to user_households_path, notice: 'Household was successfully destroyed.' }
+      format.html { redirect_to user_path(current_user), notice: 'Household was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
