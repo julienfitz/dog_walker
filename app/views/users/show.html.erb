@@ -24,7 +24,11 @@
       <p><strong>Pets:</p>
       <ul>
       <% house.pets.each do |pet| %>
-        <%= image_tag pet.avatar_url(:thumb).to_s %>
+        <% if pet.avatar.url.present? %>
+          <%= image_tag pet.avatar_url(:thumb).to_s %>
+        <% else %>
+          <%= image_tag 'assets/thumb_dog_bounty.jpg' %>
+        <% end %>
         <p><%= link_to pet.name, pet_path(pet) %> <small>| <%= link_to 'Edit Pet Info', edit_pet_path(pet) %></small></p>
         <br/>
       <% end %>

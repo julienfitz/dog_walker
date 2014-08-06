@@ -14,9 +14,11 @@
 
   <div>
     <% if @pet.avatar.url.present? %>
-    <div class="photo-lg">
-      <%= image_tag(@pet.avatar.url)  %>
-    </div>
+      <div class="photo-lg">
+        <%= image_tag(@pet.avatar.url)  %>
+      </div>
+    <% else %>
+      <%= image_tag('assets/dog_bounty.jpg') %>
     <% end %>
     <%= f.label "Upload a Photo" %>
     <%= f.file_field :avatar  %>

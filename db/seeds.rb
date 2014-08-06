@@ -6,4 +6,80 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-JoeBob = Household.create()
+W_KEY_ARR =
+  [:name, :phone, :email, :password, :walker]
+
+WALKER_ARR = [
+  ["Walker Texas Ranger", "555-WALK-DOG", "walker@walker.com", "password", 1 ],
+  ["Bobbert Bobson", "555-WALK-BOB", "bob@bob.com", "password", 1 ],
+  ["Cesar Millan", "555-WALK-DOG", "cesar@cesar.com", "password", 1 ],
+  ["Wiggles Jigglemore", "555-WALK-DOG", "wiggles@wiggles.com", "password", 1 ],
+  ["The Dude", "555-WALK-DOG", "dude@dude.com", "password", 1 ],
+  ["Party Jones", "555-WALK-DOG", "party@party.com", "password", 1 ]
+]
+
+WALKER_ARR.each do |array|
+  counter = 0
+  w = User.create(
+    W_KEY_ARR[counter]       => array[counter],
+    W_KEY_ARR[counter += 1]  => array[counter],
+    W_KEY_ARR[counter += 1]  => array[counter],
+    W_KEY_ARR[counter += 1]  => array[counter],
+    :password_confirmation => array[counter],
+    W_KEY_ARR[counter += 1]  => array[counter],
+      )
+  w.avatar.store!(File.open(File.join(Rails.root, "public/seed-photos/" + array[0].downcase.gsub(" ", "_") + ".jpg")))
+  w.save!
+end
+
+H_KEY_ARR =
+  [:owner_name, :address, :key_info, :walker_id]
+
+HOUSE_ARR = [
+  ["Bob", "23 Home Street", "under the mat", 1],
+  ["Julie", "11 Bananagram Lane", "with the doorman", 2],
+  ["James", "333 Main Street", "you have it", 3],
+  ["Erica", "123 Fake Street", "doesn't exist", 4],
+  ["Jacqueline", "Five Park Avenue South", "butler will let you in", 5]
+]
+
+HOUSE_ARR.each do |array|
+  counter = 0
+  h = Household.create(
+   H_KEY_ARR[counter]       => array[counter],
+   H_KEY_ARR[counter += 1]  => array[counter],
+   H_KEY_ARR[counter += 1]  => array[counter],
+   H_KEY_ARR[counter += 1]  => array[counter]
+  )
+  h.save!
+end
+
+P_KEY_ARR =
+  [:name, :species, :size, :allergies, :age, :feeding, :household_id]
+
+PET_ARR = [
+  ["Adam Anteater", "other", "small", "nuts", "baby", "ants", 1],
+  ["Cornelius", "other", "extra small", "sadness", "baby", "fruit", 1],
+  ["Damascus", "cat", "small", "horses", "adult", "hay", 2],
+  ["Fatty", "cat", "extra small", "nothing", "baby", "everything", 2],
+  ["Fluffenstein", "dog", "small", "goodness", "baby", "souls", 3],
+  ["Jabba", "cat", "extra large", "diets", "adult", "everything", 3],
+  ["Mr Billingsworth", "dog", "small", "mediocrity", "older", "sensible meals", 4],
+  ["Mr. Cat Esq", "cat", "small", "laughter", "young", "fresh salmon only", 4],
+  ["Pickles", "dog", "small", "pickles", "baby", "baby food", 5],
+]
+
+PET_ARR.each do |array|
+  counter = 0
+  p = Pet.create(
+    P_KEY_ARR[counter]       => array[counter],
+    P_KEY_ARR[counter += 1]  => array[counter],
+    P_KEY_ARR[counter += 1]  => array[counter],
+    P_KEY_ARR[counter += 1]  => array[counter],
+    P_KEY_ARR[counter += 1]  => array[counter],
+    P_KEY_ARR[counter += 1]  => array[counter],
+    P_KEY_ARR[counter += 1]  => array[counter],
+      )
+  p.avatar.store!(File.open(File.join(Rails.root, "public/seed-photos/" + array[0].downcase.gsub(" ", "_") + ".jpg")))
+  p.save!
+end

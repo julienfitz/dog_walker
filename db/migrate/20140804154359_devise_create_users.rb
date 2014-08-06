@@ -3,7 +3,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table(:users) do |t|
       ## Database authenticatable
       t.boolean :walker
-      t.string :photo
+      t.string :avatar
       t.string :name
       t.string :phone
       t.string :email,              null: false, default: ""
