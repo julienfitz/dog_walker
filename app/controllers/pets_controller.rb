@@ -31,7 +31,7 @@ class PetsController < ApplicationController
     # @pet.supply = Supply.create(pet_params[:supply])
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to current_user, notice: 'Pet was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Pet was successfully added.' }
         format.json { render :show, status: :created, location: @pet }
       else
         format.html { render :new }
@@ -59,7 +59,7 @@ class PetsController < ApplicationController
   def destroy
     @pet.destroy
     respond_to do |format|
-      format.html { redirect_to pets_url, notice: 'Pet was successfully destroyed.' }
+      format.html { redirect_to pets_url, notice: 'Pet was successfully removed.' }
       format.json { head :no_content }
     end
   end
