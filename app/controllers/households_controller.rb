@@ -48,7 +48,7 @@ class HouseholdsController < ApplicationController
   def update
     respond_to do |format|
       if @household.update(household_params)
-        format.html { redirect_to user_households_path, notice: 'Household was successfully updated.' }
+        format.html { redirect_to user_path(current_user), notice: 'Household was successfully updated.' }
         format.json { render :show, status: :ok, location: @household }
       else
         format.html { render :edit }

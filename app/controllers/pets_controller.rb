@@ -45,7 +45,7 @@ class PetsController < ApplicationController
   def update
     respond_to do |format|
       if @pet.update(pet_params)
-        format.html { redirect_to @pet, notice: 'Pet was successfully updated.' }
+        format.html { redirect_to user_path(current_user), notice: 'Pet was successfully updated.' }
         format.json { render :show, status: :ok, location: @pet }
       else
         format.html { render :edit }
