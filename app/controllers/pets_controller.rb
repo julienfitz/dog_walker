@@ -43,6 +43,7 @@ class PetsController < ApplicationController
   # PATCH/PUT /pets/1
   # PATCH/PUT /pets/1.json
   def update
+    @household = Pet.find(params[:id]).household
     respond_to do |format|
       if @pet.update(pet_params)
         format.html { redirect_to user_path(current_user), notice: 'Pet was successfully updated.' }
