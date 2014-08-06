@@ -16,4 +16,5 @@
 /tmp
 
 # Ignore all uploads
-/uploads/*
+/uploads/*.jpg
+/uploads/*.png
