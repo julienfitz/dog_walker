@@ -1,4 +1,8 @@
+<h1>Users</h1>
 <% @users.each do |user| %>
-  <%= user.email %>
-  <%= user.id %>
+  <h2><%= user.name %></h2>
+  <p>Phone: <%= user.phone %></p>
+  <p>Email: <%= user.email %></p>
+  <p>Id: <%= user.id %></p>
+  <p>Walker: <%= user.walker %></p>
 <% end %>
