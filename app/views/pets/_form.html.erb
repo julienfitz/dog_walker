@@ -14,9 +14,13 @@
 
   <div>
     <% if @pet.avatar.url.present? %>
-    <div class="photo-lg">
-      <%= image_tag(@pet.avatar.url)  %>
-    </div>
+      <div class="photo-lg">
+        <%= image_tag(@pet.avatar.url)  %>
+      </div>
+    <% else %>
+      <div class="photo-lg">
+       <%= image_tag "dog_bounty.jpg" %>
+      </div>
     <% end %>
     <%= f.label "Upload a Photo" %>
     <%= f.file_field :avatar  %>
@@ -51,10 +55,12 @@
     <%= f.label :notes %><br>
     <%= f.text_field :notes %>
   </div>
-    <div class="field">
+
+  <div class="field">
     <%= f.label :vet_id %><br>
     <%= f.collection_select :vet_id, Vet.all, :id, :all_details, prompt: "Select Your Vet" %>
   </div>
+
   Add a New Vet:
   <div class="field">
   <%= f.fields_for :vet, Vet.new do |vet_form| %>

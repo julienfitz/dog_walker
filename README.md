@@ -11,13 +11,17 @@
 * ~~have updated pet redirect to user home page~~
 * ~~add 'edit household' field to individual households on home page~~
 * ~~have new household redirect to user's page~~
-* put owner photo to the left of household info on household page
-* put pet photo to the left of pet info on pet show page
-* put default photo in the event of no photo available
+* ~~put owner photo to the left of household info on household page~~
+* ~~put pet photo to the left of pet info on pet show page~~
+* ~~fix sign up/sign in~~
+* ~~put default photo in the event of no photo available~~
 * put delete household link on household page & on home page
 * figure out how to add Behaviors and Supplies
 * make Owners exist and connect them to Households
-* fix sign up/sign in
+* make pets index admin only access
+* make households index and make it admin only
+* make SPLASH!!! PAGE!!!
+* deploy to Heroku
 
 ## Stretch goals
 * Walking schedule

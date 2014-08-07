@@ -60,7 +60,7 @@ class PetsController < ApplicationController
   def destroy
     @pet.destroy
     respond_to do |format|
-      format.html { redirect_to pets_url, notice: 'Pet was successfully removed.' }
+      format.html { redirect_to user_path(current_user), notice: 'Pet was successfully removed.' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +73,6 @@ class PetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
-      params.require(:pet).permit(:species, :name, :size, :household_id, :allergies, :age, :feeding, :notes, :avatar, :vet_id, :vet_attributes => [:name, :phone, :address], :behavior => [:dog_aggro, :human_aggro, :bad_habits], :supply => [:supply, :location])
+      params.require(:pet).permit(:species, :name, :size, :household_id, :allergies, :age, :feeding, :notes, :avatar, :vet_id, :behavior_id, :supply_id, :vet_attributes => [:name, :phone, :address], :behavior_attributes => [:dog_aggro, :human_aggro, :bad_habits], :supply_attributes => [:supply, :location])
     end
 end

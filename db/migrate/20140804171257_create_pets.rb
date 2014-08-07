@@ -3,7 +3,7 @@ class CreatePets < ActiveRecord::Migration
     create_table :pets do |t|
       t.string :species
       t.string :name
-      t.string :photo
+      t.string :avatar
       t.string :size
       t.integer :household_id
       t.string :allergies

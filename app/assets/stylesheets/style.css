@@ -1,3 +1,9 @@
+
+body {
+  background: url("dog_cat.jpg");
+  background-size: cover;
+}
+
 .photo-lg > img {
   max-width: 300px;
 }
@@ -5,3 +11,5 @@
 .links {
   margin-top: 10px;
 }
+
+
