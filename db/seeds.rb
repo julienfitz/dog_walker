@@ -109,3 +109,6 @@ OWNER_ARR.each do |array|
   o.avatar.store!(File.open(File.join(Rails.root, "public/seed-photos/" + array[0].downcase.gsub(" ", "_") + ".jpg")))
   o.save!
 end
+
+User.create(name: "admin", email: "admin@admin.com", password: "password", password_confirmation: "password", admin: 1)
+

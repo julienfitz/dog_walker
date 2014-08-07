@@ -21,7 +21,7 @@
 * make pets index admin only access
 * make households index and make it admin only
 * make SPLASH!!! PAGE!!!
-* deploy to Heroku
+* ~~deploy to Heroku~~
 
 ## Adding owners
 * Create welcome page listing walkers and explaining sign up
