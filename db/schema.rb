@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140806211200) do
   create_table "pets", force: true do |t|
     t.string   "species"
     t.string   "name"
+    t.string   "avatar"
     t.string   "size"
     t.integer  "household_id"
     t.string   "allergies"
@@ -43,7 +44,6 @@ ActiveRecord::Schema.define(version: 20140806211200) do
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "avatar"
     t.integer  "behavior_id"
     t.integer  "supply_id"
   end
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140806211200) do
 
   create_table "users", force: true do |t|
     t.boolean  "walker"
+    t.string   "avatar"
     t.string   "name"
     t.string   "phone"
     t.string   "email",                  default: "", null: false
@@ -71,7 +72,6 @@ ActiveRecord::Schema.define(version: 20140806211200) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
