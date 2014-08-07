@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807180727) do
+ActiveRecord::Schema.define(version: 20140807205245) do
+
+  create_table "appointments", force: true do |t|
+    t.integer  "pet_id"
+    t.integer  "walker_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "date"
+  end
 
   create_table "behaviors", force: true do |t|
     t.boolean  "dog_aggro"
