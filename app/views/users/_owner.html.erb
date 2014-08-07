@@ -1,5 +1,4 @@
 <h2>Your Household</h2>
-  <%= @user.household.address %>
     <small><%= link_to 'Edit Household Info', edit_user_household_path(@user.household.walker_id, @user.household) %> | <%= link_to 'Add New Pet', user_household_path(@user.household.walker_id, @user.household) %></small> 
     <p><strong>Address:</strong> <%= @user.household.address %></p>
     <p><strong>Pets:</p>
