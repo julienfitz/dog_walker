@@ -16,4 +16,5 @@
 /tmp
 
 # Ignore all uploads
-/public/uploads
+/public/uploads/user/avatar/*
+/public/uploads/pet/avatar/*
