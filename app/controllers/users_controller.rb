@@ -3,7 +3,12 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   
   def show
-    @household = Household.new
+    if @user.walker == false
+      @household = Household.find_by(email: @user.email)
+      @user.assign_household(@household)
+    else
+      @household = Household.new
+    end
   end
 
   def index

@@ -12,4 +12,10 @@ class User < ActiveRecord::Base
 
   validates_integrity_of  :avatar
   validates_processing_of :avatar
+
+  def assign_household(household)
+    household.owner_id = self.id
+    household.save
+  end
+
 end
