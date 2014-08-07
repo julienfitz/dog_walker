@@ -15,7 +15,6 @@
 /log/*.log
 /tmp
 
-# Ignore all uploads
-/public/uploads/*
+
 
 /.DS_Store
