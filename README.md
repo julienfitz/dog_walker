@@ -20,6 +20,7 @@
 * make Owners exist and connect them to Households
 * make pets index admin only access
 * make households index and make it admin only
+* make SPLASH!!! PAGE!!!
 
 ## Stretch goals
 * Walking schedule
