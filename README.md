@@ -21,6 +21,7 @@
 * make pets index admin only access
 * make households index and make it admin only
 * make SPLASH!!! PAGE!!!
+* deploy to Heroku
 
 ## Stretch goals
 * Walking schedule
