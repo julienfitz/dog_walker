@@ -2,6 +2,7 @@
 body {
   background: url("dog_cat.jpg");
   background-size: cover;
+  background-attachment:fixed;
 }
 
 .photo-lg > img {
