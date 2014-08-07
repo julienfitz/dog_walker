@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_one :household, foreign_key: "owner_id"
   has_many :households, foreign_key: "walker_id"
   has_many :pets, through: :household
+  has_many :appointments, foreign_key: "walker_id"
 
   mount_uploader :avatar, AvatarUploader
 
