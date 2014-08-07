@@ -16,6 +16,9 @@ class HouseholdsController < ApplicationController
     @pet = Pet.new
   end
 
+  def register
+  end
+
   # GET /households/new
   def new
     @user = User.find(params[:user_id])
