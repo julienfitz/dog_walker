@@ -5,6 +5,7 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
+    # restrict this to admin only access
     @pets = Pet.all
   end
 
