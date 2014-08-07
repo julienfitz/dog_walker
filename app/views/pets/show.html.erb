@@ -16,6 +16,7 @@
   </div>
 
   <div class="col-sm-7 col-xs-12">
+    <div class="well">
 
     <h2><strong>Household:</strong>
     <%= link_to @pet.household.address, user_household_path(@pet.household.walker_id, @pet.household) %></h2>
@@ -67,6 +68,7 @@
       <strong>Notes:</strong>
       <%= @pet.notes %>
     </p>
+  </div>
   </div>
 </div>
 

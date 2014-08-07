@@ -1,4 +1,6 @@
-<h2>Sign Up</h2>
+<div class="col-sm-5 col-xs-12">
+<div class="well">
+  <h2>Sign Up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:multipart => true }) do |f| %>
   <%= devise_error_messages! %>
@@ -24,9 +26,9 @@
 <p>
  <div> Are you a walker? <%= f.check_box :walker? %></div> 
 </p>
-
-
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
 <%= render "users/shared/links" %>
+</div>
+</div>
