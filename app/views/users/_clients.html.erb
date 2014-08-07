@@ -1,6 +1,12 @@
 <h2>Clients</h2>
   <% @user.households.each do |house| %>
-    <h4><%= link_to house.owner.name, user_household_path(@user.id, house) %><small> | <%= link_to 'Edit Household Info', edit_user_household_path(@user.id, house) %> | <%= link_to 'Add New Pet', user_household_path(@user.id, house) %></small></h4> 
+  <% if house.owner %>
+    <h4><%= link_to house.owner.name, user_household_path(@user.id, house) %>
+  <% else %>
+    <h4><%= link_to house.owner_name, user_household_path(@user.id, house)%>
+  <% end %>
+
+      <small> | <%= link_to 'Edit Household Info', edit_user_household_path(@user.id, house) %> | <%= link_to 'Add New Pet', user_household_path(@user.id, house) %></small></h4> 
     <p><strong>Address:</strong> <%= house.address %></p>
     <p><strong>Pets:</p>
     <ul>
