@@ -23,6 +23,12 @@
 * make SPLASH!!! PAGE!!!
 * deploy to Heroku
 
+## Adding owners
+* Create welcome page listing walkers and explaining sign up
+* Add phone and email to household
+* Connect owner to a household based on phone and email
+* Add something to registration form to hide walker? from owners during sign up
+
 ## Stretch goals
 * Walking schedule
 * Maps for most efficient routes

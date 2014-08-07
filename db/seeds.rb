@@ -33,20 +33,22 @@ WALKER_ARR.each do |array|
 end
 
 H_KEY_ARR =
-  [:owner_name, :address, :key_info, :walker_id]
+  [:owner_name, :address, :phone, :email, :key_info, :walker_id]
 
 HOUSE_ARR = [
-  ["Bob", "23 Home Street", "under the mat", 1],
-  ["Julie", "11 Bananagram Lane", "with the doorman", 2],
-  ["James", "333 Main Street", "you have it", 3],
-  ["Erica", "123 Fake Street", "doesn't exist", 4],
-  ["Jacqueline", "Five Park Avenue South", "butler will let you in", 5]
+  ["Oliver", "23 Home Street", "555-234-4567", "oliver@oliver.com", "under the mat", 1],
+  ["Julie", "11 Bananagram Lane", "555-234-4567", "julie@julie.com", "with the doorman", 2],
+  ["James", "333 Main Street", "555-234-4567", "james@james.com", "you have it", 3],
+  ["Erica", "123 Fake Street", "555-234-4567", "erica@erica.com", "doesn't exist", 4],
+  ["Jackie", "Five Park Avenue South", "555-234-4567", "jackie@jackie.com", "butler will let you in", 5]
 ]
 
 HOUSE_ARR.each do |array|
   counter = 0
   h = Household.create(
    H_KEY_ARR[counter]       => array[counter],
+   H_KEY_ARR[counter += 1]  => array[counter],
+   H_KEY_ARR[counter += 1]  => array[counter],
    H_KEY_ARR[counter += 1]  => array[counter],
    H_KEY_ARR[counter += 1]  => array[counter],
    H_KEY_ARR[counter += 1]  => array[counter]
@@ -82,4 +84,28 @@ PET_ARR.each do |array|
       )
   p.avatar.store!(File.open(File.join(Rails.root, "public/seed-photos/" + array[0].downcase.gsub(" ", "_") + ".jpg")))
   p.save!
+end
+
+O_KEY_ARR =
+  [:name, :email, :password, :walker]
+
+OWNER_ARR = [
+  ["Oliver", "oliver@oliver.com", "password", 0],
+  ["Julie", "julie@julie.com", "password", 0],
+  ["James", "james@james.com", "password", 0],
+  ["Erica", "erica@erica.com", "password", 0],
+  ["Jackie", "jackie@jackie.com", "password", 0]
+]
+
+OWNER_ARR.each do |array|
+  counter = 0
+  o = User.create(
+    O_KEY_ARR[counter]       => array[counter],
+    O_KEY_ARR[counter += 1]  => array[counter],
+    O_KEY_ARR[counter += 1]  => array[counter],
+    :password_confirmation => array[counter],
+    O_KEY_ARR[counter += 1]  => array[counter],
+      )
+  o.avatar.store!(File.open(File.join(Rails.root, "public/seed-photos/" + array[0].downcase.gsub(" ", "_") + ".jpg")))
+  o.save!
 end

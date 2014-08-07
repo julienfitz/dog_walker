@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    # add option for admin to see all users and households
     redirect_to current_user
   end
 
