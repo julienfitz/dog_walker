@@ -10,30 +10,19 @@
       <p><%= @user.email %></p>
       <div class="links">
         <%= link_to 'Edit Profile', edit_user_registration_path %> | 
+        <% if @user.walker == true %>
         <%= link_to 'New Household', new_user_household_path(@user) %> | 
+        <% end %>
         <%= link_to 'Back', :back %>
       </div>
   </div>
 
   <div class="col-sm-7 col-xs-12">
-
-  <h2>Clients</h2>
-    <% @user.households.each do |house| %>
-      <h4><%= link_to house.owner_name, user_household_path(@user.id, house) %><small> | <%= link_to 'Edit Household Info', edit_user_household_path(@user.id, house) %> | <%= link_to 'Add New Pet', user_household_path(@user.id, house) %></small></h4> 
-      <p><strong>Address:</strong> <%= house.address %></p>
-      <p><strong>Pets:</p>
-      <ul>
-      <% house.pets.each do |pet| %>
-        <% if pet.avatar.url.present? %>
-          <%= link_to image_tag(pet.avatar_url(:thumb).to_s), pet_path(pet) %>
-        <% else %>
-          <%= link_to image_tag("thumb_dog_bounty.jpg"), pet_path(pet) %>
-        <% end %>
-        <p><%= link_to pet.name, pet_path(pet) %> <small>| <%= link_to 'Edit Pet Info', edit_pet_path(pet) %></small></p>
-        <br/>
-      <% end %>
-      </ul>
-    <% end %>
+<% if @user.walker == true %>
+  <%= render "clients" %>
+<% else %>
+  <%= render "owner" %>
+<% end %>
   </div>
 </div>
 
