@@ -15,9 +15,9 @@
 * ~~put pet photo to the left of pet info on pet show page~~
 * ~~fix sign up/sign in~~
 * ~~put default photo in the event of no photo available~~
+* ~~make Owners exist and connect them to Households~~
 * put delete household link on household page & on home page
 * figure out how to add Behaviors and Supplies
-* make Owners exist and connect them to Households
 * make pets index admin only access
 * make households index and make it admin only
 * make SPLASH!!! PAGE!!!
