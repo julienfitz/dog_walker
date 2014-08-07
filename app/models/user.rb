@@ -19,4 +19,7 @@ class User < ActiveRecord::Base
     household.save
   end
 
+  def pet_owner_name
+    User.find(@user.reviews.owner_id).name
+  end
 end

@@ -1,4 +1,7 @@
 <% @user.reviews.each do |review| %>
-  Rating: <%= review.rating %>/10<br/>
-  Review: <%= review.content %>
-<% end %>
+    <div class="well">
+    Pet owner: <%= User.find(review.owner_id).name %><br/>
+    Rating: <%= review.rating %>/10<br/>
+    Review: <%= review.content %>
+  </div>
+    <% end %><br />
