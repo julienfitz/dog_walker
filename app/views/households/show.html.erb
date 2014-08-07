@@ -2,6 +2,7 @@
 
 <div class="row">
   <div class="col-sm-5 col-xs-12">
+  <div class="well">
     <h2><%= @household.address %></h4>
 
     <p>
@@ -23,6 +24,7 @@
       <%= link_to 'Edit', edit_user_household_path %> |
       <%= link_to 'Back', :back %>
   </div>
+</div>
 
   <div class="col-sm-7 col-xs-12">
     <h3>Add a new pet to <%= @household.address %>:</h3>
