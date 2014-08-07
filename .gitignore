@@ -16,6 +16,6 @@
 /tmp
 
 # Ignore all uploads
-/public/uploads
+/public/uploads/*
 
-.DS_Store
+/.DS_Store
