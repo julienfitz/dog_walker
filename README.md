@@ -18,6 +18,9 @@
 * put delete household link on household page & on home page
 * figure out how to add Behaviors and Supplies
 * make Owners exist and connect them to Households
+* make pets index admin only access
+* make households index and make it admin only
+* make SPLASH!!! PAGE!!!
 
 ## Adding owners
 * Create welcome page listing walkers and explaining sign up
