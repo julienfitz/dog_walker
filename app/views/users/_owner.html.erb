@@ -1,0 +1,16 @@
+<h2>Your Household</h2>
+  <%= @user.household.address %>
+    <small><%= link_to 'Edit Household Info', edit_user_household_path(@user.household.walker_id, @user.household) %> | <%= link_to 'Add New Pet', user_household_path(@user.household.walker_id, @user.household) %></small> 
+    <p><strong>Address:</strong> <%= @user.household.address %></p>
+    <p><strong>Pets:</p>
+    <ul>
+    <% @user.household.pets.each do |pet| %>
+      <% if pet.avatar.url.present? %>
+        <%= link_to image_tag(pet.avatar_url(:thumb).to_s), pet_path(pet) %>
+      <% else %>
+        <%= link_to image_tag("thumb_dog_bounty.jpg"), pet_path(pet) %>
+      <% end %>
+      <p><%= link_to pet.name, pet_path(pet) %> <small>| <%= link_to 'Edit Pet Info', edit_pet_path(pet) %></small></p>
+      <br/>
+    <% end %>
+    </ul>
