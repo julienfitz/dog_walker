@@ -1,6 +1,5 @@
 class AppointmentsController < ApplicationController
 
-
   def create
     Time.zone = "EST"
     Chronic.time_class = Time.zone
@@ -14,6 +13,15 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment = Appointment.find(params[:id])
     @appointment.destroy
+    redirect_to current_user
+  end
+
+  def show
+    respond_to do |format|
+    #format.html # new.html.erb
+    #format.json { render json: @sale }
+      format.js
+    end
     redirect_to current_user
   end
 

@@ -12,7 +12,7 @@
     <% @appointments.each do |appointment| %>
       <tr>
         <% if appointment.date.to_date == Time.now.to_date %>
-          <td><button class="btn btn-primary btn-sm done" data-toggle="modal" data-target="#myModal" data-id="">X</button></td>
+          <td><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">X</button></td>
           <td><%= appointment.date.strftime("%I:%M %p") %></td>
           <td><%= appointment.pet.name %></td>
           <td><%= appointment.pet.household.address %></td>
@@ -54,16 +54,46 @@
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="myModalLabel">Let your client know</h4>
       </div>
+
       <div class="modal-body">
-        <p>Here is a standard message you can use or modify. Info from the check boxes will be added to the message.</p>
-        <p><textarea type="text" name="info" id="info" value="">Your pet is all set!</textarea></p>
-        <input type="checkbox" id="fed" name="fed" value="1"> Fed?<br>
-        <input type="checkbox" id="poop" name="poop" value="1"> Pooped?<br><input type="checkbox" id="pee" name="pee" value="1"> Peed?<br> 
+                
+        <%= form_tag("/users/text_to_owner", method: "post") do %>
+          <div class="field">
+            <%= label_tag :text, "Here is a standard message you can use or modify. Info from the check boxes will be added to the message." %><br>
+            <%= text_area_tag :text, "Your pet is set!" %>
+          </div>
+
+          <div class="field">
+            <strong>Fed?</strong> <%= check_box_tag :fed? %>
+          </div>
+
+          <div class="field">
+            <strong>Pee?</strong> <%= check_box_tag :pee? %>
+          </div>
+
+          <div class="field">
+            <strong>Pooped?</strong> <%= check_box_tag :poop? %>
+          </div>
+
+          <div class="actions">
+            <%= submit_tag("Send Text") %>
+          </div>
+
+        <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send Text</button>
       </div>
     </div>
   </div>
 </div>
+
+<div id="modal">
+</div>
+
+<script>
+$(function() {
+
+
+});
+</script>
