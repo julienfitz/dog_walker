@@ -12,7 +12,7 @@
     <% @appointments.each do |appointment| %>
       <tr>
         <% if appointment.date.to_date == Time.now.to_date %>
-          <td><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">X</button></td>
+          <td><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" id="modal-button">X</button></td>
           <td><%= appointment.date.strftime("%I:%M %p") %></td>
           <td><%= appointment.pet.name %></td>
           <td><%= appointment.pet.household.address %></td>
@@ -93,7 +93,8 @@
 
 <script>
 $(function() {
-
-
+  $("#modal-button").click(function(event){
+    event.preventDefault();
+  });
 });
 </script>
