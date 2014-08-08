@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140807213552) do
 
+
   create_table "households", force: true do |t|
     t.string   "owner_name"
     t.string   "address"
@@ -41,6 +42,18 @@ ActiveRecord::Schema.define(version: 20140807213552) do
     t.boolean  "dog_aggro"
     t.boolean  "human_aggro"
     t.string   "behavior_notes"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.text     "content"
+    t.integer  "rating"
+    t.integer  "walker_id"
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "supplies", force: true do |t|
     t.string   "supply"
   end
 
