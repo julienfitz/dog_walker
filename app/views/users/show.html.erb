@@ -42,6 +42,8 @@
         <h1>Reviews</h1>
         <%= render "reviews" %>
       </div>
+      <% else %>
+       <%= link_to "<button>Write a Review</button>".html_safe, new_review_path, :class=>"btn btn-lg" %>
     <% end %>
   </div>
 </div>

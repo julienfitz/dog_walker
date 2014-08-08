@@ -12,11 +12,15 @@
   <% end %>
 
   <div class="field">
+      <%= f.label :walker_id %><br>
+      <%= f.collection_select :walker_id, @users, :id, :name, prompt: "Select Walker" %>
+  </div>
+  <div class="field">
     <%= f.label :content %><br>
     <%= f.text_area :content %>
   </div>
   <div class="field">
-    <%= f.label :rating %><br>
+    <%= f.label :rating %> (0-10 scale)<br>
     <%= f.number_field :rating %>
   </div>
   <div class="actions">
