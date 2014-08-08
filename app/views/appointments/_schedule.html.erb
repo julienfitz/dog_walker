@@ -57,7 +57,7 @@
 
       <div class="modal-body">
                 
-        <%= form_tag("/users/text_to_owner", method: "post") do %>
+        <%= form_tag("/appointments/text", method: "post") do %>
           <div class="field">
             <%= label_tag :text, "Here is a standard message you can use or modify. Info from the check boxes will be added to the message." %><br>
             <%= text_area_tag :text, "Your pet is set!" %>
