@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807213552) do
-
+ActiveRecord::Schema.define(version: 20140808012625) do
 
   create_table "households", force: true do |t|
     t.string   "owner_name"
@@ -42,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140807213552) do
     t.boolean  "dog_aggro"
     t.boolean  "human_aggro"
     t.string   "behavior_notes"
+    t.string   "supply"
   end
 
   create_table "reviews", force: true do |t|
@@ -51,10 +51,6 @@ ActiveRecord::Schema.define(version: 20140807213552) do
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "supplies", force: true do |t|
-    t.string   "supply"
   end
 
   create_table "users", force: true do |t|
