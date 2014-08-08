@@ -27,7 +27,7 @@
           </div>
 
           <div class="field">
-            <%= fields_for :poop_id, Pet.new do |poop| %>
+            <%= fields_for :poop_id, Poop.new do |poop| %>
               <%= poop.label :name, "Poop Quality" %>
               <%= poop.select :name, ["liquid", "very soft", "soft", "normal", "hard", "very hard"] %>
             <% end %>

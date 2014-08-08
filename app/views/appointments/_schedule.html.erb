@@ -57,7 +57,7 @@
 
       <div class="modal-body">
                 
-        <%= form_tag("/appointments/text", method: "post") do %>
+        <%= form_tag("/appointments/send_text", method: "post") do %>
           <div class="field">
             <%= label_tag :text, "Here is a standard message you can use or modify. Info from the check boxes will be added to the message." %><br>
             <%= text_area_tag :text, "Your pet is set!" %>
@@ -73,6 +73,10 @@
 
           <div class="field">
             <strong>Pooped?</strong> <%= check_box_tag :poop? %>
+          </div>
+
+          <div class="field">
+            <%= hidden_text_field :household_id, :value => 
           </div>
 
           <div class="actions">
@@ -93,8 +97,8 @@
 
 <script>
 $(function() {
-  $("#modal-button").click(function(event){
-    event.preventDefault();
-  });
+  // $("#modal-button").click(function(event){
+  //   event.preventDefault();
+  // });
 });
 </script>

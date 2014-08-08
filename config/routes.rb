@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :pets
   resources :appointments
 
+  post 'appointments/send_text', to: 'appointments#send_text'
+
   devise_for :users
 
   resources :users, :only => [:index, :show] do
