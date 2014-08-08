@@ -1,7 +1,11 @@
-<% @user.reviews.each do |review| %>
-    <div class="well">
-    Pet owner: <%= User.find(review.owner_id).name %><br/>
-    Rating: <%= review.rating %>/10<br/>
-    Review: <%= review.content %>
-  </div>
-    <% end %><br />
+<% if @user.reviews.count < 1 %>
+  <div class="well"> No reviews yet! </div>
+  <% else %>
+    <% @user.reviews.each do |review| %>
+        <div class="well">
+        Pet owner: <%= User.find(review.owner_id).name %><br/>
+        Rating: <%= review.rating %>/10<br/>
+        Review: <%= review.content %>
+      </div>
+        <% end %><br />
+  <% end %>
