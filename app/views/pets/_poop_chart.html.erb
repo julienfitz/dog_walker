@@ -1,0 +1,27 @@
+<div class="well">
+
+
+
+  <%= form_for(@poop) do |f| %>
+
+    <div class="field">
+      <%= f.label :date %><br>
+      <%= f.text_field :date %>
+      <p>For example: "Today at 3pm" or "Tomorrow at 9am"</p>
+    </div>
+
+    <div class="field">
+      <%= f.label :pet_id %><br>
+      <%= f.collection_select :pet_id, @pets, :id, :name, prompt: "Select Pet" %>
+    </div>
+
+    <div class="actions">
+      <%= f.hidden_field :walker_id, :value => @household.walker_id %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+  <% end %>
+</div>

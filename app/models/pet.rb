@@ -4,6 +4,7 @@ class Pet < ActiveRecord::Base
   belongs_to :vet
   belongs_to :supply
   has_many :appointments
+  has_many :poops
 
   accepts_nested_attributes_for :vet, :reject_if => lambda { |c| c[:name].blank? }
 

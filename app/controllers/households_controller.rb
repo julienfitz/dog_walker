@@ -14,6 +14,7 @@ class HouseholdsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @pet = Pet.new
+    @owner = User.find(@household.owner_id)
   end
 
   def register
