@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
     household.save
   end
 
+  def all_pets
+    self.households.collect { |house| house.pets }.first
+  end
+
 end

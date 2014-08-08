@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :pets
+  resources :appointments, :only => [:create, :destroy]
 
   devise_for :users
 

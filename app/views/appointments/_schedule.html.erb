@@ -1,0 +1,45 @@
+<div class="well">
+  <h2>Schedule</h2>
+  <h4><%= Time.now.strftime("%A, %B %d, %Y") %></h4>
+  <table class="table">
+    <tr>
+      <th>Time</th>
+      <th>Pet</th>
+      <th>Address</th>
+      <th>Remove?</th>
+    </tr>
+  <% @appointments.each do |appointment| %>
+    <tr>
+      <% if appointment.date.to_date == Time.now.to_date %>
+        <td><%= appointment.date.strftime("%I:%M %p") %></td>
+        <td><%= appointment.pet.name %></td>
+        <td><%= appointment.pet.household.address %></td>
+        <td class="text-center"><%= link_to 'X', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+  <h4>Add an appointment</h4>
+  <%= form_for(@appointment) do |f| %>
+
+    <div class="field">
+      <%= f.label :date %><br>
+      <%= f.text_field :date %>
+    </div>
+
+    <div class="field">
+      <%= f.label :pet_id %><br>
+      <%= f.collection_select :pet_id, @pets, :id, :name, prompt: "Select Pet" %>
+    </div>
+
+    <div class="actions">
+      <%= f.hidden_field :walker_id, :value => @user.id %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+  <% end %>
+</div>

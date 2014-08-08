@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-sm-5 col-xs-12">
+  <div class="col-sm-6 col-xs-12">
     <div class="well">
-    <div class="photo-lg"> 
-      <%= image_tag @user.avatar_url.to_s %>
-    </div>
+      <div class="photo-lg"> 
+        <%= image_tag @user.avatar_url.to_s %>
+      </div>
       <h1><%= @user.name %></h1>
       <p><%= @user.phone %></p>
       <p><%= @user.email %></p>
@@ -16,19 +16,21 @@
         <% end %>
         <%= link_to 'Back', :back %>
       </div>
-      </div>
+    </div>
+
+    <%= render "appointments/schedule" %>
   </div>
 
-  <div class="col-sm-7 col-xs-12">
-<% if @user.walker == true %>
-  <div class="well">
-  <%= render "clients" %>
-  </div>
-<% else %>
-  <div class="well">
-  <%= render "owner" %>
-  </div>
-<% end %>
+  <div class="col-sm-6 col-xs-12">
+    <% if @user.walker == true %>
+      <div class="well">
+        <%= render "clients" %>
+      </div>
+    <% else %>
+      <div class="well">
+        <%= render "owner" %>
+      </div>
+    <% end %>
   </div>
 </div>
 
