@@ -6,6 +6,9 @@
     <h2><%= @household.address %></h4>
 
     <p>
+      <%= image_tag @owner.avatar_url(:thumb).to_s %>
+    </p>
+    <p>
       <strong>Owner Name:</strong>
       <%= @household.owner_name %>
     </p>
