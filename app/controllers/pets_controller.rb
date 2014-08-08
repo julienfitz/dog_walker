@@ -12,6 +12,7 @@ class PetsController < ApplicationController
   # GET /pets/1
   # GET /pets/1.json
   def show
+    @user = User.find(current_user.id)
   end
 
   # GET /pets/new
@@ -22,6 +23,7 @@ class PetsController < ApplicationController
   # GET /pets/1/edit
   def edit
     @household = Pet.find(params[:id]).household
+    @user = User.find(current_user.id)
   end
 
   # POST /pets
@@ -45,6 +47,7 @@ class PetsController < ApplicationController
   # PATCH/PUT /pets/1.json
   def update
     @household = Pet.find(params[:id]).household
+    @user = User.find(current_user.id)
     respond_to do |format|
       if @pet.update(pet_params)
         format.html { redirect_to user_path(current_user), notice: 'Pet was successfully updated.' }
@@ -74,6 +77,6 @@ class PetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
-      params.require(:pet).permit(:species, :name, :size, :household_id, :allergies, :age, :feeding, :notes, :avatar, :vet_id, :behavior_id, :supply_id, :vet_attributes => [:name, :phone, :address], :behavior_attributes => [:dog_aggro, :human_aggro, :bad_habits], :supply_attributes => [:supply, :location])
+      params.require(:pet).permit(:species, :name, :size, :household_id, :allergies, :age, :feeding, :notes, :avatar, :vet_id, :dog_aggro, :human_aggro, :supply, :behavior_notes, :vet_attributes => [:name, :phone, :address])
     end
 end

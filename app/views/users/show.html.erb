@@ -9,6 +9,9 @@
       <h1><%= @user.name %></h1>
       <p><%= @user.phone %></p>
       <p><%= @user.email %></p>
+    <% if @user.walker  == false %>
+      <p><%= @user.household.address %></p>
+    <% end %>
       <div class="links">
         <%= link_to 'Edit Profile', edit_user_registration_path %> | 
         <% if @user.walker == true %>

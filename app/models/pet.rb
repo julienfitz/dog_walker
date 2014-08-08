@@ -1,11 +1,9 @@
 class Pet < ActiveRecord::Base
 
   belongs_to :household
-  belongs_to :behavior
   belongs_to :vet
-  belongs_to :supply
 
-  accepts_nested_attributes_for :vet, :supply, :behavior, :reject_if => lambda { |c| c[:name].blank? }
+  accepts_nested_attributes_for :vet, :reject_if => lambda { |c| c[:name].blank? }
   # accepts_nested_attributes_for :supply, :reject_if => lambda { |c| c[:name].blank? }
   # accepts_nested_attributes_for :behavior, :reject_if => lambda { |c| c[:name].blank? }
 
