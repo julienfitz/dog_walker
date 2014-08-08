@@ -68,23 +68,20 @@
     </p>
 
     <% if @user.walker == true %>
-    <p>
-    <strong>Dog Aggressive:</strong> <%= @pet.dog_aggro %>
-    </p>
-    <p>
-    <strong>Human Aggressive:</strong> <%= @pet.human_aggro %>
-    </p>
-    <p>
-    <strong>Behavior Notes:</strong><br>
-    <%= @pet.behavior_notes %>
-    </p>
-    <p>
-    <strong>Supply Locations:</strong><br>
-    <%= @pet.supply %>
-    </p>
-
-    
-
+      <p>
+      <strong>Dog Aggressive:</strong> <%= @pet.dog_aggro %>
+      </p>
+      <p>
+      <strong>Human Aggressive:</strong> <%= @pet.human_aggro %>
+      </p>
+      <p>
+      <strong>Behavior Notes:</strong><br>
+      <%= @pet.behavior_notes %>
+      </p>
+      <p>
+      <strong>Supply Locations:</strong><br>
+      <%= @pet.supply %>
+      </p>
     <% end %>
 
   </div>

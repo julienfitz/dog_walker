@@ -1,4 +1,4 @@
-<div class="col-sm-7 col-xs-12">
+<div class="col-sm-10 col-xs-12">
 <div class="well">
 
  <%= form_for(@pet) do |f| %>
@@ -36,6 +36,7 @@
   <div class="field">
     <%= f.label :species %><br>
     <%= f.select :species, ["cat","dog","other"] %>
+    
   </div>
   <div class="field">
     <%= f.label :size %><br>

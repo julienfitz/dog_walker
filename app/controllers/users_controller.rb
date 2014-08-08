@@ -10,7 +10,10 @@ class UsersController < ApplicationController
       @household = Household.find_by(email: @user.email)
       @user.assign_household(@household)
     else
-      @household = Household.new
+      # @household = Household.new
+      @pets = @user.all_pets
+      @appointments = @user.appointments.sort_by { |appt| appt.date }
+      @appointment = Appointment.new
     end
   end
 
@@ -26,6 +29,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :phone, :walker, :avatar, :admin)
+      params.require(:user).permit(:name, :email, :phone, :walker, :avatar, :admin, :date)
     end
 end

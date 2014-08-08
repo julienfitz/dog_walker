@@ -1,0 +1,69 @@
+<div class="well">
+  <h2>Schedule</h2>
+  <h4><%= Time.now.strftime("%A, %B %d, %Y") %></h4>
+  <table class="table">
+    <tr>
+      <th>Done?</th>
+      <th>Time</th>
+      <th>Pet</th>
+      <th>Address</th>
+      <th>Remove?</th>
+    </tr>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <% if appointment.date.to_date == Time.now.to_date %>
+          <td><button class="btn btn-primary btn-sm done" data-toggle="modal" data-target="#myModal" data-id="">X</button></td>
+          <td><%= appointment.date.strftime("%I:%M %p") %></td>
+          <td><%= appointment.pet.name %></td>
+          <td><%= appointment.pet.household.address %></td>
+          <td class="text-center"><%= link_to 'X', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+</table>
+
+  <h4>Add an appointment</h4>
+  <%= form_for(@appointment) do |f| %>
+
+    <div class="field">
+      <%= f.label :date %><br>
+      <%= f.text_field :date %>
+      <p>For example: "Today at 3pm" or "Tomorrow at 9am"</p>
+    </div>
+
+    <div class="field">
+      <%= f.label :pet_id %><br>
+      <%= f.collection_select :pet_id, @pets, :id, :name, prompt: "Select Pet" %>
+    </div>
+
+    <div class="actions">
+      <%= f.hidden_field :walker_id, :value => @user.id %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+  <% end %>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Let your client know</h4>
+      </div>
+      <div class="modal-body">
+        <p>Here is a standard message you can use or modify. Info from the check boxes will be added to the message.</p>
+        <p><textarea type="text" name="info" id="info" value="">Your pet is all set!</textarea></p>
+        <input type="checkbox" id="fed" name="fed" value="1"> Fed?<br>
+        <input type="checkbox" id="poop" name="poop" value="1"> Pooped?<br><input type="checkbox" id="pee" name="pee" value="1"> Peed?<br> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send Text</button>
+      </div>
+    </div>
+  </div>
+</div>
