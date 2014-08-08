@@ -28,6 +28,10 @@ gem 'mini_magick'
 
 gem 'chronic'
 
+gem 'twilio-ruby'
+
+gem 'figaro'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

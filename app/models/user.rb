@@ -27,4 +27,13 @@ class User < ActiveRecord::Base
   def pet_owner_name
     User.find(@user.reviews.owner_id).name
   end
+
+  def text_to_owner
+    @client = Twilio::REST::Client.new(ENV['TWILIO_SID'], ENV['TWILIO_AUTH_TOKEN'])
+    @client.account.messages.create(
+    :from => '+18037674105',
+    :to => '9175581491',
+    :body => "Your pet has been sat by #{self.name}."
+    )
+  end
 end
