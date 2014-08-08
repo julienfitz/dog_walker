@@ -1,6 +1,5 @@
 class AppointmentsController < ApplicationController
 
-
   def create
     Time.zone = "EST"
     Chronic.time_class = Time.zone
