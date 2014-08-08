@@ -3,12 +3,15 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   
   def show
+
     if @user.admin == true
       @users = User.all
       render "index.html.erb"
     elsif @user.walker == false
       @household = Household.find_by(email: @user.email)
       @user.assign_household(@household)
+      @walkers = User.where(walker: true)
+      @review = Review.new
     else
       # @household = Household.new
       @pets = @user.all_pets
@@ -29,6 +32,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :phone, :walker, :avatar, :admin, :date)
+      params.require(:user).permit(:name, :email, :phone, :walker, :avatar, :admin, :date, :walker_id, :owner_id)
     end
 end
