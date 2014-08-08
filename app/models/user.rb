@@ -1,3 +1,7 @@
+require 'twilio-ruby'
+require './config/boot'
+require './config/environment'
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -26,5 +30,14 @@ class User < ActiveRecord::Base
 
   def pet_owner_name
     User.find(@user.reviews.owner_id).name
+  end
+
+  def text_to_owner
+    @client = Twilio::REST::Client.new(ENV['TWILIO_SID'], ENV['TWILIO_AUTH_TOKEN'])
+    @client.account.messages.create(
+    :from => '+18037674105',
+    :to => '9175581491',
+    :body => "Your pet has been sat by #{self.name}. Poop time 6pm and 6 out of 10."
+    )
   end
 end
