@@ -8,16 +8,16 @@
       <th>Address</th>
       <th>Remove?</th>
     </tr>
-  <% @appointments.each do |appointment| %>
-    <tr>
-      <% if appointment.date.to_date == Time.now.to_date %>
-        <td><%= appointment.date.strftime("%I:%M %p") %></td>
-        <td><%= appointment.pet.name %></td>
-        <td><%= appointment.pet.household.address %></td>
-        <td class="text-center"><%= link_to 'X', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-    </tr>
-  <% end %>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <% if appointment.date.to_date == Time.now.to_date %>
+          <td><%= appointment.date.strftime("%I:%M %p") %></td>
+          <td><%= appointment.pet.name %></td>
+          <td><%= appointment.pet.household.address %></td>
+          <td class="text-center"><%= link_to 'X', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
 </table>
 
   <h4>Add an appointment</h4>

@@ -21,7 +21,9 @@
       </div>
     </div>
 
-    <%= render "appointments/schedule" %>
+    <% if @user.walker== true %>
+      <%= render "appointments/schedule" %>
+    <% end %>
   </div>
 
   <div class="col-sm-6 col-xs-12">
