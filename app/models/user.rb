@@ -1,7 +1,3 @@
-require 'twilio-ruby'
-require './config/boot'
-require './config/environment'
-
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -37,7 +33,7 @@ class User < ActiveRecord::Base
     @client.account.messages.create(
     :from => '+18037674105',
     :to => '9175581491',
-    :body => "Your pet has been sat by #{self.name}. Poop time 6pm and 6 out of 10."
+    :body => "Your pet has been sat by #{self.name}."
     )
   end
 end
