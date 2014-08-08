@@ -16,12 +16,12 @@
 * ~~fix sign up/sign in~~
 * ~~put default photo in the event of no photo available~~
 * ~~make Owners exist and connect them to Households~~
+* ~~deploy to Heroku~~
+* ~~make SPLASH!!! PAGE!!!~~
 * put delete household link on household page & on home page
 * figure out how to add Behaviors and Supplies
 * make pets index admin only access
 * make households index and make it admin only
-* make SPLASH!!! PAGE!!!
-* ~~deploy to Heroku~~
 
 ## Adding owners
 * Create welcome page listing walkers and explaining sign up

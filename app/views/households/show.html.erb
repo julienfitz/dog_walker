@@ -15,6 +15,16 @@
       <%= @household.key_info %>
     </p>
 
+    <p>
+      <strong>Phone:</strong>
+      <%= @household.phone %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @household.email %>
+    </p>
+
     <h4>Pets:</h4>
       <% @household.pets.each do |pet| %>
         <p><%= image_tag pet.avatar_url(:thumb).to_s %>

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :households, foreign_key: "walker_id"
   has_many :pets, through: :household
   has_many :appointments, foreign_key: "walker_id"
+  has_many :reviews, foreign_key: "walker_id"
 
   mount_uploader :avatar, AvatarUploader
 
@@ -23,4 +24,7 @@ class User < ActiveRecord::Base
     self.households.collect { |house| house.pets }.first
   end
 
+  def pet_owner_name
+    User.find(@user.reviews.owner_id).name
+  end
 end

@@ -21,14 +21,6 @@ ActiveRecord::Schema.define(version: 20140807205245) do
     t.datetime "date"
   end
 
-  create_table "behaviors", force: true do |t|
-    t.boolean  "dog_aggro"
-    t.boolean  "human_aggro"
-    t.string   "bad_habits"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "households", force: true do |t|
     t.string   "owner_name"
     t.string   "address"
@@ -54,15 +46,22 @@ ActiveRecord::Schema.define(version: 20140807205245) do
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "behavior_id"
-    t.integer  "supply_id"
+    t.boolean  "dog_aggro"
+    t.boolean  "human_aggro"
+    t.string   "behavior_notes"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.text     "content"
+    t.integer  "rating"
+    t.integer  "walker_id"
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "supplies", force: true do |t|
     t.string   "supply"
-    t.string   "location"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

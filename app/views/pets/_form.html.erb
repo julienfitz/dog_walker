@@ -1,5 +1,7 @@
+<div class="col-sm-7 col-xs-12">
 <div class="well">
-  <%= form_for(@pet) do |f| %>
+
+ <%= form_for(@pet) do |f| %>
   <% if @pet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
@@ -63,23 +65,50 @@
   </div>
 
   Add a New Vet:
+  <p>
   <div class="field">
   <%= f.fields_for :vet, Vet.new do |vet_form| %>
     <%= vet_form.label :name, "Name" %>
-    <%= vet_form.text_field :name %>
+    <%= vet_form.text_field :name %><br><br>
     <%= vet_form.label :phone, "Phone" %>
-    <%= vet_form.text_field :phone %>
+    <%= vet_form.text_field :phone %><br><br>
     <%= vet_form.label :address, "Address" %>
     <%= vet_form.text_field :address %>
   <% end %>
   </div>
+  </p>
 
   <div class="actions">
     <%= f.hidden_field :household_id, :value => @household.id %>
   </div>
 
+  <% if @user.walker == true %>
+    <p>
+  <strong>Behavior</strong>
+
+  <div class="field">
+    <%= f.label "Dog Aggressive?" %>
+    <%= f.check_box :dog_aggro? %><br>
+    <%= f.label "Human Aggressive?" %>
+    <%= f.check_box :human_aggro? %><br><br>
+    Other Behavior Notes:<br>
+    <%= f.text_area :behavior_notes %>
+  </div>
+  
+<p>
+  <strong>Supply Locations</strong>
+  <div class="field">
+    <%= f.text_area :supply %>
+  </div>
+</p>
+
+  <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
 </div>
+</div>
+

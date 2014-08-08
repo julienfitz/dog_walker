@@ -18,15 +18,14 @@
   <div class="col-sm-7 col-xs-12">
     <div class="well">
 
-    <h2><strong>Household:</strong>
-    <%= link_to @pet.household.address, user_household_path(@pet.household.walker_id, @pet.household) %></h2>
+    <h2>
+      <strong>Name: </strong><%= link_to @pet.name, user_household_path(@pet.household.walker_id, @pet.household) %>
+    </h2>
+
+    <p><strong>Household:</strong>
+    <%= @pet.household.address %></p>
 
     <p><strong>Owner:</strong> <%= @pet.household.owner_name %></p>
-
-    <p>
-      <strong>Name:</strong>
-      <%= @pet.name %>
-    </p>
 
     <p>
       <strong>Species:</strong>
@@ -64,9 +63,27 @@
       <% end %>
     </p>
 
-      <strong>Notes:</strong>
+      <strong>Owner Notes:</strong>
       <%= @pet.notes %>
     </p>
+
+    <% if @user.walker == true %>
+      <p>
+      <strong>Dog Aggressive:</strong> <%= @pet.dog_aggro %>
+      </p>
+      <p>
+      <strong>Human Aggressive:</strong> <%= @pet.human_aggro %>
+      </p>
+      <p>
+      <strong>Behavior Notes:</strong><br>
+      <%= @pet.behavior_notes %>
+      </p>
+      <p>
+      <strong>Supply Locations:</strong><br>
+      <%= @pet.supply %>
+      </p>
+    <% end %>
+
   </div>
   </div>
 </div>
