@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
     User.find(@user.reviews.owner_id).name
   end
 
-  def text_to_owner(body, phone)
+  def text_to_user(body, phone)
     #binding.pry
     @client = Twilio::REST::Client.new(ENV['TWILIO_SID'],ENV['TWILIO_AUTH_TOKEN'])
     @client.account.messages.create(

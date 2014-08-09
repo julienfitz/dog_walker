@@ -1,6 +1,5 @@
 <div class="well">
   <h2>Schedule</h2>
-  <p id="notice"><%= notice %></p>
   <h4><%= Time.now.strftime("%A, %B %d, %Y") %></h4>
   <table class="table">
     <tr>
@@ -21,7 +20,7 @@
         <% end %>
       </tr>
     <% end %>
-</table>
+  </table>
 
   <h4>Add an appointment</h4>
   <%= form_for(@appointment) do |f| %>
@@ -57,9 +56,6 @@
     </div>
 
   <% end %>
-</div>
-
-<div id="modality">
 </div>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

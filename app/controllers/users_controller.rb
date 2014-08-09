@@ -3,17 +3,18 @@ class UsersController < ApplicationController
   before_action :authenticate_user!#, :except => [:index]
   
   def show
-
     if @user.admin == true
       @users = User.all
+      @households = Household.all
+      @pets = Pet.all
       render "index.html.erb"
     elsif @user.walker == false
       @household = Household.find_by(email: @user.email)
+      @appointments = @user.household.pets.collect { |pet| pet.appointments }.first.sort_by { |appt| appt.date }
       @user.assign_household(@household)
       @walkers = User.where(walker: true)
       @review = Review.new
     else
-      # @household = Household.new
       @pets = @user.all_pets
       @appointments = @user.appointments.sort_by { |appt| appt.date }
       @appointment = Appointment.new

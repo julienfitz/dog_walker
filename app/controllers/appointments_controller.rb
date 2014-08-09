@@ -1,9 +1,5 @@
 class AppointmentsController < ApplicationController
 
-  def modal
-    @appointment = Appointment.find(params[:id])
-  end
-
   def create
     Time.zone = "EST"
     Chronic.time_class = Time.zone
@@ -34,7 +30,18 @@ class AppointmentsController < ApplicationController
     @pee = "peed," if params[:pee?]
     @poop = "pooped, poop:" if params[:poop?]
     @body = "#{params[:text]} - #{@fed} #{@pee} #{@poop} #{params[:poop][:poop_quality]} - #{@walker}"
-    @user.text_to_owner(@body, @phone)
+    @user.text_to_user(@body, @phone)
+    @appointment.destroy
+    redirect_to current_user
+  end
+
+  def cancel
+    @appointment = Appointment.find(params[:appt_id])
+    @user = @appointment.pet.household.owner
+    @phone = @appointment.pet.household.walker.phone
+    @walker = @appointment.pet.household.walker.name
+    @body = "#{params[:text]} - #{@owner}"
+    @user.text_to_user(@body, @phone)
     @appointment.destroy
     redirect_to current_user
   end
