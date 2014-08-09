@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!#, :except => [:index]
   
   def show
     if @user.admin == true
@@ -18,7 +18,11 @@ class UsersController < ApplicationController
   end
 
   def index
-    redirect_to current_user
+    if signed_in?
+      redirect_to current_user
+    else
+      @users = User.where(:walker => true)
+    end
   end
 
   private

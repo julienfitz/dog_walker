@@ -1,0 +1,20 @@
+$(function(){
+  var appt_id,
+      pet_name;
+
+  $("#modal-button").click(function(event){
+    event.preventDefault();
+    appt_id = $('#appt').val($(this).data("id"));
+    pet_name = $('#text').val($(this).data("value"));
+    div_id = "#"+$(this).data("id")
+    console.log(div_id);
+    $('#myModal').modal('toggle');
+  });
+
+  $("#send-text").click(function(){
+    $(div_id).remove();
+    $('#myModal').modal('toggle');
+  });
+});
+
+
