@@ -13,8 +13,7 @@
     <% @appointments.each do |appointment| %>
       <tr id="<%= appointment.id %>">
         <% if appointment.date.to_date == Time.now.to_date %>
-          <td><%#= link_to "X", appointments_modal_path, { :method => 'post', :remote => true, :id => appointment.id } %> 
-          <button class="btn btn-primary btn-sm" id="modal-button" data-target="#myModal" data-id="<%= appointment.id %>" data-value="<%= appointment.pet.name %>">X</button></td>
+          <td class="appointment"><button class="btn btn-primary btn-sm" id="modal-button" data-target="#myModal" data-id="<%= appointment.id %>" data-value="<%= appointment.pet.name %>">X</button></td>
           <td><%= appointment.date.strftime("%I:%M %p") %></td>
           <td><%= appointment.pet.name %></td>
           <td><%= appointment.pet.household.address %></td>

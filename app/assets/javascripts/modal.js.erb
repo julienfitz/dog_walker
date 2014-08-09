@@ -2,7 +2,8 @@ $(function(){
   var appt_id,
       pet_name;
 
-  $("#modal-button").click(function(event){
+  $(".appointment").on('click', '#modal-button', function(event){
+  // $("#modal-button").click(function(event){
     event.preventDefault();
     appt_id = $('#appt').val($(this).data("id"));
     pet_name = $('#text').val($(this).data("value"));

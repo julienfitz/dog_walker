@@ -29,7 +29,11 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:appt_id])
     @user = @appointment.pet.household.owner
     @phone = @appointment.pet.household.phone
-    @body = params[:text] + "poop: #{params[:poop][:poop_quality]}"
+    @walker = @appointment.pet.household.walker.name
+    @fed = "fed," if params[:fed?]
+    @pee = "peed," if params[:pee?]
+    @poop = "pooped, poop:" if params[:poop?]
+    @body = "#{params[:text]} - #{@fed} #{@pee} #{@poop} #{params[:poop][:poop_quality]} - #{@walker}"
     @user.text_to_owner(@body, @phone)
     @appointment.destroy
     redirect_to current_user
