@@ -4,10 +4,12 @@ class UsersController < ApplicationController
   
   def show
     if @user.admin == true
-      @users = User.all
+      @walkers = User.where(:walker => true)
+      @owners = User.where(:walker => false)
       @households = Household.all
+      @vets = Vet.all
       @pets = Pet.all
-      render "index.html.erb"
+      render "admin.html.erb"
     elsif @user.walker == false
       @household = Household.find_by(email: @user.email)
       @appointments = @user.household.pets.collect { |pet| pet.appointments }.first.sort_by { |appt| appt.date }
