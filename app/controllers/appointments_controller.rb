@@ -21,16 +21,6 @@ class AppointmentsController < ApplicationController
     redirect_to current_user
   end
 
-  def update
-    Time.zone = "EST"
-    Chronic.time_class = Time.zone
-    @appointment = Appointment.find(params[:id])
-    @date = Chronic.parse(appointment_params[:date])
-    @appointment.date = @date
-    @appointment.save
-    redirect_to current_user
-  end
-
   def send_text
     @appointment = Appointment.find(params[:appt_id])
     @user = @appointment.pet.household.owner
@@ -42,7 +32,9 @@ class AppointmentsController < ApplicationController
     @body = "#{params[:text]} - #{@fed} #{@pee} #{@poop} #{params[:poop][:poop_quality]} - #{@walker}"
     @user.text_to_user(@body, @phone)
     @appointment.destroy
-    redirect_to current_user
+    respond_to do |format|
+      format.html { redirect_to current_user, notice: 'Your text was sent.' }
+    end
   end
 
   def cancel
@@ -53,6 +45,16 @@ class AppointmentsController < ApplicationController
     @body = "#{params[:text]} -#{@owner}"
     @user.text_to_user(@body, @phone)
     @appointment.destroy
+    redirect_to current_user
+  end
+
+  def update
+    Time.zone = "EST"
+    Chronic.time_class = Time.zone
+    @appointment = Appointment.find(params[:id])
+    @date = Chronic.parse(appointment_params[:date])
+    @appointment.date = @date
+    @appointment.save
     redirect_to current_user
   end
 
