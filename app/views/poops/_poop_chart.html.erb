@@ -1,4 +1,27 @@
 <div class="well">
+  <h4><%= Time.now.strftime("%A, %B %d, %Y") %></h4>
+  <table class="table">
+    <tr>
+      <th>Done?</th>
+      <th>Time</th>
+      <th>Pet</th>
+      <th>Address</th>
+      <th>Remove?</th>
+    </tr>
+    <% @poops.each do |poop| %>
+      <tr>
+        <% if poop.date.to_date == Time.now.to_date %>
+          <td><button class="btn btn-primary btn-sm done" data-toggle="modal" data-target="#myModal" data-id="">X</button></td>
+          <td><%= poop.date.strftime("%I:%M %p") %></td>
+          <td><%= poop.pet.name %></td>
+          <td><%= poop.pet.household.address %></td>
+          <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+</table>
+
+<div class="well">
 
 Add a poop:
   <%= form_for(@poop) do |f| %>
