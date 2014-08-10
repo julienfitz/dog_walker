@@ -14,11 +14,11 @@ class PetsController < ApplicationController
   def show
     @user = User.find(current_user.id)
     @household = Pet.find(params[:id]).household
-    @poop = Poop.new
     @poops = @pet.poops.sort_by { |poop| poop.poop_datetime }
     if @user.walker == false
       @pets = @user.all_pets
     end
+    binding.pry
   end
 
   # GET /pets/new

@@ -1,10 +1,9 @@
 class PoopsController < ApplicationController
 
   def create
-    @poops = Poop.find(@pet.id).all
     Time.zone = "EST"
     Chronic.time_class = Time.zone
-    @poop = Poop.new(pet_id: poop_params[:pet_id], walker_id: poop_params[:walker_id], owner_id: poop_params[:owner_id])
+    @poop = Poop.new(pet_id: poop_params[:pet_id], poop_quality: poop_params[:poop_quality], poop_datetime: poop_params[:poop_datetime])
     @date = Chronic.parse(poop_params[:poop_datetime])
     @poop.poop_datetime = @date
     @poop.save
@@ -13,7 +12,6 @@ class PoopsController < ApplicationController
   def destroy
     @poop = Poop.find(params[:id])
     @poop.destroy
-    redirect_to current_user
   end
 
   private
