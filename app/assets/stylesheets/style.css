@@ -21,4 +21,8 @@ a:hover {
   text-decoration: none !important;
 }
 
+.panel-heading {
+  color: gray !important;
+  background-color: black !important;
+}
 

@@ -1,48 +1,54 @@
 <div class="row">
-  <div class="col-sm-6 col-xs-12"> 
+  <div class="col-sm-5 col-xs-12"> 
     <div class="well">
-    <p>
-      <h1>
-      Dog walker?
-      </h1>
-      <h4>Cat sitter? Armadillo wrangler?<br>
-      </h4>
-      <h5>
-      Or just a regular old pet owner? Sign in or create a new account to manage your pet care!
-      </h5>
-    </p>
-        <br><div style="text-align:right"><button type="button" class="btn-lg btn-default" >
+      <h1>Dog walker?</h1>
+      <h4>Cat sitter? Armadillo wrangler? </h4>
+      <h5>Or just a regular old pet owner? Sign in or create a new account to manage your pet care!</h5>
+      <br />
+      <button type="button" class="btn-lg btn-default" >
         <%= link_to "Sign up", new_registration_path(@user)%>
-        </button></div>
-        <br />
+      </button>
+      <br />
     </div> 
   </div>
 
-  <div class="col-sm-6 col-xs-12"> 
+  <div class="col-sm-7 col-xs-12"> 
     <div class="well">
       <h3>Looking for help with your pet? Check out some of our amazing pet sitters:</h3>
-      <div id="accordion">
+      <div class="panel-group" id="accordion">
         <% @walkers.each do |walker| %>
-          <h4 class="heading"><%= walker.name %></h4>
-          <div>
-            <p>Phone: <%= walker.phone %></p>
-            <p>Email: <%= walker.email %></p>
-            <% if walker.reviews.count > 0 %>
-            <p>Sample Review:<br>
-              <%= walker.reviews.first.content %></p>
-            <% end %>
-            <p>Click for more info about <%= link_to walker.name, walker %></p>
+          <div class="panel panel-default"> 
+            <div class="panel-heading">
+              <h5 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= walker.id %>">
+                <%= walker.name %>
+              </a>
+              </h5>
+            </div>
+            <div id="collapse<%= walker.id %>" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-xs-4">
+                    <p><div class="photo-sm">
+                      <%= image_tag walker.avatar_url(:thumb) %>
+                    </div></p>
+                  </div>
+                  <div class="col-xs-8">
+                    <p><p><strong>Phone:  </strong><%= walker.phone %></p>
+                    <p><strong>Email:  </strong><%= walker.email %></p></p>
+                  </div>
+                </div>
+              <% if walker.reviews.count > 0 %>
+              <p><strong>Sample Review:</strong><br>
+                <%= walker.reviews.first.content %></p>
+              <% end %>
+              <p>Click for more info about <%= link_to walker.name, walker %></p>
+              </div>
+            </div>
           </div>
         <% end %>
       </div>
     </div>
-
   </div>
 </div>
 
-<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-<script>
-  $(function() {
-    $( "#accordion" ).accordion();
-  });
-</script>
