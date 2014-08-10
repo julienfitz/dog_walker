@@ -12,8 +12,10 @@ class UsersController < ApplicationController
       render "admin.html.erb"
     elsif @user.walker == false
       @household = Household.find_by(email: @user.email)
-      @appointments = @user.household.pets.collect { |pet| pet.appointments }.first.sort_by { |appt| appt.date }
+      @household.phone = @user.phone
+      @household.save
       @user.assign_household(@household)
+      @appointments = @user.household.pets.collect { |pet| pet.appointments }.first.sort_by { |appt| appt.date }
       @walkers = User.where(walker: true)
       @review = Review.new
     else
