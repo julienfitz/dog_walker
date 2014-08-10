@@ -1,0 +1,50 @@
+<div class="well">
+  <h2>Appointments</h2>
+  <table class="table">
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Pet</th>
+      <th class="text-center">Cancel?</th>
+    </tr>
+    <% if @appointments %>
+      <% @appointments.each do |appointment| %>
+        <% if appointment.date >= Time.now %>
+        <tr id="<%= appointment.id %>">
+          <td><%= appointment.date.strftime("%A, %B %d, %Y") %></td>
+          <td><%= appointment.date.strftime("%I:%M %p") %></td>
+          <td><%= appointment.pet.name %></td>
+          <td class="appointment text-center"><button class="btn btn-primary btn-sm" id="modal-button" data-target="#myModal" data-id="<%= appointment.id %>" data-value="Cancellation for <%= appointment.pet.name %> on <%= appointment.date.strftime("%B %d at %I:%M %p") %>">X</button></td>
+        </tr>
+        <% end %>
+      <% end %>
+    <% end %>
+  </table>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Let your walker know</h4>
+      </div>
+
+      <div class="modal-body">
+        <%= form_tag("/appointments/cancel", method: "post") do %>
+          <div class="field">
+            <p>Here is a standard message you can use or modify.</p>
+            <textarea rows="4" cols="50" type="text" name="text" id="text" value=""></textarea>
+          </div>
+
+          <input type="hidden" name="appt_id" id="appt" value=""/>
+
+          <button type="submit" class="btn btn-primary" d="cancel-appt">Send text</button>
+
+          <button type="button" class="btn btn-primary" data-dismiss="modal">No need to text</button>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
