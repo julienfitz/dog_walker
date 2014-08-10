@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :reviews
 
   resources :pets
-  resources :appointments
+
+  resources :appointments, :only => [:create, :destroy]
+  resources :poops, :only => [:create, :destroy]
 
   devise_for :users
 

@@ -14,6 +14,11 @@ class PetsController < ApplicationController
   def show
     @user = User.find(current_user.id)
     @household = Pet.find(params[:id]).household
+    @poop = Poop.new
+    @poops = @pet.poops.sort_by { |poop| poop.poop_datetime }
+    if @user.walker == false
+      @pets = @user.all_pets
+    end
   end
 
   # GET /pets/new
@@ -78,6 +83,6 @@ class PetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
-      params.require(:pet).permit(:species, :name, :size, :household_id, :allergies, :age, :feeding, :notes, :avatar, :vet_id, :dog_aggro, :human_aggro, :supply, :behavior_notes, :vet_attributes => [:name, :phone, :address])
+      params.require(:pet).permit(:species, :name, :size, :household_id, :allergies, :age, :feeding, :notes, :avatar, :vet_id, :dog_aggro, :human_aggro, :supply, :behavior_notes, :poop_datetime, :poop_quality, :vet_attributes => [:name, :phone, :address])
     end
 end
