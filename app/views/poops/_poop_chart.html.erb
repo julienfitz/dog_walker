@@ -1,0 +1,47 @@
+<div class="well">
+  <h4><%= Time.now.strftime("%A, %B %d, %Y") %></h4>
+  <table class="table">
+    <tr>
+      <th>Time</th>
+      <th>Poop Quality</th>
+      <th>Remove?</th>
+    </tr>
+    <% if @poops %>
+      <% @poops.each do |poop| %>
+        <tr>
+          <% if poop.poop_datetime.to_date == Time.now.to_date %>
+            <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
+            <td><%= poop.poop_quality %></td>
+            <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+      <% end %>
+</table>
+
+<div class="well">
+
+Add a poop:
+  <%= form_for(@poop) do |f| %>
+
+    <div class="field">
+      <%= f.label :poop_datetime, "Poop Time" %><br>
+      <%= f.text_field :poop_datetime %>
+      <p>For example: "Today at 3pm" or "Tomorrow at 9am"</p>
+    </div>
+
+    <div class="field">
+      <%= f.label :poop_quality, "Poop Quality" %><br>
+      <%= f.select :poop_quality, ["normal", "soft", "very soft", "liquid", "hard", "very hard"], prompt: "Select Quality" %>
+    </div>
+
+    <div class="actions">
+      <%= f.hidden_field :pet_id, :value => @pet.id %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+  <% end %>
+</div>

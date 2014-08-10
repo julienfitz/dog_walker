@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       @household.phone = @user.phone
       @household.save
       @user.assign_household(@household)
-      @appointments = @user.household.pets.collect { |pet| pet.appointments }.first.sort_by { |appt| appt.date }
+      @appointments = @user.household.pets.collect { |pet| pet.appointments }.flatten.sort_by { |appt| appt.date }
       @walkers = User.where(walker: true)
       @review = Review.new
     else

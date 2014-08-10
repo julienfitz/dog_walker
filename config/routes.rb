@@ -3,11 +3,12 @@ Rails.application.routes.draw do
 
   resources :pets
 
+  resources :appointments, :only => [:create, :destroy]
+  resources :poops, :only => [:create, :destroy]
+  
   post 'appointments/modal', to: 'appointments#modal'
   post 'appointments/send_text', to: 'appointments#send_text'
   post 'appointments/cancel', to: 'appointments#cancel'
-
-  resources :appointments, :only => [:create, :destroy]
 
   devise_for :users
 
