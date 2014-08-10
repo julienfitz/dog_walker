@@ -3,14 +3,14 @@ class AppointmentsController < ApplicationController
   def create
     Time.zone = "EST"
     Chronic.time_class = Time.zone
-    @appointment = Appointment.new(pet_id: appointment_params[:pet_id], walker_id: appointment_params[:walker_id])
+    @appointment = Appointment.new(appointment_params)
     @date = Chronic.parse(appointment_params[:date])
     @appointment.date = @date
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to current_user }
       else
-        format.html { redirect_to current_user, notice: 'Please specify pet to make an appointment.' }
+        format.html { redirect_to current_user, notice: 'No appointment added to schedule - please select a pet to create an appointment.' }
       end
     end
   end
@@ -18,6 +18,16 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment = Appointment.find(params[:id])
     @appointment.destroy
+    redirect_to current_user
+  end
+
+  def update
+    Time.zone = "EST"
+    Chronic.time_class = Time.zone
+    @appointment = Appointment.find(params[:id])
+    @date = Chronic.parse(appointment_params[:date])
+    @appointment.date = @date
+    @appointment.save
     redirect_to current_user
   end
 

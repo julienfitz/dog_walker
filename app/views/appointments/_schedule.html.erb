@@ -14,16 +14,16 @@
         <% if appointment.date.to_date == Time.now.to_date %>
           <td class="appointment"><button class="btn btn-primary btn-sm" id="modal-button" data-target="#myModal" data-id="<%= appointment.id %>" data-value="<%= appointment.pet.name %>">X</button></td>
           <td><%= appointment.date.strftime("%I:%M %p") %></td>
-          <td><%= appointment.pet.name %></td>
+          <td><%= link_to appointment.pet.name, pet_path(appointment.pet) %></td>
           <td><%= appointment.pet.household.address %></td>
-          <td class="text-center"><%= link_to 'X', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="text-center"><%= link_to 'X', appointment, method: :delete, :id => "delete-appt", data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
   </table>
 
   <h4>Add an appointment</h4>
-  <%= form_for(@appointment) do |f| %>
+  <%= form_for @appointment do |f| %>
     <% if @appointment.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being created:</h2>
