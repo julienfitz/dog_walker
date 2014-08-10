@@ -9,12 +9,15 @@
     </tr>
     <% if @appointments %>
       <% @appointments.each do |appointment| %>
-        <% if appointment.date >= Time.now %>
+        <% if appointment.date.day >= Time.now.day %>
         <tr id="<%= appointment.id %>">
           <td><%= appointment.date.strftime("%A, %B %d, %Y") %></td>
           <td><%= appointment.date.strftime("%I:%M %p") %></td>
           <td><%= appointment.pet.name %></td>
-          <td class="appointment text-center"><button class="btn btn-primary btn-sm" id="modal-button" data-target="#myModal" data-id="<%= appointment.id %>" data-value="Cancellation for <%= appointment.pet.name %> on <%= appointment.date.strftime("%B %d at %I:%M %p") %>">X</button></td>
+          <td class="appointment text-center">
+          <% if appointment.date.day > Time.now.day %>
+              <button class="btn btn-primary btn-sm" id="modal-button" data-target="#myModal" data-id="<%= appointment.id %>" data-value="Cancellation for <%= appointment.pet.name %> on <%= appointment.date.strftime("%B %d at %I:%M %p") %>">X</button></td>
+          <% end %>
         </tr>
         <% end %>
       <% end %>
@@ -39,9 +42,9 @@
 
           <input type="hidden" name="appt_id" id="appt" value=""/>
 
-          <button type="submit" class="btn btn-primary" d="cancel-appt">Send text</button>
+          <button type="submit" class="btn btn-primary" id="cancel-appt">Send text</button>
 
-          <button type="button" class="btn btn-primary" data-dismiss="modal">No need to text</button>
+          <%#= link_to appointment, method: :delete, id: "cancel-appt" %><button type="button" class="btn btn-primary" data-dismiss="modal" id="cancel-appt">No need to text</button>
 
         <% end %>
       </div>
