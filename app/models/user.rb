@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def all_pets
-    self.households.collect { |house| house.pets }.first
+    self.households.collect { |house| house.pets }.flatten
   end
 
   def pet_owner_name
