@@ -32,6 +32,7 @@ class AppointmentsController < ApplicationController
     @body = "#{params[:text]} - #{@fed} #{@pee} #{@poop} #{params[:poop][:poop_quality]} - #{@walker}"
     @user.text_to_user(@body, @phone)
     @appointment.destroy
+    @poop = Poop.create(poop_datetime: @appointment.date, poop_quality: params[:poop][:poop_quality], pet_id: @appointment.pet.id)
     respond_to do |format|
       format.html { redirect_to current_user, notice: 'Your text was sent.' }
     end

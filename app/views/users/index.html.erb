@@ -1,14 +1,40 @@
-<h1>Users</h1>
-<div id="accordion">
-  <% @users.each do |user| %>
-    <h3 class="heading"><%= user.name %></h3>
-    <div>
-      <p>Phone: <%= user.phone %></p>
-      <p>Email: <%= user.email %></p>
-      <p>Id: <%= user.id %></p>
-      <p>Walker: <%= user.walker %></p>
+<div class="row">
+  <div class="col-sm-6 col-xs-12"> 
+    <div class="well">
+    <p>
+      <h1>
+      Dog walker?
+      </h1>
+      <h4>Cat sitter? Armadillo wrangler?<br>
+      </h4>
+      <h5>
+      Or just a regular old pet owner? Sign in or create a new account to manage your pet care!
+      </h5>
+    </p>
+        <br><div style="text-align:right"><button type="button" class="btn-lg btn-default" >
+        <%= link_to "Sign up", new_registration_path(@user)%>
+        </button></div>
+        <br />
+    </div> 
+  </div>
+
+  <div class="col-sm-6 col-xs-12"> 
+    <div class="well">
+      <h3>Looking for help with your pet? Check out these Petsitfor.me pet sitters:</h3>
+      <div id="accordion">
+        <% @users.each do |user| %>
+          <h4 class="heading"><%= user.name %></h4>
+          <div>
+            <p>Phone: <%= user.phone %></p>
+            <p>Email: <%= user.email %></p>
+            <p>Id: <%= user.id %></p>
+            <p>Walker: <%= user.walker %></p>
+          </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
+
+  </div>
 </div>
 
 <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
