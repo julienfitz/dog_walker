@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   resources :reviews
 
   resources :pets
-  resources :appointments
+
+  post 'appointments/modal', to: 'appointments#modal'
+  post 'appointments/send_text', to: 'appointments#send_text'
+  post 'appointments/cancel', to: 'appointments#cancel'
+
+  resources :appointments, :only => [:create, :destroy]
 
   devise_for :users
 

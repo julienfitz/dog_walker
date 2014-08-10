@@ -1,19 +1,22 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!#, :except => [:index]
   
   def show
-
     if @user.admin == true
-      @users = User.all
-      render "index.html.erb"
+      @walkers = User.where(:walker => true)
+      @owners = User.where(:walker => false)
+      @households = Household.all
+      @vets = Vet.all
+      @pets = Pet.all
+      render "admin.html.erb"
     elsif @user.walker == false
       @household = Household.find_by(email: @user.email)
+      @appointments = @user.household.pets.collect { |pet| pet.appointments }.first.sort_by { |appt| appt.date }
       @user.assign_household(@household)
       @walkers = User.where(walker: true)
       @review = Review.new
     else
-      # @household = Household.new
       @pets = @user.all_pets
       @appointments = @user.appointments.sort_by { |appt| appt.date }
       @appointment = Appointment.new
@@ -21,7 +24,11 @@ class UsersController < ApplicationController
   end
 
   def index
-    redirect_to current_user
+    if signed_in?
+      redirect_to current_user
+    else
+      @users = User.where(:walker => true)
+    end
   end
 
   private

@@ -1,0 +1,137 @@
+<h1>Admin Page</h1>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="well">
+      <h2>Walkers</h2>
+      <div class="table-responsive">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th></th>
+          <tr>
+        </thead>
+        <tbody>
+          <% @walkers.each do |walker| %>
+            <tr>
+              <td><div class="photo-sm"><%= image_tag walker.avatar_url(:thumb)%></div></td>
+              <td><%= link_to walker.name, walker %></td>
+              <td><%= walker.email %></td>
+              <td><%= walker.phone %></td>
+              <td><%= link_to 'Remove', walker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12">
+    <div class="well">
+      <h2>Owners</h2>
+      <div class="table-responsive">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th></th>
+          <tr>
+        </thead>
+        <tbody>
+          <% @owners.each do |owner| %>
+            <tr>
+              <td><div class="photo-sm"><%= image_tag owner.avatar_url(:thumb)%></div></td>
+              <td><%= link_to owner.name, owner %></td>
+              <td><%= owner.email %></td>
+              <td><%= owner.phone %> <%= owner.household.phone if owner.household %></td>
+              <td><%= owner.household.address if owner.household %> </td>
+              <td><%= link_to 'Remove', owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12">
+    <div class="well">
+      <h2>Pets</h2>
+      <div class="table-responsive">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Species</th>
+            <th>Size</th>
+            <th>Age</th>
+            <th>Vet</th>
+            <th></th>
+            <th></th>
+          <tr>
+        </thead>
+        <tbody>
+          <% @pets.each do |pet| %>
+            <tr>
+              <td><div class="photo-sm"><%= image_tag pet.avatar_url(:thumb)%></div></td>
+              <td><%= link_to pet.name, pet %></td>
+              <td><%= pet.species %></td>
+              <td><%= pet.size %> </td>
+              <td><%= pet.age %> </td>
+              <td><%= pet.vet.name if pet.vet %> </td>
+              <td class="text-center"><%= link_to 'Edit', edit_pet_path(pet) %></td>
+              <td class="text-center"><%= link_to 'Remove', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12">
+    <div class="well">
+      <h2>Vets</h2>
+      <div class="table-responsive">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th></th>
+            <th></th>
+          <tr>
+        </thead>
+        <tbody>
+          <% @vets.each do |vet| %>
+            <tr>
+              <td><%= vet.name %></td>
+              <td><%= vet.phone %></td>
+              <td><%= vet.address %> </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script>
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
+</script>

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-sm-7 col-xs-12">
+  <div class="col-sm-6 col-xs-12">
     <div class="well">
       <div class="photo-lg"> 
         <%= image_tag @user.avatar_url.to_s %>
@@ -10,6 +10,7 @@
       <p><%= @user.phone %></p>
       <p><%= @user.email %></p>
     <% if @user.walker  == false %>
+      <p><%= @user.household.phone %></p>
       <p><%= @user.household.address %></p>
     <% end %>
       <div class="links">
@@ -21,12 +22,14 @@
       </div>
     </div>
 
-    <% if @user.walker== true %>
+    <% if @user.walker == true %>
       <%= render "appointments/schedule" %>
+    <% else %>
+      <%= render "appointments/appointments" %>
     <% end %>
   </div>
 
-  <div class="col-sm-5 col-xs-12">
+  <div class="col-sm-6 col-xs-12">
     <% if @user.walker == true %>
       <div class="well">
         <%= render "clients" %>
@@ -34,6 +37,12 @@
     <% else %>
       <div class="well">
         <%= render "owner" %>
+      </div>
+      <div class="well">
+        <h2>Your Walker</h2>
+        <p><%= image_tag @user.household.walker.avatar_url(:thumb) %></p>
+        <p><%= @user.household.walker.name %></p>
+        <p><%= @user.household.walker.phone %></p>
       </div>
     <% end %>
 

@@ -10,20 +10,31 @@
       <th>Remove?</th>
     </tr>
     <% @appointments.each do |appointment| %>
-      <tr>
+      <tr id="<%= appointment.id %>">
         <% if appointment.date.to_date == Time.now.to_date %>
-          <td><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">X</button></td>
+          <td class="appointment"><button class="btn btn-primary btn-sm" id="modal-button" data-target="#myModal" data-id="<%= appointment.id %>" data-value="<%= appointment.pet.name %>">X</button></td>
           <td><%= appointment.date.strftime("%I:%M %p") %></td>
-          <td><%= appointment.pet.name %></td>
+          <td><%= link_to appointment.pet.name, pet_path(appointment.pet) %></td>
           <td><%= appointment.pet.household.address %></td>
-          <td class="text-center"><%= link_to 'X', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="text-center"><%= link_to 'X', appointment, method: :delete, :id => "delete-appt", data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
-</table>
+  </table>
 
   <h4>Add an appointment</h4>
-  <%= form_for(@appointment) do |f| %>
+  <%= form_for @appointment do |f| %>
+    <% if @appointment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being created:</h2>
+
+        <ul>
+        <% @appointment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
     <div class="field">
       <%= f.label :date %><br>
@@ -57,10 +68,11 @@
 
       <div class="modal-body">
                 
-        <%= form_tag("/appointments/text", method: "post") do %>
+        <%= form_tag("/appointments/send_text", method: "post") do %>
           <div class="field">
-            <%= label_tag :text, "Here is a standard message you can use or modify. Info from the check boxes will be added to the message." %><br>
-            <%= text_area_tag :text, "Your pet is set!" %>
+            <p>Here is a standard message you can use or modify. Info from the check boxes will be added to the message.</p>
+            <%#= text_area_tag :text, "Your pet is set!" %>
+            <input type="text" name="text" id="text" value="Your pet is set!"/>
           </div>
 
           <div class="field">
@@ -68,32 +80,28 @@
           </div>
 
           <div class="field">
-            <strong>Pee?</strong> <%= check_box_tag :pee? %>
+            <strong>Peed?</strong> <%= check_box_tag :pee? %>
           </div>
 
           <div class="field">
             <strong>Pooped?</strong> <%= check_box_tag :poop? %>
           </div>
 
-          <div class="actions">
+          <div class="field">
+            <%= fields_for Poop.new do |poop| %>
+              <%= poop.label :poop_quality, "Poop Quality" %>
+              <%= poop.select :poop_quality, ["normal", "soft", "very soft", "liquid", "hard", "very hard"] %>
+            <% end %>
+          </div>
+
+          <input type="hidden" name="appt_id" id="appt" value=""/>
+
+          <div class="actions" id="send-text">
             <%= submit_tag("Send Text") %>
           </div>
 
         <% end %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
     </div>
   </div>
 </div>
-
-<div id="modal">
-</div>
-
-<script>
-$(function() {
-
-
-});
-</script>

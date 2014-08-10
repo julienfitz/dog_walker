@@ -9,6 +9,10 @@ body {
   max-width: 300px;
 }
 
+.photo-sm > img {
+  max-width: 100px;
+}
+
 .links {
   margin-top: 10px;
 }

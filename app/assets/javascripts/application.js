@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require modal
+//= require schedule
+//= require map
 //= require_tree .
