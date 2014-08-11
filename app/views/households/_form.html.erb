@@ -23,7 +23,7 @@
   </div>
   <div class="field">
     <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone, id: "inputPhone", :class => "phone_us" %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
@@ -40,6 +40,7 @@
 
 <% end %>
 
+<%= link_to 'Show', user_household_path %> |
 <%= link_to 'Back', :back %>
 
 </div>

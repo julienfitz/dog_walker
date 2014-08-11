@@ -8,10 +8,9 @@
         <%= image_tag @user.avatar_url.to_s %>
         </div>
         <h1><%= @user.name %></h1>
-        <p><%= @user.phone %></p>
         <p><%= @user.email %></p>
+        <p><%= @user.phone %></p>
       <% if @user.walker == false %>
-        <p><%= @user.household.phone %></p>
         <p><%= @user.household.address %></p>
       <% end %>
 
