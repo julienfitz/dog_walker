@@ -8,7 +8,7 @@ class AppointmentsController < ApplicationController
     @appointment.date = @date
     respond_to do |format|
       if @appointment.save
-        format.js { render 'success' }
+        format.js 
       else
         format.js { render 'failure' }
       end

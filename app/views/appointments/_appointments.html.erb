@@ -12,11 +12,11 @@
     <% @appointments.each do |appointment| %>
       <tr id="<%= appointment.id %>">
         <% if appointment.date.to_date == Time.now.to_date %>
-          <td class="appointment"><button class="btn btn-primary btn-sm" id="modal-button" data-target="#myModal" data-id="<%= appointment.id %>" data-value="<%= appointment.pet.name %>">X</button></td>
+          <td class="appointment"><button class="btn btn-success btn-sm" id="modal-button" data-target="#myModal" data-id="<%= appointment.id %>" data-value="<%= appointment.pet.name %>">&#x2713;</button></td>
           <td><%= appointment.date.strftime("%I:%M %p") %></td>
           <td><%= link_to appointment.pet.name, pet_path(appointment.pet) %></td>
           <td><%= appointment.pet.household.address %></td>
-          <td class="text-center"><button type="button" class="btn btn-sm btn-primary" id="delete-appt" data-id="<%= appointment.id %>">X</button>
+          <td class="text-center"><button type="button" class="btn btn-sm btn-danger" id="delete-appt" data-id="<%= appointment.id %>">X</button>
           </td>
         <% end %>
       </tr>
