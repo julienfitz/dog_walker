@@ -53,3 +53,41 @@
   </div>
 </div>
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Get in touch!</h4>
+      </div>
+
+      <div class="modal-body">
+                
+        <%= form_tag("/appointments/send_text", method: "post") do %>
+          <div class="field">
+            <p>Here is a standard message you can use or modify. Info from the check boxes will be added to the message.</p>
+            <input type="text" name="text" id="text" value="Your pet is set!"/>
+          </div>
+
+          <div class="field">
+            <strong>Need a cat sitter?</strong> <%= check_box_tag :cat? %>
+          </div>
+
+          <div class="field">
+            <strong>Need a dog walker?</strong> <%= check_box_tag :dog? %>
+          </div>
+
+
+          <input type="hidden" name="walker_id" id="walker" value=""/>
+
+          <div class="actions" id="send-text">
+            <%= submit_tag("Send Text") %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

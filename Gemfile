@@ -32,6 +32,8 @@ gem 'twilio-ruby'
 
 gem 'figaro'
 
+gem 'mandrill-api'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
