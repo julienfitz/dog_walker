@@ -36,6 +36,7 @@
                   <div class="col-xs-8">
                     <p><p><strong>Phone:  </strong><%= walker.phone %></p>
                     <p><strong>Email:  </strong><%= walker.email %></p></p>
+                    <button class="btn btn-default" id="email-modal-button" data-target="#myModal" data-id="<%= walker.id %>">Send email to <%= walker.name %></button>
                   </div>
                 </div>
               <% if walker.reviews.count > 0 %>

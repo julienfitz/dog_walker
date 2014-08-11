@@ -63,7 +63,6 @@
         <%= form_tag("/appointments/send_text", method: "post") do %>
           <div class="field">
             <p>Here is a standard message you can use or modify. Info from the check boxes will be added to the message.</p>
-            <%#= text_area_tag :text, "Your pet is set!" %>
             <input type="text" name="text" id="text" value="Your pet is set!"/>
           </div>
 
