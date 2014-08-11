@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :pets, through: :household
   has_many :appointments, foreign_key: "walker_id"
   has_many :reviews, foreign_key: "walker_id"
+  has_many :reviews, foreign_key: "owner_id"
 
   validates_presence_of :name, :email
 

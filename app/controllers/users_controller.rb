@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       UserMailer.new_client_email(@walker).deliver
 
-      format.html { redirect_to(root_path), notice: 'Your email has been sent.'}
+      format.html { redirect_to root_path, notice: 'Your email has been sent.'}
     end
   end
   
@@ -32,6 +32,7 @@ class UsersController < ApplicationController
       @pets = @user.all_pets
       @appointments = @user.appointments.sort_by { |appt| appt.date }
       @appointment = Appointment.new
+      @reviews = Review.where(:walker_id => current_user)
     end
   end
 

@@ -55,9 +55,15 @@
     <% end %>
 
     <% if @user.walker == true %>
-      <div class="well">
-        <h1>Reviews</h1>
-        <%= render "reviews" %>
+      <div class="well well-lg">
+        <h2>Reviews
+        <button type="button" class="btn btn-danger pull-right" data-toggle="collapse" data-target="#reviews">
+      Show
+      </button>
+      </h2>
+        <div id="reviews" class="collapse">
+          <%= render "reviews" %>
+        </div>
       </div>
     <% elsif current_user  %>
       <%= render "reviews/form" %>
@@ -65,5 +71,4 @@
   </div>
 </div>
 
-
-
+</div>
