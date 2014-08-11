@@ -8,9 +8,9 @@ class AppointmentsController < ApplicationController
     @appointment.date = @date
     respond_to do |format|
       if @appointment.save
-        format.html { redirect_to current_user }
+        format.js 
       else
-        format.html { redirect_to current_user, notice: 'No appointment added to schedule - please select a pet to create an appointment.' }
+        format.js { render 'notice' }
       end
     end
   end

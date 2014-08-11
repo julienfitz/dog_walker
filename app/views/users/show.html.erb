@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-sm-6 col-xs-12">
-      <% if @user.walker == true || current_user == @user %>
+      <% if @user.walker == true || current_user %>
       <div class="well">
         <div class="photo-lg">
         <%= image_tag @user.avatar_url.to_s %>
@@ -15,7 +15,7 @@
         <p><%= @user.household.address %></p>
       <% end %>
 
-      <% elsif current_user %>
+        <% if current_user == @user %>
         <div class="links">
           <%= link_to 'Edit Profile', edit_user_registration_path %> | 
           <% if @user.walker == true %>
@@ -23,14 +23,15 @@
           <% end %>
           <%= link_to 'Back', :back %>
         </div>
+        <% end %>
       <% end %>
       </div>
     
       <% if current_user %>
         <% if @user.walker == true %>
-          <%= render "appointments/schedule" %>
-        <% else %>
           <%= render "appointments/appointments" %>
+        <% else %>
+          <%= render "appointments/schedule" %>
         <% end %>
       <% end %>
   </div>

@@ -10,12 +10,12 @@ W_KEY_ARR =
   [:name, :phone, :email, :password, :walker]
 
 WALKER_ARR = [
-  ["Walker Texas Ranger", "555-WALK-DOG", "walker@walker.com", "password", 1 ],
-  ["Bobbert Bobson", "555-WALK-BOB", "bob@bob.com", "password", 1 ],
-  ["Cesar Millan", "555-WALK-DOG", "cesar@cesar.com", "password", 1 ],
-  ["Wiggles Jigglemore", "555-WALK-DOG", "wiggles@wiggles.com", "password", 1 ],
-  ["The Dude", "555-WALK-DOG", "dude@dude.com", "password", 1 ],
-  ["Party Jones", "555-WALK-DOG", "party@party.com", "password", 1 ]
+  ["Walker Texas Ranger", "917-558-1491", "walker@walker.com", "password", 1 ],
+  ["Bobbert Bobson", "803-403-501", "bob@bob.com", "password", 1 ],
+  ["Cesar Millan", "347-881-574", "cesar@cesar.com", "password", 1 ],
+  ["Wiggles Jigglemore", "347-881-574", "wiggles@wiggles.com", "password", 1 ],
+  ["The Dude", "917-558-1491", "dude@dude.com", "password", 1 ],
+  ["Party Jones", "803-403-501", "party@party.com", "password", 1 ]
 ]
 
 WALKER_ARR.each do |array|
@@ -36,11 +36,11 @@ H_KEY_ARR =
   [:owner_name, :address, :phone, :email, :key_info, :walker_id]
 
 HOUSE_ARR = [
-  ["Oliver", "23 Home Street", "555-234-4567", "oliver@oliver.com", "under the mat", 1],
-  ["Julie", "11 Bananagram Lane", "555-234-4567", "julie@julie.com", "with the doorman", 2],
-  ["James", "333 Main Street", "555-234-4567", "james@james.com", "you have it", 3],
-  ["Erica", "123 Fake Street", "555-234-4567", "erica@erica.com", "doesn't exist", 4],
-  ["Jackie", "Five Park Avenue South", "555-234-4567", "jackie@jackie.com", "butler will let you in", 5]
+  ["Oliver", "23 Home Street", "917-558-1491", "oliver@oliver.com", "under the mat", 1],
+  ["Julie", "11 Bananagram Lane", "803-403-5013", "julie@julie.com", "with the doorman", 2],
+  ["James", "333 Main Street", "347-881-5743", "james@james.com", "you have it", 3],
+  ["Erica", "123 Fake Street", "803-403-5013", "erica@erica.com", "doesn't exist", 4],
+  ["Jackie", "Five Park Avenue South, New York, NY", "347-881-5743", "jackie@jackie.com", "butler will let you in", 5]
 ]
 
 HOUSE_ARR.each do |array|
@@ -87,20 +87,21 @@ PET_ARR.each do |array|
 end
 
 O_KEY_ARR =
-  [:name, :email, :password, :walker]
+  [:name, :email, :phone, :password, :walker]
 
 OWNER_ARR = [
-  ["Oliver", "oliver@oliver.com", "password", 0],
-  ["Julie", "julie@julie.com", "password", 0],
-  ["James", "james@james.com", "password", 0],
-  ["Erica", "erica@erica.com", "password", 0],
-  ["Jackie", "jackie@jackie.com", "password", 0]
+  ["Oliver", "oliver@oliver.com", "917-558-1491", "password", 0],
+  ["Julie", "julie@julie.com", "803-403-5013", "password", 0],
+  ["James", "james@james.com", "347-881-5743", "password", 0],
+  ["Erica", "erica@erica.com", "803-403-5013", "password", 0],
+  ["Jackie", "jackie@jackie.com", "347-881-5743", "password", 0]
 ]
 
 OWNER_ARR.each do |array|
   counter = 0
   o = User.create(
     O_KEY_ARR[counter]       => array[counter],
+    O_KEY_ARR[counter += 1]  => array[counter],
     O_KEY_ARR[counter += 1]  => array[counter],
     O_KEY_ARR[counter += 1]  => array[counter],
     :password_confirmation => array[counter],

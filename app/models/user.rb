@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :appointments, foreign_key: "walker_id"
   has_many :reviews, foreign_key: "walker_id"
 
+  validates_presence_of :name, :email
+
   mount_uploader :avatar, AvatarUploader
 
   validates_integrity_of  :avatar

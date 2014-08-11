@@ -1,5 +1,4 @@
 class Pet < ActiveRecord::Base
-
   belongs_to :household
   belongs_to :vet
   belongs_to :supply
@@ -8,6 +7,7 @@ class Pet < ActiveRecord::Base
 
   accepts_nested_attributes_for :vet, :reject_if => lambda { |c| c[:name].blank? }
 
+  validates_presence_of :name
 
   mount_uploader :avatar, AvatarUploader
 
