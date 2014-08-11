@@ -23,12 +23,14 @@
     <% end %>
   </table>
 
-  <h4 id="create-appt">Add an appointment</h4>
+  <div id="create-appt"></div>
+
+  <h4>Add an appointment</h4>
   <%= form_for @appointment, remote: true do |f| %>
 
     <div class="field">
       <%= f.label :date %><br>
-      <%= f.text_field :date %>
+      <%= f.text_field :date, id: "appt_date" %>
       <p>For example: "Today at 3pm" or "Tomorrow at 9am"</p>
     </div>
 
