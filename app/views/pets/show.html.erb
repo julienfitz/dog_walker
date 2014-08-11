@@ -88,8 +88,10 @@
   </div>
 </div>
 
-<div class="well">
-  <h2><%= @pet.name %> By The Numbers</h2>
-<%= render "poops/poop_chart" %>
+<div class="row">
+  <div class="well col-sm-7 col-xs-12 col-sm-offset-5">
+    <h2><%= @pet.name %> By The Numbers</h2>
+    <%= render "poops/poop_chart" %>
+  </div>
 </div>
 
