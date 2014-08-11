@@ -1,6 +1,16 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except => [:index, :show]
+
+  def email
+    @walker = User.find(params[:walker_id])
+
+    respond_to do |format|
+      UserMailer.new_client_email(@walker).deliver
+
+      format.html { redirect_to(root_path), notice: 'Your email has been sent.'}
+    end
+  end
   
   def show
     if @user.admin == true

@@ -3,9 +3,9 @@
   <% else %>
     <% @user.reviews.each do |review| %>
         <div class="well">
-        Pet owner: <%= User.find(review.owner_id).name %><br/>
-        Rating: <%= review.rating %>/10<br/>
-        Review: <%= review.content %>
+        <h4>Pet owner: <%= User.find(review.owner_id).name %></h4>
+        <h5>Rating: </h5><p><%= review.rating %>/10</p>
+        <h5>Review: </h5><p><%= review.content %></p>
       </div>
         <% end %><br />
   <% end %>
