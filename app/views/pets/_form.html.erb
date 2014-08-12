@@ -1,7 +1,4 @@
-
-
-
- <%= form_for(@pet) do |f| %>
+<%= form_for(@pet) do |f| %>
   <% if @pet.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
@@ -16,11 +13,11 @@
 
   <div>
     <% if @pet.avatar.url.present? %>
-      <div class="photo-lg">
+      <div class="photo-sm">
         <%= image_tag(@pet.avatar.url)  %>
       </div>
     <% else %>
-      <div class="photo-lg">
+      <div class="photo-sm">
        <%= image_tag "dog_bounty.jpg" %>
       </div>
     <% end %>
@@ -81,27 +78,25 @@
   <div class="actions">
     <%= f.hidden_field :household_id, :value => @household.id %>
   </div>
+  <br>
 
-  <% if @user.walker == true %>
+  <% if current_user.walker == true %>
+    <div class="field">
+      <strong>Behavior:</strong><br />
+      <%= f.label "Dog Aggressive?" %>
+      <%= f.check_box :dog_aggro? %><br>
+      <%= f.label "Human Aggressive?" %>
+      <%= f.check_box :human_aggro? %><br>
+      Other Behavior Notes:<br>
+      <%= f.text_area :behavior_notes %>
+    </div>
+    
     <p>
-  <strong>Behavior:</strong>
-
-  <div class="field">
-    <%= f.label "Dog Aggressive?" %>
-    <%= f.check_box :dog_aggro? %><br>
-    <%= f.label "Human Aggressive?" %>
-    <%= f.check_box :human_aggro? %><br><br>
-    Other Behavior Notes:<br>
-    <%= f.text_area :behavior_notes %>
-  </div>
-  
-<p>
-  <div class="field">
-    <%= f.label "Supply Locations" %><br>
-    <%= f.text_area :supply %>
-  </div>
-</p>
-
+      <div class="field">
+        <%= f.label "Supply Locations" %><br>
+        <%= f.text_area :supply %>
+      </div>
+    </p>
   <% end %>
   
   <div class="actions">
