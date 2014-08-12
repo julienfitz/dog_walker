@@ -94,7 +94,7 @@ PET_ARR.each do |array|
     P_KEY_ARR[counter += 1]  => array[counter],
     P_KEY_ARR[counter += 1]  => array[counter],
     P_KEY_ARR[counter += 1]  => array[counter],
-    P_KEY_ARR[counter += 1]  => array[counter],
+    P_KEY_ARR[counter += 1]  => array[counter]
       )
   p.avatar.store!(File.open(File.join(Rails.root, "public/seed-photos/" + array[0].downcase.gsub(" ", "_") + ".jpg")))
   p.save!
@@ -124,11 +124,41 @@ OWNER_ARR.each do |array|
     O_KEY_ARR[counter += 1]  => array[counter],
     O_KEY_ARR[counter += 1]  => array[counter],
     :password_confirmation => array[counter],
-    O_KEY_ARR[counter += 1]  => array[counter],
+    O_KEY_ARR[counter += 1]  => array[counter]
       )
   o.avatar.store!(File.open(File.join(Rails.root, "public/seed-photos/" + array[0].downcase.gsub(" ", "_") + ".jpg")))
   o.save!
 end
+
+R_KEY_ARR =
+  [:content, :rating, :owner_id, :walker_id]
+
+REVIEW_ARR = [
+  ["Very knowledgable of different kinds of animals. Very good caregiver for Adam the Anteater.", "9", "7", "1"],
+  ["SO GREAT!!!", "8", "8", "2"],
+  ["I think he is good with dogs as well as cats.", "7", "9", "3"],
+  ["Treats my prince and princess very well. xoxo, Erica", "6", "10", "3"],
+  ["Pretty chill. Maybe a little too chill.", "5", "11", "4"],
+  ["Special care for my special boy. Call my lawyer before using this blurb on your website.", "4", "12", "1"],
+  ["Great job!!!", "9", "13", "2"],
+  ["I don't think this guy is qualified to take care of cats?", "2", "14", "3"],
+  ["GOOD", "8", "15", "4"],
+  ["I am unsure.", "2", "16", "5"]
+]
+
+REVIEW_ARR.each do |array|
+  counter = 0
+  o = User.create(
+    R_KEY_ARR[counter]       => array[counter],
+    R_KEY_ARR[counter += 1]  => array[counter],
+    R_KEY_ARR[counter += 1]  => array[counter],
+    R_KEY_ARR[counter += 1]  => array[counter]
+      )
+  o.avatar.store!(File.open(File.join(Rails.root, "public/seed-photos/" + array[0].downcase.gsub(" ", "_") + ".jpg")))
+  o.save!
+end
+
+
 
 User.create(name: "admin", email: "admin@admin.com", password: "password", password_confirmation: "password", admin: 1)
 
