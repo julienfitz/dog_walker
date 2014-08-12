@@ -50,7 +50,6 @@ class HouseholdsController < ApplicationController
   # PATCH/PUT /households/1
   # PATCH/PUT /households/1.json
   def update
-    raise params.inspect
     respond_to do |format|
       if @household.update(household_params)
         format.html { redirect_to user_path(current_user), notice: 'Household was successfully updated.' }
