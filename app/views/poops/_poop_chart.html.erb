@@ -1,4 +1,4 @@
-  <h4><%= Time.now.strftime("Today - %A") %></h4>
+  <h4><%= Date.current.strftime("Today - %A") %></h4>
   <table class="table">
     <tr>
       <th>Time</th>
@@ -8,7 +8,7 @@
     <% if @poops %>
       <% @poops.each do |poop| %>
         <tr>
-          <% if poop.poop_datetime.to_date == Time.now.to_date %>
+          <% if poop.poop_datetime.to_date == Date.current %>
             <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
             <td><%= poop.poop_quality %></td>
             <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -140,14 +140,15 @@
 
 
 <div class="well">
-
+<p>
 Add a poop:
   <%= form_for(@poop) do |f| %>
+</p>
 
     <div class="field">
       <%= f.label :poop_datetime, "Poop Time" %><br>
       <%= f.text_field :poop_datetime %>
-      <p>For example: "Today at 3pm" or "Tomorrow at 9am"</p>
+      <p>For example: "Today at 3pm" or "Yesterday at 9am"</p>
     </div>
 
     <div class="field">

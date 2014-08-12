@@ -19,22 +19,24 @@
 * ~~deploy to Heroku~~
 * ~~make SPLASH!!! PAGE!!!~~
 * put delete household link on household page & on home page
-* figure out how to add Behaviors and Supplies
-* make pets index admin only access
-* make households index and make it admin only
+* ~~figure out how to add Behaviors and Supplies~~
+* ~~make pets index admin only access~~
+* ~~make households index and make it admin only~~
+* modal for email on front page doesn't work?
+* if no reviews, show "No Reviews to Show"
 
 ## Adding owners
-* Create welcome page listing walkers and explaining sign up
-* Add phone and email to household
-* Connect owner to a household based on phone and email
+* ~~Create welcome page listing walkers and explaining sign up~~
+* ~~Add phone and email to household~~
+* ~~Connect owner to a household based on phone and email~~
 * Add something to registration form to hide walker? from owners during sign up
 
 ## Stretch goals
-* Walking schedule
+* ~~Walking schedule~~
 * Maps for most efficient routes
-* Visualize poops 
+* ~~Visualize poops~~ 
 * Payment tracker
-* Reviews
+* ~~Reviews~~
 
 ## License
 

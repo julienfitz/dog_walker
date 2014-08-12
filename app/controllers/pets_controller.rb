@@ -36,8 +36,6 @@ class PetsController < ApplicationController
   # POST /pets.json
   def create
     @pet = Pet.new(pet_params)
-    # @pet.behavior = Behavior.create(pet_params[:behavior])
-    # @pet.supply = Supply.create(pet_params[:supply])
     respond_to do |format|
       if @pet.save
         format.html { redirect_to current_user, notice: 'Pet was successfully added.' }
