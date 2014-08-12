@@ -47,6 +47,7 @@
 * ~~Visualize poops~~ 
 * Payment tracker
 * ~~Reviews~~
+* add pee function to poop chart (to show if peed only, or peed & pooped)
 
 ## License
 

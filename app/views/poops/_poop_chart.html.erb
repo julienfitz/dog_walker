@@ -13,7 +13,7 @@
     <td>N/A</td>
     <td>N/A</td>
   </tr>
-<% else %>
+<% elsif @poops %>
   <% @poops.reverse.each do |poop| %>
   <tr>
     <% if poop.poop_datetime.to_date == @today %>
