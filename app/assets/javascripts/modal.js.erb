@@ -15,6 +15,16 @@ $(function(){
     $('#myModal').modal('toggle');
   });
 
+  $(".table").on('click', '#delete-appt', function(){
+    id = $(this).data("id");
+    div_id = "#"+$(this).data("id");
+    $(div_id).remove();
+    $.ajax({
+      url:'/appointments/'+id, 
+      type: 'DELETE'
+    });
+  });
+
   $("#send-text").click(function(){
     $(div_id).remove();
     $('#myModal').modal('toggle');
@@ -28,16 +38,6 @@ $(function(){
   $("#no-text").click(function(){
     $(div_id).remove();
     $('#myModal').modal('toggle');
-    $.ajax({
-      url:'/appointments/'+id, 
-      type: 'DELETE'
-    });
-  });
-
-  $(".table").on('click', '#delete-appt', function(){
-    id = $(this).data("id");
-    div_id = "#"+$(this).data("id");
-    $(div_id).remove();
     $.ajax({
       url:'/appointments/'+id, 
       type: 'DELETE'
