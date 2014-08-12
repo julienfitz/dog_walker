@@ -82,7 +82,7 @@ PET_ARR = [
   ["Maru", "cat", "large", "dogs", "adult", "tuna fish", 9],
   ["Ruby", "cat", "large", "dogs", "adult", "salmon fish", 9],
   ["Abbott", "dog", "large", "healthy food", "older", "donuts only, a cannoli once in a while", 10],
-  ["Costello", "cat", "large", "vegetables", "older", "hamburgers", 10],
+  ["Costello", "cat", "large", "vegetables", "older", "hamburgers", 10]
 ]
 
 PET_ARR.each do |array|
