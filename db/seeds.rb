@@ -43,8 +43,8 @@ HOUSE_ARR = [
   ["Jackie", "Five Park Avenue South", "555-558-1491", "jackie@jackie.com", "butler will let you in", 5],
   ["Barry", "23 Park Avenue", "555-558-1491", "barry@barry.com", "with the doorman", 1],
   ["Kyle", "45 Fifth Avenue", "555-558-1491", "kyle@kyle.com", "with the doorman", 2],
-  ["Ash", "2380 Broadway", "555-558-1491", "ash@ash.com", "under the mat", 3],
   ["Nicole", "320 Sixth Avenue", "555-558-1491", "nicole@nicole.com", "you have it", 4],
+  ["Ash", "2380 Broadway", "555-558-1491", "ash@ash.com", "under the mat", 3],
   ["Kara", "538 Third Avenue", "555-558-1491", "kara@kara.com", "you have it", 5]  
 ]
 
@@ -79,7 +79,8 @@ PET_ARR = [
   ["Francis", "dog", "small", "polyester", "adult", "steak tartar", 8],
   ["Michael", "cat", "small", "tardiness", "baby", "subway sandwiches", 9],
   ["Peter", "cat", "medium", "gluten", "baby", "gluten free pizza", 9],
-  ["Maru", "cat", "large", "dogs", "adult", "fish", 9],
+  ["Maru", "cat", "large", "dogs", "adult", "tuna fish", 9],
+  ["Ruby", "cat", "large", "dogs", "adult", "salmon fish", 9],
   ["Abbott", "dog", "large", "healthy food", "older", "donuts only, a cannoli once in a while", 10],
   ["Costello", "cat", "large", "vegetables", "older", "hamburgers", 10],
 ]
