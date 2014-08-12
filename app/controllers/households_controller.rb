@@ -79,6 +79,6 @@ class HouseholdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def household_params
-      params.require(:household).permit(:address, :key_info, :user_id, :walker_id, :owner_name, :email, :phone)
+      params.require(:household).permit(:address, :key_info, :user_id, :walker_id, :owner_name, :owner_id, :email, :phone)
     end
 end

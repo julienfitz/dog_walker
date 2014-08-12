@@ -5,15 +5,14 @@
       <h4>Cat sitter? Armadillo wrangler? </h4>
       <h5>Or just a regular old pet owner? Sign in or create a new account to manage your pet care!</h5>
       <br />
-      <button type="button" class="btn-lg btn-default" >
-        <%= link_to "Sign up", new_registration_path(@user)%>
-      </button>
+        <%= link_to "Sign up", new_registration_path(@user), type: "button", class: "btn-lg btn-primary", style: "color:white" %>
       <br />
     </div> 
   </div>
 
-  <p id="notice"><%= notice %></p>
   <div class="col-xs-12"> 
+    <p id="notice"><%= notice %></p>
+    
     <div class="well">
       <h3>Looking for help with your pet? Check out some of our amazing pet sitters:</h3>
       <div class="row" id="accordion">

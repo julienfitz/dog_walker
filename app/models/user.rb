@@ -18,8 +18,12 @@ class User < ActiveRecord::Base
   validates_integrity_of  :avatar
   validates_processing_of :avatar
 
-  def assign_household(household)
-    household.owner_id = self.id
+  def assign_household
+    household = Household.find_by(email: self.email) || household = Household.new(email: self.email, address: "Please update your profile with your current address.")
+    household.owner_name ||= self.name
+    household.owner_id ||= self.id
+    household.phone ||= self.phone
+    household.walker_id = 17
     household.save
   end
 
