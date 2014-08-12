@@ -79,7 +79,8 @@ PET_ARR = [
   ["Francis", "dog", "small", "polyester", "adult", "steak tartar", 8],
   ["Michael", "cat", "small", "tardiness", "baby", "subway sandwiches", 9],
   ["Peter", "cat", "medium", "gluten", "baby", "gluten free pizza", 9],
-  ["Maru", "cat", "large", "dogs", "adult", "fish", 9],
+  ["Maru", "cat", "large", "dogs", "adult", "tuna fish", 9],
+  ["Ruby", "cat", "large", "dogs", "adult", "salmon fish", 9],
   ["Abbott", "dog", "large", "healthy food", "older", "donuts only, a cannoli once in a while", 10],
   ["Costello", "cat", "large", "vegetables", "older", "hamburgers", 10],
 ]
