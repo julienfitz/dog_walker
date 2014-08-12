@@ -7,7 +7,8 @@ class UserMailer < ActionMailer::Base
     @phone = params[:phone]
     @email = params[:email]
     @message = params[:text]
-    mail(to: @walker.email, subject: 'New petsitfor.me client')
+    # change this back to @walker.email before deploying to heroku
+    mail(to: ["vanessa.dean@gmail.com", "liz@lizbaillie.com", "ashley.blewer@gmail.com"], subject: 'New petsitfor.me client')
   end
 
 end

@@ -10,12 +10,12 @@ W_KEY_ARR =
   [:name, :phone, :email, :password, :walker]
 
 WALKER_ARR = [
-  ["Walker Texas Ranger", "917-558-1491", "walker@walker.com", "password", 1 ],
-  ["Bobbert Bobson", "803-403-501", "bob@bob.com", "password", 1 ],
-  ["Cesar Millan", "347-881-574", "cesar@cesar.com", "password", 1 ],
-  ["Wiggles Jigglemore", "347-881-574", "wiggles@wiggles.com", "password", 1 ],
-  ["The Dude", "917-558-1491", "dude@dude.com", "password", 1 ],
-  ["Party Jones", "803-403-501", "party@party.com", "password", 1 ]
+  ["Walker Texas Ranger", "555-558-1491", "walker@walker.com", "password", 1 ],
+  ["Bobbert Bobson", "555-558-1491", "bob@bob.com", "password", 1 ],
+  ["Cesar Millan", "555-558-1491", "cesar@cesar.com", "password", 1 ],
+  ["Wiggles Jigglemore", "555-558-1491", "wiggles@wiggles.com", "password", 1 ],
+  ["The Dude", "555-558-1491", "dude@dude.com", "password", 1 ],
+  ["Party Jones", "555-558-1491", "party@party.com", "password", 1 ]
 ]
 
 WALKER_ARR.each do |array|
@@ -36,11 +36,16 @@ H_KEY_ARR =
   [:owner_name, :address, :phone, :email, :key_info, :walker_id]
 
 HOUSE_ARR = [
-  ["Oliver", "23 Home Street", "917-558-1491", "oliver@oliver.com", "under the mat", 1],
-  ["Julie", "11 Bananagram Lane", "803-403-5013", "julie@julie.com", "with the doorman", 2],
-  ["James", "333 Main Street", "347-881-5743", "james@james.com", "you have it", 3],
-  ["Erica", "123 Fake Street", "803-403-5013", "erica@erica.com", "doesn't exist", 4],
-  ["Jackie", "Five Park Avenue South", "347-881-5743", "jackie@jackie.com", "butler will let you in", 5]
+  ["Oliver", "23 Home Street", "555-558-1491", "oliver@oliver.com", "under the mat", 1],
+  ["Julie", "11 Bananagram Lane", "555-558-1491", "julie@julie.com", "with the doorman", 2],
+  ["James", "333 Main Street", "555-558-1491", "james@james.com", "you have it", 3],
+  ["Erica", "123 Fake Street", "555-558-1491", "erica@erica.com", "no key - walk right in", 4],
+  ["Jackie", "Five Park Avenue South", "555-558-1491", "jackie@jackie.com", "butler will let you in", 5],
+  ["Barry", "23 Park Avenue", "555-558-1491", "barry@barry.com", "with the doorman", 1],
+  ["Kyle", "45 Fifth Avenue", "555-558-1491", "kyle@kyle.com", "with the doorman", 2],
+  ["Ash", "2380 Broadway", "555-558-1491", "ash@ash.com", "under the mat", 3],
+  ["Nicole", "320 Sixth Avenue", "555-558-1491", "nicole@nicole.com", "you have it", 4],
+  ["Kara", "538 Third Avenue", "555-558-1491", "kara@kara.com", "you have it", 5]  
 ]
 
 HOUSE_ARR.each do |array|
@@ -69,6 +74,14 @@ PET_ARR = [
   ["Mr Billingsworth", "dog", "small", "mediocrity", "older", "sensible meals", 4],
   ["Mr. Cat Esq", "cat", "small", "laughter", "young", "fresh salmon only", 4],
   ["Pickles", "dog", "small", "pickles", "baby", "baby food", 5],
+  ["Chuckles", "dog", "medium", "cats", "young", "chicken", 6],
+  ["Molly", "dog", "large", "dandelions", "adult", "organic only from DogDays", 7],
+  ["Francis", "dog", "small", "polyester", "adult", "steak tartar", 8],
+  ["Michael", "cat", "small", "tardiness", "baby", "subway sandwiches", 9],
+  ["Peter", "cat", "medium", "gluten", "baby", "gluten free pizza", 9],
+  ["Maru", "cat", "large", "dogs", "adult", "fish", 9],
+  ["Abbott", "dog", "large", "healthy food", "older", "donuts only, a cannoli once in a while", 10],
+  ["Costello", "cat", "large", "vegetables", "older", "hamburgers", 10],
 ]
 
 PET_ARR.each do |array|
@@ -94,7 +107,12 @@ OWNER_ARR = [
   ["Julie", "julie@julie.com", "803-403-5013", "password", 0],
   ["James", "james@james.com", "347-881-5743", "password", 0],
   ["Erica", "erica@erica.com", "803-403-5013", "password", 0],
-  ["Jackie", "jackie@jackie.com", "347-881-5743", "password", 0]
+  ["Jackie", "jackie@jackie.com", "347-881-5743", "password", 0],
+  ["Barry", "barry@barry.com", "555-558-1491", "password", 0],
+  ["Kyle", "kyle@kyle.com", "555-558-1491", "password", 0],
+  ["Ash", "ash@ash.com", "555-558-1491", "password", 0],
+  ["Nicole", "nicole@nicole.com", "555-558-1491", "password", 0],
+  ["Kara", "kara@kara.com", "555-558-1491", "password", 0]
 ]
 
 OWNER_ARR.each do |array|
