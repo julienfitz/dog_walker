@@ -53,17 +53,18 @@
             Please chose a walker below.
           <% else %>
             <p><%= @user.household.walker.name %></p>
+            <p><%= @user.household.walker.email %></p>
             <p><%= @user.household.walker.phone %></p>
           <% end %>
           
           <%= form_tag(user_household_path(@user.household.walker_id, @user.household), :method => :put) do %>
             <div class="field">
-              <%= label_tag "Chose a new walker" %><br>
+              <%= label_tag "Choose a new walker" %><br>
               <%= collection_select :household, :walker_id, @walkers, :id, :name, prompt: "Select Walker" %>
             </div>
 
             <div class="actions">
-              <%= submit_tag("Chose Walker") %>
+              <%= submit_tag("Choose Walker") %>
             </div>
           <% end %>
 
@@ -80,7 +81,11 @@
       Show
       </button>
       </h2>
-        <div id="reviews" class="collapse">
+        <% if user_signed_in? %>
+          <div id="reviews" class="collapse">
+        <% else %>
+          <div id="reviews" class="collapse in">
+        <% end %>
           <%= render "reviews" %>
         </div>
       </div>

@@ -23,7 +23,7 @@
 * ~~make households index and make it admin only~~
 * ~~modal for email on front page doesn't work?~~
 * ~~if no reviews, show "No Reviews to Show"~~
-* clean up code in poop chart and pet info form
+* ~~clean up code in poop chart and pet info form~~
 * clean up controllers, put stuff in models
 * put some cooler stuff on the index page for people not signed in to show app better (joyride?)
 * make demo version to walk people through the site (for potential employers)
@@ -33,7 +33,8 @@
 * let owners click on 'my walker' to see walker's page
 * ~~seed vets?~~
 * ~~seed reviews?~~
-* HEY! Clicking on client household breaks
+* ~~HEY! Clicking on client household breaks~~
+* reviews page auto-open reviews (but not on walkers page)
 
 ## Adding owners
 * ~~Create welcome page listing walkers and explaining sign up~~
@@ -47,6 +48,7 @@
 * ~~Visualize poops~~ 
 * Payment tracker
 * ~~Reviews~~
+* add pee function to poop chart (to show if peed only, or peed & pooped)
 
 ## License
 
