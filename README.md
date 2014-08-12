@@ -25,12 +25,14 @@
 * if no reviews, show "No Reviews to Show"
 * clean up code in poop chart and pet info form
 * clean up controllers, put stuff in models
-* put some cooler stuff on the index page for people not signed in to show app better
+* put some cooler stuff on the index page for people not signed in to show app better (joyride?)
 * make demo version to walk people through the site (for potential employers)
 * make actual README for github repo page
 * make 'about' section about us on the page
 * put some kind of animal pic to the right of the top div on main page?
 * let owners click on 'my walker' to see walker's page
+* seed vets?
+* seed reviews?
 
 ## Adding owners
 * ~~Create welcome page listing walkers and explaining sign up~~
