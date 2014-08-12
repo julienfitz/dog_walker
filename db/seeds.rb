@@ -26,7 +26,7 @@ WALKER_ARR.each do |array|
     W_KEY_ARR[counter += 1]  => array[counter],
     W_KEY_ARR[counter += 1]  => array[counter],
     :password_confirmation => array[counter],
-    W_KEY_ARR[counter += 1]  => array[counter],
+    W_KEY_ARR[counter += 1]  => array[counter]
       )
   w.avatar.store!(File.open(File.join(Rails.root, "public/seed-photos/" + array[0].downcase.gsub(" ", "_") + ".jpg")))
   w.save!
@@ -57,6 +57,7 @@ HOUSE_ARR.each do |array|
    H_KEY_ARR[counter += 1]  => array[counter],
    H_KEY_ARR[counter += 1]  => array[counter],
    H_KEY_ARR[counter += 1]  => array[counter],
+   H_KEY_ARR[counter += 1]  => array[counter]
   )
   h.save!
 end
@@ -94,7 +95,7 @@ PET_ARR.each do |array|
     P_KEY_ARR[counter += 1]  => array[counter],
     P_KEY_ARR[counter += 1]  => array[counter],
     P_KEY_ARR[counter += 1]  => array[counter],
-    P_KEY_ARR[counter += 1]  => array[counter],
+    P_KEY_ARR[counter += 1]  => array[counter]
       )
   p.avatar.store!(File.open(File.join(Rails.root, "public/seed-photos/" + array[0].downcase.gsub(" ", "_") + ".jpg")))
   p.save!
@@ -124,7 +125,7 @@ OWNER_ARR.each do |array|
     O_KEY_ARR[counter += 1]  => array[counter],
     O_KEY_ARR[counter += 1]  => array[counter],
     :password_confirmation => array[counter],
-    O_KEY_ARR[counter += 1]  => array[counter],
+    O_KEY_ARR[counter += 1]  => array[counter]
       )
   o.avatar.store!(File.open(File.join(Rails.root, "public/seed-photos/" + array[0].downcase.gsub(" ", "_") + ".jpg")))
   o.save!
@@ -153,7 +154,7 @@ REVIEW_ARR.each do |array|
     R_KEY_ARR[counter]       => array[counter],
     R_KEY_ARR[counter += 1]  => array[counter],
     R_KEY_ARR[counter += 1]  => array[counter],
-    R_KEY_ARR[counter += 1]  => array[counter],
+    R_KEY_ARR[counter += 1]  => array[counter]
       )
   r.save!
 end
@@ -173,7 +174,7 @@ VET_ARR.each do |array|
   v = Vet.create(
     V_KEY_ARR[counter]       => array[counter],
     V_KEY_ARR[counter += 1]  => array[counter],
-    V_KEY_ARR[counter += 1]  => array[counter],
+    V_KEY_ARR[counter += 1]  => array[counter]
       )
   v.save!
 end
