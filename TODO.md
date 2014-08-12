@@ -32,7 +32,7 @@
 * put some kind of animal pic to the right of the top div on main page?
 * let owners click on 'my walker' to see walker's page
 * seed vets?
-* seed reviews?
+* ~~seed reviews?~~
 * HEY! Clicking on client household breaks (at least for Ashley)
 
 ## Adding owners
