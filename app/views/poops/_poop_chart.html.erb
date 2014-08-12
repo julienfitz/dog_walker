@@ -1,156 +1,80 @@
-  <h4><%= Date.current.strftime("%A (Today)") %></h4>
-  <table class="table">
-    <tr>
-      <th>Time</th>
-      <th>Poop Quality</th>
-      <th>Remove?</th>
-    </tr>
-    <% if @poops %>
-      <% @poops.each do |poop| %>
-        <tr>
-          <% if poop.poop_datetime.to_date == Date.current %>
-            <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
-            <td><%= poop.poop_quality %></td>
-            <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        </tr>
-      <% end %>
-      <% end %>
-</table>
+<table class="table table-bordered">
+  <tr>
+    <th>Day</th>
+    <th>Time</th>
+    <th>Quality</th>
+    <th>Remove?</th>
+  </tr>
 
-<h4><%= (Date.current - 1).strftime("%A") %></h4>
-  <table class="table">
-    <tr>
-    </tr>
-    <% if @poops %>
-      <% @poops.each do |poop| %>
-        <tr>
-          <% if poop.poop_datetime.to_date == Date.current - 1 %>
-            <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
-            <td><%= poop.poop_quality %></td>
-            <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        </tr>
-      <% end %>
-      <% end %>
-</table>
+<% if @poops.count == 0 %>
+  <tr>
+    <td>No information available</td>
+    <td>N/A</td>
+    <td>N/A</td>
+    <td>N/A</td>
+  </tr>
+<% else %>
+  <% @poops.reverse.each do |poop| %>
+  <tr>
+    <% if poop.poop_datetime.to_date == @today %>
+      <th><h4><%= (@today).strftime("%A (Today)") %></h4></th>
+        <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
+        <td><%= poop.poop_quality %></td>
+        <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% elsif poop.poop_datetime.to_date == @today - 1 %>
+      <th><h4><%= (@today - 1).strftime("%A") %></h4></th>
+        <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
+        <td><%= poop.poop_quality %></td>
+        <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% elsif poop.poop_datetime.to_date == @today - 2 %>
+      <th><h4><%= (@today - 2).strftime("%A") %></h4></th>
+        <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
+        <td><%= poop.poop_quality %></td>
+        <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% elsif poop.poop_datetime.to_date == @today - 3 %>
+      <th><h4><%= (@today - 3).strftime("%A") %></h4></th>
+        <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
+        <td><%= poop.poop_quality %></td>
+        <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% elsif poop.poop_datetime.to_date == @today - 4 %>
+      <th><h4><%= (@today - 4).strftime("%A") %></h4></th>
+        <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
+        <td><%= poop.poop_quality %></td>
+        <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% elsif poop.poop_datetime.to_date == @today - 5 %>
+      <th><h4><%= (@today - 5).strftime("%A") %></h4></th>
+        <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
+        <td><%= poop.poop_quality %></td>
+        <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% elsif poop.poop_datetime.to_date == @today - 6 %>
+      <th><h4><%= (@today - 2).strftime("%A") %></h4></th>
+        <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
+        <td><%= poop.poop_quality %></td>
+        <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% elsif poop.poop_datetime.to_date < @today - 6 %>
+      <% poop.destroy %>
+    <% end %>
+  </tr>
+  <% end %>
+<% end %>
 
-<h4><%= (Date.current - 2).strftime("%A") %></h4>
-  <table class="table">
-    <tr>
-      <th>Time</th>
-      <th>Poop Quality</th>
-      <th>Remove?</th>
-    </tr>
-    <% if @poops %>
-      <% @poops.each do |poop| %>
-        <tr>
-          <% if poop.poop_datetime.to_date == Date.current - 2 %>
-            <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
-            <td><%= poop.poop_quality %></td>
-            <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        </tr>
-      <% end %>
-      <% end %>
-</table>
-
-<h4><%= (Date.current - 3).strftime("%A") %></h4>
-  <table class="table">
-    <tr>
-      <th>Time</th>
-      <th>Poop Quality</th>
-      <th>Remove?</th>
-    </tr>
-    <% if @poops %>
-      <% @poops.each do |poop| %>
-        <tr>
-          <% if poop.poop_datetime.to_date == Date.current - 3 %>
-            <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
-            <td><%= poop.poop_quality %></td>
-            <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        </tr>
-      <% end %>
-      <% end %>
-</table>
-
-<h4><%= (Date.current - 4).strftime("%A") %></h4>
-  <table class="table">
-    <tr>
-      <th>Time</th>
-      <th>Poop Quality</th>
-      <th>Remove?</th>
-    </tr>
-    <% if @poops %>
-      <% @poops.each do |poop| %>
-        <tr>
-          <% if poop.poop_datetime.to_date == Date.current - 4 %>
-            <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
-            <td><%= poop.poop_quality %></td>
-            <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        </tr>
-      <% end %>
-      <% end %>
-</table>
-
-<h4><%= (Date.current - 5).strftime("%A") %></h4>
-  <table class="table">
-    <tr>
-      <th>Time</th>
-      <th>Poop Quality</th>
-      <th>Remove?</th>
-    </tr>
-    <% if @poops %>
-      <% @poops.each do |poop| %>
-        <tr>
-          <% if poop.poop_datetime.to_date == Date.current - 5 %>
-            <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
-            <td><%= poop.poop_quality %></td>
-            <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        </tr>
-      <% end %>
-      <% end %>
-</table>
-
-<h4><%= (Date.current - 6).strftime("%A") %></h4>
-  <table class="table">
-    <tr>
-      <th>Time</th>
-      <th>Poop Quality</th>
-      <th>Remove?</th>
-    </tr>
-    <% if @poops %>
-      <% @poops.each do |poop| %>
-        <tr>
-          <% if poop.poop_datetime.to_date == Date.current - 6 %>
-            <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
-            <td><%= poop.poop_quality %></td>
-            <td class="text-center"><%= link_to 'X', poop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        </tr>
-      <% end %>
-      <% end %>
-</table>
 
 
 <div class="well">
 <p>
-Add a poop:
+Add a #2:
   <%= form_for(@poop) do |f| %>
 </p>
 
     <div class="field">
-      <%= f.label :poop_datetime, "Poop Time" %><br>
+      <%= f.label :poop_datetime, "#2 Day/Time" %><br>
       <%= f.text_field :poop_datetime %>
       <p>For example: "Today at 3pm" or "Yesterday at 9am"</p>
     </div>
 
     <div class="field">
-      <%= f.label :poop_quality, "Poop Quality" %><br>
-      <%= f.select :poop_quality, ["normal", "soft", "very soft", "liquid", "hard", "very hard"], prompt: "Select Quality" %>
+      <%= f.label :poop_quality, "#2 Quality" %><br>
+      <%= f.select :poop_quality, ["normal", "soft", "very soft", "liquid", "hard", "very hard"] %>
     </div>
 
     <div class="actions">
