@@ -40,7 +40,7 @@ HOUSE_ARR = [
   ["Julie", "11 Bananagram Lane", "803-403-5013", "julie@julie.com", "with the doorman", 2],
   ["James", "333 Main Street", "347-881-5743", "james@james.com", "you have it", 3],
   ["Erica", "123 Fake Street", "803-403-5013", "erica@erica.com", "doesn't exist", 4],
-  ["Jackie", "Five Park Avenue South, New York, NY", "347-881-5743", "jackie@jackie.com", "butler will let you in", 5]
+  ["Jackie", "Five Park Avenue South", "347-881-5743", "jackie@jackie.com", "butler will let you in", 5]
 ]
 
 HOUSE_ARR.each do |array|

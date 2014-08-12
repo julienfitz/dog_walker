@@ -43,6 +43,20 @@ $(function(){
       type: 'DELETE'
     });
   });
+
+  $(".contact-walker").on('click', '#email-modal-button', function(event){
+    event.preventDefault();
+    var walker_id = $('#walker').val($(this).data("id"));
+    var walker_name = $('#text').val($(this).data("value"));
+    div_id = "#"+$(this).data("id");
+    id = $(this).data("id");
+    console.log(id);
+    $('#myModal').modal('toggle');
+  });
+
+  $("#send-email").click(function(){ 
+    $('#myModal').modal('toggle');
+  });
 });
 
 

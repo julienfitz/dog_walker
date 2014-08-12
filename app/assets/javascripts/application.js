@@ -16,5 +16,4 @@
 //= require modal
 //= require schedule
 //= require map
-//= require verify
 //= require_tree .

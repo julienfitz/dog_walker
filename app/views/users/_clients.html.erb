@@ -1,23 +1,41 @@
 <h2>Clients</h2>
-  <% @user.households.each do |house| %>
-  <% if house.owner %>
-    <h4><%= link_to house.owner.name, user_household_path(@user.id, house) %>
-  <% else %>
-    <h4><%= link_to house.owner_name, user_household_path(@user.id, house)%>
-  <% end %>
 
-      <small> | <%= link_to 'Edit Household Info', edit_user_household_path(@user.id, house) %> | <%= link_to 'Add New Pet', user_household_path(@user.id, house) %></small></h4> 
-    <p><strong>Address:</strong> <%= house.address %></p>
-    <p><strong>Pets:</p>
-    <ul>
-    <% house.pets.each do |pet| %>
-      <% if pet.avatar.url.present? %>
-        <%= link_to image_tag(pet.avatar_url(:thumb).to_s), pet_path(pet) %>
-      <% else %>
-        <%= link_to image_tag("thumb_dog_bounty.jpg"), pet_path(pet) %>
-      <% end %>
-      <p><%= link_to pet.name, pet_path(pet) %> <small>| <%= link_to 'Edit Pet Info', edit_pet_path(pet) %></small></p>
-      <br/>
+
+  <div class="panel-group" id="accordion">
+    <% @user.households.each do |house| %>
+      <div class="panel panel-default"> 
+        <div class="panel-heading">
+          <h5 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= house.id %>">
+                <%= house.address %>
+            </a>
+          </h5>
+        </div>
+        <div id="collapse<%= house.id %>" class="panel-collapse collapse">
+          <div class="panel-body">
+              <% if house.owner %>
+                <h4><%= link_to house.owner.name, user_household_path(@user.id, house) %>
+              <% else %>
+                <h4><%= link_to house.owner_name, user_household_path(@user.id, house) %>
+              <% end %>
+              <small> | <%= link_to 'Edit Household Info', edit_user_household_path(@user.id, house) %> | <%= link_to 'Add New Pet', user_household_path(@user.id, house) %></small></h4> 
+              <p><strong>Address:</strong> <%= house.address %></p>
+                <p><strong>Pets:</p>
+                <% house.pets.each do |pet| %>
+                  <div class="col-sm-6 col-xs-12">
+                    <% if pet.avatar.url.present? %>
+                      <%= link_to image_tag(pet.avatar_url(:thumb).to_s), pet_path(pet) %>
+                    <% else %>
+                      <%= link_to image_tag("thumb_dog_bounty.jpg"), pet_path(pet) %>
+                    <% end %>
+                    <p><%= link_to pet.name, pet_path(pet) %></br> 
+                    <small><%= link_to 'Edit Pet Info', edit_pet_path(pet) %></small>
+                    <br/>
+                    <br/>
+                  </div>
+                <% end %>
+          </div>
+        </div>
+      </div>
     <% end %>
-    </ul>
-  <% end %>
+  </div>

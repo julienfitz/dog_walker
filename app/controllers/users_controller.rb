@@ -1,14 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :authenticate_user!, :except => [:index, :show, :send_email]
 
-  def email
-    @walker = User.find(params[:walker_id])
-
+  def send_email
     respond_to do |format|
-      UserMailer.new_client_email(@walker).deliver
-
-      format.html { redirect_to(root_path), notice: 'Your email has been sent.'}
+      UserMailer.new_client_email(params).deliver
+      format.html { redirect_to root_path, notice: 'Your email has been sent.'}
     end
   end
   
@@ -40,7 +37,7 @@ class UsersController < ApplicationController
       redirect_to current_user
     else
       @user = User.new
-      @walkers = User.where(:walker => true)
+      @walkers = User.where(:walker => true).sample(4)
     end
   end
 
@@ -52,6 +49,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :phone, :walker, :avatar, :admin, :date, :walker_id, :owner_id)
+      params.require(:user).permit(:name, :email, :phone, :walker, :avatar, :admin, :date, :walker_id, :owner_id, :text)
     end
 end
