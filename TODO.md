@@ -33,7 +33,7 @@
 * let owners click on 'my walker' to see walker's page
 * ~~seed vets?~~
 * ~~seed reviews?~~
-* HEY! Clicking on client household breaks (at least for Ashley)
+* HEY! Clicking on client household breaks
 
 ## Adding owners
 * ~~Create welcome page listing walkers and explaining sign up~~

@@ -33,19 +33,19 @@ WALKER_ARR.each do |array|
 end
 
 H_KEY_ARR =
-  [:owner_name, :address, :phone, :email, :key_info, :walker_id]
+  [:owner_id, :owner_name, :address, :phone, :email, :key_info, :walker_id]
 
 HOUSE_ARR = [
-  ["Oliver", "23 Home Street", "555-558-1491", "oliver@oliver.com", "under the mat", 1],
-  ["Julie", "11 Bananagram Lane", "555-558-1491", "julie@julie.com", "with the doorman", 2],
-  ["James", "333 Main Street", "555-558-1491", "james@james.com", "you have it", 3],
-  ["Erica", "123 Fake Street", "555-558-1491", "erica@erica.com", "no key - walk right in", 4],
-  ["Jackie", "Five Park Avenue South", "555-558-1491", "jackie@jackie.com", "butler will let you in", 5],
-  ["Barry", "23 Park Avenue", "555-558-1491", "barry@barry.com", "with the doorman", 1],
-  ["Kyle", "45 Fifth Avenue", "555-558-1491", "kyle@kyle.com", "with the doorman", 2],
-  ["Nicole", "320 Sixth Avenue", "555-558-1491", "nicole@nicole.com", "you have it", 4],
-  ["Ash", "2380 Broadway", "555-558-1491", "ash@ash.com", "under the mat", 5],
-  ["Kara", "538 Third Avenue", "555-558-1491", "kara@kara.com", "you have it", 3]  
+  [7, "Oliver", "23 Home Street", "555-558-1491", "oliver@oliver.com", "under the mat", 1],
+  [8, "Julie", "11 Bananagram Lane", "555-558-1491", "julie@julie.com", "with the doorman", 2],
+  [9, "James", "333 Main Street", "555-558-1491", "james@james.com", "you have it", 3],
+  [10, "Erica", "123 Fake Street", "555-558-1491", "erica@erica.com", "no key - walk right in", 4],
+  [11, "Jackie", "Five Park Avenue South", "555-558-1491", "jackie@jackie.com", "butler will let you in", 5],
+  [12, "Barry", "23 Park Avenue", "555-558-1491", "barry@barry.com", "with the doorman", 1],
+  [13, "Kyle", "45 Fifth Avenue", "555-558-1491", "kyle@kyle.com", "with the doorman", 2],
+  [14, "Nicole", "320 Sixth Avenue", "555-558-1491", "nicole@nicole.com", "you have it", 4],
+  [15, "Ash", "2380 Broadway", "555-558-1491", "ash@ash.com", "under the mat", 5],
+  [16, "Kara", "538 Third Avenue", "555-558-1491", "kara@kara.com", "you have it", 3]  
 ]
 
 HOUSE_ARR.each do |array|
