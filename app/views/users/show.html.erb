@@ -80,7 +80,11 @@
       Show
       </button>
       </h2>
-        <div id="reviews" class="collapse">
+        <% if user_signed_in? %>
+          <div id="reviews" class="collapse">
+        <% else %>
+          <div id="reviews" class="collapse in">
+        <% end %>
           <%= render "reviews" %>
         </div>
       </div>

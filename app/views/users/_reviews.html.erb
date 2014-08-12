@@ -2,7 +2,7 @@
   <% @reviews.each do |review| %>
       <div class="well well-sm">
       <h3>Pet owner: <%= review.owner.name %></h3>
-      <p>Rating: <%= review.rating %>/10</p>
+      <h4>Rating: </h4><%= review.rating %>/10</p>
       <h4>Review: </h4><p><%= review.content %></p>
     </div>
   <% end %>
