@@ -1,16 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-sm-5 col-xs-12">
+  <div class="col-sm-6 col-xs-12">
   <div class="well">
-    <h2><%= @household.address %></h4>
+    <h2><%= @household.owner_name %></h4>
 
+    <p><div class="photo-lg">
+      <%= image_tag @owner.avatar_url %>
+    </div></p>
     <p>
-      <%= image_tag @owner.avatar_url(:thumb).to_s %>
-    </p>
-    <p>
-      <strong>Owner Name:</strong>
-      <%= @household.owner_name %>
+      <strong>Address:</strong>
+      <%= @household.address %>
     </p>
 
     <p>
@@ -30,8 +30,9 @@
 
     <h4>Pets:</h4>
       <% @household.pets.each do |pet| %>
-        <p><%= image_tag pet.avatar_url(:thumb).to_s %>
-        <%= link_to pet.name, pet_path(pet) %><p>
+        <h4><%= link_to pet.name, pet_path(pet) %><h4>
+        <p><div class="photo-lg"><%= image_tag pet.avatar_url %></div></p>
+        
       <% end %>
 
       <%= link_to 'Edit', edit_user_household_path %> |
@@ -39,9 +40,9 @@
   </div>
 </div>
 
-  <div class="col-sm-7 col-xs-12">
+  <div class="col-sm-6 col-xs-12">
     <div class="well">
-      <h3>Add a new pet to <%= @household.address %>:</h3>
+      <h4>Add a new pet to <%= @household.address %>:</h4>
       <%= render 'pets/form' %>
     </div>
   </div>

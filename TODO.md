@@ -23,7 +23,7 @@
 * ~~make households index and make it admin only~~
 * ~~modal for email on front page doesn't work?~~
 * ~~if no reviews, show "No Reviews to Show"~~
-* clean up code in poop chart and pet info form
+* ~~clean up code in poop chart and pet info form~~
 * clean up controllers, put stuff in models
 * put some cooler stuff on the index page for people not signed in to show app better (joyride?)
 * make demo version to walk people through the site (for potential employers)
