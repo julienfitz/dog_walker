@@ -20,9 +20,9 @@ class User < ActiveRecord::Base
 
   def assign_household
     household = Household.find_by(email: self.email) || household = Household.create(email: self.email, address: "Please update your profile with your current address.")
-    household.owner_name ||= self.name
-    household.owner_id ||= self.id
-    household.phone ||= self.phone
+    household.owner_name = self.name
+    household.owner_id = self.id
+    household.phone = self.phone
     household.walker_id = 17
     household.save
   end
