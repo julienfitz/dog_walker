@@ -29,6 +29,7 @@ class UsersController < ApplicationController
       @pets = @user.all_pets
       @appointments = @user.appointments.sort_by { |appt| appt.date }
       @appointment = Appointment.new
+      @reviews = Review.where(:walker_id => current_user)
     end
   end
 

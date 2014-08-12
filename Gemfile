@@ -29,7 +29,7 @@ gem 'mini_magick'
 gem 'chronic'
 
 gem 'twilio-ruby'
-
+gem 'mandrill-api'
 gem 'figaro'
 
 gem 'mandrill-api'
