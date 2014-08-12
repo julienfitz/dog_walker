@@ -36,11 +36,11 @@
             <div class="panel-body">
               <p><strong>Phone:  </strong><%= walker.phone %></p>
               <p><strong>Email:  </strong><%= walker.email %></p>
-              <% if walker.reviews.count > 0 %>
+              <% if Review.where(:walker_id => walker.id) %>
               <p><strong>Sample Review:</strong><br>
-                <%= walker.reviews.first.content %></p>
+                <%= Review.where(:walker_id => walker.id) %></p>
               <% end %>
-              <button class="btn btn-primary" id="e mail-modal-button" data-target="#myModal" id="walker" data-id="<%= walker.id %>">Send email</button>
+              <button class="btn btn-primary" id="email-modal-button" data-target="#myModal" id="walker" data-id="<%= walker.id %>">Send email</button>
               <br>
               <br>
               <p>Or click for more info about <%= link_to walker.name, walker %></p>
