@@ -44,8 +44,8 @@ HOUSE_ARR = [
   ["Barry", "23 Park Avenue", "555-558-1491", "barry@barry.com", "with the doorman", 1],
   ["Kyle", "45 Fifth Avenue", "555-558-1491", "kyle@kyle.com", "with the doorman", 2],
   ["Nicole", "320 Sixth Avenue", "555-558-1491", "nicole@nicole.com", "you have it", 4],
-  ["Ash", "2380 Broadway", "555-558-1491", "ash@ash.com", "under the mat", 3],
-  ["Kara", "538 Third Avenue", "555-558-1491", "kara@kara.com", "you have it", 5]  
+  ["Ash", "2380 Broadway", "555-558-1491", "ash@ash.com", "under the mat", 5],
+  ["Kara", "538 Third Avenue", "555-558-1491", "kara@kara.com", "you have it", 3]  
 ]
 
 HOUSE_ARR.each do |array|
@@ -82,7 +82,7 @@ PET_ARR = [
   ["Maru", "cat", "large", "dogs", "adult", "tuna fish", 9],
   ["Ruby", "cat", "large", "dogs", "adult", "salmon fish", 9],
   ["Abbott", "dog", "large", "healthy food", "older", "donuts only, a cannoli once in a while", 10],
-  ["Costello", "cat", "large", "vegetables", "older", "hamburgers", 10],
+  ["Costello", "cat", "large", "vegetables", "older", "hamburgers", 10]
 ]
 
 PET_ARR.each do |array|

@@ -18,11 +18,12 @@ class UsersController < ApplicationController
       @pets = Pet.all
       render "admin.html.erb"
     elsif @user.walker == false
-      @household = Household.find_by(email: @user.email)
-      @household.phone = @user.phone
-      @household.save
-      @user.assign_household(@household)
-      @appointments = @user.household.pets.collect { |pet| pet.appointments }.flatten.sort_by { |appt| appt.date }
+      if @user.household
+        @appointments = @user.household.pets.collect { |pet| pet.appointments }.flatten.sort_by { |appt| appt.date }
+      else
+        @user.assign_household
+        redirect_to current_user
+      end
       @walkers = User.where(walker: true)
       @review = Review.new
     else
