@@ -1,7 +1,6 @@
 class Pet < ActiveRecord::Base
   belongs_to :household
   belongs_to :vet
-  belongs_to :supply
   has_many :appointments
   has_many :poops
 

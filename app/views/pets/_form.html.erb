@@ -84,7 +84,7 @@
 
   <% if @user.walker == true %>
     <p>
-  <strong>Behavior</strong>
+  <strong>Behavior:</strong>
 
   <div class="field">
     <%= f.label "Dog Aggressive?" %>
@@ -96,8 +96,8 @@
   </div>
   
 <p>
-  <strong>Supply Locations</strong>
   <div class="field">
+    <%= f.label "Supply Locations" %><br>
     <%= f.text_area :supply %>
   </div>
 </p>
