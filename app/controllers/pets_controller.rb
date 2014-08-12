@@ -12,6 +12,7 @@ class PetsController < ApplicationController
   # GET /pets/1
   # GET /pets/1.json
   def show
+    @today = Date.current
     @user = User.find(current_user.id)
     @household = Pet.find(params[:id]).household
     @poop = Poop.new
