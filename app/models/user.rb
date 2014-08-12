@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   validates_processing_of :avatar
 
   def assign_household
-    household = Household.find_by(email: self.email) || household = Household.new(email: self.email, address: "Please update your profile with your current address.")
+    household = Household.find_by(email: self.email) || household = Household.create(email: self.email, address: "Please update your profile with your current address.")
     household.owner_name ||= self.name
     household.owner_id ||= self.id
     household.phone ||= self.phone
