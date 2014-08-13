@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-sm-6 col-xs-12">
+  <div class="col-md-5 col-sm-12">
   <div class="well">
     <h2><%= @household.owner_name %></h4>
 
     <% if @household.owner_id %>
       <p><div class="photo-lg">
-        <%= image_tag @owner.avatar_url %>
+        <%= image_tag @household.owner.avatar_url %>
       </div></p>
     <% end %>
     <p>
@@ -42,7 +42,7 @@
   </div>
 </div>
 
-  <div class="col-sm-6 col-xs-12">
+  <div class="col-sm-7 col-xs-12">
     <div class="well">
       <h4>Add a new pet to <%= @household.address %>:</h4>
       <%= render 'pets/form' %>
