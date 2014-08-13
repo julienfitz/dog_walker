@@ -1,3 +1,31 @@
+<div class="well">
+<p>
+Add a #2:
+  <%= form_for(@poop) do |f| %>
+</p>
+
+    <div class="field">
+      <%= f.label :poop_datetime, "#2 Day/Time" %><br>
+      <%= f.text_field :poop_datetime %>
+      <p>For example: "Today at 3pm" or "Yesterday at 9am"</p>
+    </div>
+
+    <div class="field">
+      <%= f.label :poop_quality, "#2 Quality" %><br>
+      <%= f.select :poop_quality, ["normal", "soft", "very soft", "liquid", "firm", "difficult to pass"] %>
+    </div>
+
+    <div class="actions">
+      <%= f.hidden_field :pet_id, :value => @pet.id %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+  <% end %>
+</div>
+
 <table class="table table-bordered">
   <tr>
     <th>Day</th>
@@ -58,32 +86,3 @@
   <% end %>
 <% end %>
 
-
-
-<div class="well">
-<p>
-Add a #2:
-  <%= form_for(@poop) do |f| %>
-</p>
-
-    <div class="field">
-      <%= f.label :poop_datetime, "#2 Day/Time" %><br>
-      <%= f.text_field :poop_datetime %>
-      <p>For example: "Today at 3pm" or "Yesterday at 9am"</p>
-    </div>
-
-    <div class="field">
-      <%= f.label :poop_quality, "#2 Quality" %><br>
-      <%= f.select :poop_quality, ["normal", "soft", "very soft", "liquid", "firm", "difficult to pass"] %>
-    </div>
-
-    <div class="actions">
-      <%= f.hidden_field :pet_id, :value => @pet.id %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-
-  <% end %>
-</div>
