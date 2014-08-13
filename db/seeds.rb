@@ -112,8 +112,8 @@ OWNER_ARR = [
   ["Jackie", "jackie@jackie.com", "347-881-5743", "password", 0],
   ["Barry", "barry@barry.com", "555-558-1491", "password", 0],
   ["Kyle", "kyle@kyle.com", "555-558-1491", "password", 0],
-  ["Ash", "ash@ash.com", "555-558-1491", "password", 0],
   ["Nicole", "nicole@nicole.com", "555-558-1491", "password", 0],
+  ["Ash", "ash@ash.com", "555-558-1491", "password", 0],
   ["Kara", "kara@kara.com", "555-558-1491", "password", 0]
 ]
 
