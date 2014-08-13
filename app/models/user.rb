@@ -39,7 +39,6 @@ class User < ActiveRecord::Base
     @client = Twilio::REST::Client.new(ENV['TWILIO_SID'],ENV['TWILIO_AUTH_TOKEN'])
     @client.account.messages.create(
       :from => '+18037674105',
-      # :to => phone,
       :to => ENV['MY_PHONE'],
       :body => body
     )

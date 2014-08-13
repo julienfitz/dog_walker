@@ -54,6 +54,7 @@
 * Payment tracker
 * ~~Reviews~~
 * add pee function to poop chart (to show if peed only, or peed & pooped)
+* add ability for walkers to leave reviews for owners that are visible to walkers ONLY
 
 ## License
 

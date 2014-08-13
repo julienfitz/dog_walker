@@ -10,7 +10,7 @@ Coming soon!
 
 ## Background
 
-This application seeks to fulfill a specific need: remind people if they need to bring their umbrella with them to work in the morning based on the weather forecast.
+It's tough to be a dog walker! Luckily, petsitfor.me can help manage your clients and daily schedule, while also providing functionality for owners to view and cancel appointments, leave reviews for walkers, and keep track of their dog or cat's "numbers."
 
 ## Features
 
@@ -31,8 +31,9 @@ Wanna write some tests? Wanna chart some poops?
 
 - Full test coverage
 - Better server integration
-- Allow users to text a number to receive current weather updates
-- More accurate weather tracking
+- Allow owners to make appointments through the application
+- Allow walkers to see their schedule past the current day
+- Allow poop chart to include info about whether the pet was fed, or peed, and info on all past poops (rather than just the past 7 days)
 
 ## Authors
 
@@ -42,4 +43,4 @@ Vanessa Dean(https://github.com/vanessadean)
 
 ## License
 
-Weather App is MIT Licensed. See LICENSE for details.
+petsitfor.me is MIT Licensed. See LICENSE for details.
