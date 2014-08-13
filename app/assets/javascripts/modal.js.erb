@@ -4,10 +4,8 @@ $(function(){
       div_id,
       id;
 
-  $('#petForm').hide();
-
+  //to send texts to client after dog is walked
   $("#client-appts").on('click', '#modal-button', function(event){
-  // $("#modal-button").click(function(event){
     event.preventDefault();
     appt_id = $('#appt').val($(this).data("id"));
     pet_name = $('#text').val($(this).data("value"));
@@ -17,6 +15,7 @@ $(function(){
     $('#myModal').modal('toggle');
   });
 
+  //to delete an appointment without texting client
   $(".table").on('click', '#delete-appt', function(){
     id = $(this).data("id");
     div_id = "#"+$(this).data("id");
@@ -27,16 +26,24 @@ $(function(){
     });
   });
 
-  $("#send-text").click(function(){
-    $(div_id).remove();
-    $('#myModal').modal('toggle');
+  //Opens the cancel appointment modal
+  $(".appointment").on('click', '#cancel-modal', function(event){
+    event.preventDefault();
+    appt_id = $('#appt').val($(this).data("id"));
+    pet_name = $('#text').val($(this).data("value"));
+    div_id = "#"+$(this).data("id");
+    id = $(this).data("id");
+    console.log(id);
+    $('#cancelModal').modal('toggle');
   });
 
+  //to cancel and send text 
   $("#cancel-appt").click(function(){
     $(div_id).remove();
     $('#myModal').modal('toggle');
   });
 
+  //to delete appointment and no text 
   $("#no-text").click(function(){
     $(div_id).remove();
     $('#myModal').modal('toggle');
@@ -46,6 +53,7 @@ $(function(){
     });
   });
 
+  //opens walker email modal
   $(".contact-walker").on('click', '#email-modal-button', function(event){
     event.preventDefault();
     var walker_id = $('#walker').val($(this).data("id"));
@@ -56,10 +64,12 @@ $(function(){
     $('#myModal').modal('toggle');
   });
 
+  //closes email modal
   $("#send-email").click(function(){ 
     $('#myModal').modal('toggle');
   });
 
+  //opens new pet modal for walkers
   $(".client").on('click', '#pet-modal', function(event){
     event.preventDefault();
     var household_id = $('#household').val($(this).data("id"));
@@ -69,6 +79,7 @@ $(function(){
     $('#petModal').modal('toggle');
   });
 
+  //opens new pet modal for owners
   $(".owner").on('click', '#pet-modal', function(event){
     event.preventDefault();
     var household_id = $('#household').val($(this).data("id"));
@@ -78,6 +89,7 @@ $(function(){
     $('#petModal').modal('toggle');
   });
 
+  //opens new pet modal for households
   $(".household").on('click', '#pet-modal', function(event){
     event.preventDefault();
     var household_id = $('#household').val($(this).data("id"));

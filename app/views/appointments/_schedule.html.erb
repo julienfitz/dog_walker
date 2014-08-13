@@ -16,7 +16,7 @@
           <td><%= appointment.pet.name %></td>
           <td class="appointment text-center">
           <% if appointment.date.day > Time.now.day %>
-              <button class="btn btn-primary btn-sm" id="modal-button" data-target="#myModal" data-id="<%= appointment.id %>" data-value="Cancellation for <%= appointment.pet.name %> on <%= appointment.date.strftime("%B %d at %I:%M %p") %>">X</button></td>
+              <button class="btn btn-primary btn-sm" id="cancel-modal" data-target="cancelModal" data-id="<%= appointment.id %>" data-value="Cancellation for <%= appointment.pet.name %> on <%= appointment.date.strftime("%B %d at %I:%M %p") %>">X</button></td>
           <% end %>
         </tr>
         <% end %>
@@ -25,7 +25,7 @@
   </table>
 </div>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

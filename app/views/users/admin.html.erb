@@ -12,7 +12,6 @@
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
-            <th></th>
           <tr>
         </thead>
         <tbody>
@@ -22,7 +21,6 @@
               <td><%= link_to walker.name, walker %></td>
               <td><%= walker.email %></td>
               <td><%= walker.phone %></td>
-              <td><%= link_to 'Remove', walker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
@@ -43,7 +41,6 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Address</th>
-            <th></th>
           <tr>
         </thead>
         <tbody>
@@ -54,7 +51,6 @@
               <td><%= owner.email %></td>
               <td><%= owner.phone %> <%= owner.household.phone if owner.household %></td>
               <td><%= owner.household.address if owner.household %> </td>
-              <td><%= link_to 'Remove', owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
@@ -109,8 +105,6 @@
             <th>Name</th>
             <th>Phone</th>
             <th>Address</th>
-            <th></th>
-            <th></th>
           <tr>
         </thead>
         <tbody>
