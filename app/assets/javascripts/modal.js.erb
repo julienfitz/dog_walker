@@ -19,6 +19,7 @@ $(function(){
   $(".table").on('click', '#delete-appt', function(){
     id = $(this).data("id");
     div_id = "#"+$(this).data("id");
+    $("#create-appt").html("");
     $(div_id).remove();
     $.ajax({
       url:'/appointments/'+id, 
@@ -43,7 +44,7 @@ $(function(){
     $('#myModal').modal('toggle');
   });
 
-  //to delete appointment and no text 
+  //to delete appointment and not text 
   $("#no-text").click(function(){
     $(div_id).remove();
     $('#myModal').modal('toggle');
