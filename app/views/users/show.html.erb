@@ -18,7 +18,7 @@
         <div class="links">
           <%= link_to 'Edit Profile', edit_user_registration_path %> | 
           <% if @user.walker == true %>
-            <%= link_to 'Add a New Client', new_user_household_path(@user) %> | 
+            <%= link_to 'Add a New Client', new_user_household_path(@user) %> 
           <% end %>
           <%= link_to 'Back', :back %>
         </div>
@@ -42,18 +42,16 @@
         </div>
       <% end %>
 
+      <% unless @user.walker == false %>
         <div class="well well-lg">
           <h2>Reviews
             <button type="button" class="btn btn-danger pull-right" data-toggle="collapse" data-target="#reviews">Show</button>
           </h2>
-          <% if user_signed_in? %>
-            <div id="reviews" class="collapse">
-          <% else %>
             <div id="reviews" class="collapse in">
-          <% end %>
-            <%= render "reviews" %>
+              <%= render "reviews" %>
             </div>
         </div>
+      <% end %>
 
       <% if @user.walker == false %>
         <div class="well">

@@ -30,15 +30,17 @@
 * ~~make actual README for github repo page~~
 * make 'about' section about us on the page
 * put some kind of animal pic to the right of the top div on main page?
-* let owners click on 'my walker' to see walker's page
+* ~~let owners click on 'my walker' to see walker's page~~
 * ~~seed vets?~~
 * ~~seed reviews?~~
 * ~~HEY! Clicking on client household breaks~~
 * ~~reviews page auto-open reviews (but not on walkers page)~~
 * ~~owners and clients and pets are all mixed up!~~
 * ~~footer is showing in the middle of the poop chart?!?~~
+<<<<<<< HEAD
 * make a better way for owners to make appointments
 * make it possible for owners to delete their reviews
+* ~~show reviews when logged out~~
 
 ## Adding owners
 * ~~Create welcome page listing walkers and explaining sign up~~

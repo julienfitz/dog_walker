@@ -4,11 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :household, foreign_key: "owner_id"
+  has_one :household, foreign_key: "owner_id", dependent: :destroy
   has_many :households, foreign_key: "walker_id"
   has_many :pets, through: :household
-  has_many :appointments, foreign_key: "walker_id"
-  has_many :reviews, foreign_key: "walker_id"
+  has_many :appointments, foreign_key: "walker_id", dependent: :destroy
+  has_many :reviews, foreign_key: "walker_id", dependent: :destroy
   has_many :reviews, foreign_key: "owner_id"
 
   validates_presence_of :name, :email
@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
     @client.account.messages.create(
       :from => '+18037674105',
       # :to => phone,
-      :to => '3478815743',
+      :to => ENV['MY_PHONE'],
       :body => body
     )
   end
