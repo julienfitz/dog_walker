@@ -6,7 +6,7 @@ petsitfor.me (petsitfor.me) — Rails app to help dog walkers manage their busin
 
 ## Screenshots
 
-Coming soon!
+![index page](https://github.com/lizzerdrix/dog_walker/app/assets/images/frontpage.png "Index page if user is not signed in")
 
 ## Background
 
