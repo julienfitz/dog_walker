@@ -1,107 +1,110 @@
-<%= form_for(@pet) do |f| %>
-  <% if @pet.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+<div class="row">
+  <%= form_for(@pet) do |f| %>
+    <% if @pet.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
 
-      <ul>
-      <% @pet.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <% if @pet.avatar.url.present? %>
-      <div class="photo-sm">
-        <%= image_tag(@pet.avatar.url)  %>
-      </div>
-    <% else %>
-      <div class="photo-sm">
-       <%= image_tag "dog_bounty.jpg" %>
+        <ul>
+        <% @pet.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
       </div>
     <% end %>
-    <%= f.label "Upload a Photo" %>
-    <%= f.file_field :avatar  %>
-    <%= f.hidden_field :avatar_cache %>
-  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :species %><br>
-    <%= f.select :species, ["cat","dog","other"] %>
-  </div>
-  <div class="field">
-    <%= f.label :size %><br>
-    <%= f.select :size, ["extra small","small","medium","large","extra large"] %>
-  </div>
-  <div class="field">
-    <%= f.label :allergies %><br>
-    <%= f.text_field :allergies %>
-  </div>
-  <div class="field">
-    <%= f.label :age %><br>
-    <%= f.select :age, ["baby", "young", "adult", "older", "senior"] %>
-  </div>
-  <div class="field">
-    <%= f.label :feeding %><br>
-    <%= f.text_field :feeding %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br>
-    <%= f.text_field :notes %>
-  </div>
-
-  <div class="field">
-    <%= f.label :vet_id %><br>
-    <%= f.collection_select :vet_id, Vet.all, :id, :all_details, prompt: "Select Your Vet" %>
-  </div>
-
-  Add a New Vet:
-  <p>
-  <div class="field">
-  <%= f.fields_for :vet, Vet.new do |vet_form| %>
-    <%= vet_form.label :name, "Name" %>
-    <%= vet_form.text_field :name %><br><br>
-    <%= vet_form.label :phone, "Phone" %>
-    <%= vet_form.text_field :phone %><br><br>
-    <%= vet_form.label :address, "Address" %>
-    <%= vet_form.text_field :address %>
-  <% end %>
-  </div>
-  </p>
-
-  <div class="field">
-    <%= f.hidden_field :household_id, id: "household" %>
-  </div>
-  <br>
-
-  <% if current_user.walker == true %>
-    <div class="field">
-      <strong>Behavior:</strong><br />
-      <%= f.label "Dog Aggressive?" %>
-      <%= f.check_box :dog_aggro? %><br>
-      <%= f.label "Human Aggressive?" %>
-      <%= f.check_box :human_aggro? %><br>
-      Other Behavior Notes:<br>
-      <%= f.text_area :behavior_notes %>
+  <div class="col-xs-6">
+    <div>
+      <% if @pet.avatar.url.present? %>
+        <div class="photo-sm">
+          <%= image_tag(@pet.avatar.url)  %>
+        </div>
+      <% else %>
+        <div class="photo-sm">
+         <%= image_tag "dog_bounty.jpg" %>
+        </div>
+      <% end %>
+      <%= f.label "Upload a Photo" %>
+      <%= f.file_field :avatar  %>
+      <%= f.hidden_field :avatar_cache %>
     </div>
-    
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :species %><br>
+      <%= f.select :species, ["cat","dog","other"] %>
+    </div>
+    <div class="field">
+      <%= f.label :size %><br>
+      <%= f.select :size, ["extra small","small","medium","large","extra large"] %>
+    </div>
+    <div class="field">
+      <%= f.label :allergies %><br>
+      <%= f.text_field :allergies %>
+    </div>
+    <div class="field">
+      <%= f.label :age %><br>
+      <%= f.select :age, ["baby", "young", "adult", "older", "senior"] %>
+    </div>
+    <div class="field">
+      <%= f.label :feeding %><br>
+      <%= f.text_field :feeding %>
+    </div>
+    <div class="field">
+      <%= f.label :notes %><br>
+      <%= f.text_field :notes %>
+    </div>
+
+  </div>
+
+  <div class="col-xs-6">
+    <div class="field">
+      <%= f.label :vet_id %><br>
+      <%= f.collection_select :vet_id, Vet.all, :id, :all_details, prompt: "Select Your Vet" %>
+    </div>
+
+    Add a New Vet:
     <p>
+    <div class="field">
+    <%= f.fields_for :vet, Vet.new do |vet_form| %>
+      <%= vet_form.label :name, "Name" %>
+      <%= vet_form.text_field :name %><br><br>
+      <%= vet_form.label :phone, "Phone" %>
+      <%= vet_form.text_field :phone %><br><br>
+      <%= vet_form.label :address, "Address" %>
+      <%= vet_form.text_field :address %>
+    <% end %>
+    </div>
+    </p>
+
+    <div class="field">
+      <%= f.hidden_field :household_id, id: "household" %>
+    </div>
+    <br>
+
+    <% if current_user.walker == true %>
+      <div class="field">
+        <strong>Behavior:</strong><br />
+        <%= f.label "Dog Aggressive?" %>
+        <%= f.check_box :dog_aggro? %><br>
+        <%= f.label "Human Aggressive?" %>
+        <%= f.check_box :human_aggro? %><br>
+        Other Behavior Notes:<br>
+        <%= f.text_area :behavior_notes %>
+      </div>
+      
       <div class="field">
         <%= f.label "Supply Locations" %><br>
         <%= f.text_area :supply %>
       </div>
-    </p>
-  <% end %>
-  
-  <div class="actions">
-    <%= f.submit %>
+    <% end %>
+    
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
-
-<% end %>
-
+  <% end %>
+</div>
 
