@@ -47,8 +47,8 @@ Wanna write some tests? Wanna chart some poops?
 
 ## Authors
 
-Liz Baillie(https://github.com/lizzerdrix)
-Ashley Blewer(https://github.com/ablwr)
+Liz Baillie(https://github.com/lizzerdrix)<br>
+Ashley Blewer(https://github.com/ablwr)<br>
 Vanessa Dean(https://github.com/vanessadean)
 
 ## License
