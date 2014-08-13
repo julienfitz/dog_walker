@@ -23,7 +23,7 @@
             <% house.pets.each do |pet| %>
               <div class="col-sm-6 col-xs-12">
                   <% if pet.avatar.url.present? %>
-                  <%= link_to image_tag(pet.avatar_url(:thumb).to_s), pet_path(pet) %>
+                  <%= link_to image_tag(pet.avatar_url(:thumb)), pet_path(pet) %>
                   <% else %>
                   <%= link_to image_tag("thumb_dog_bounty.jpg"), pet_path(pet) %>
                   <% end %>
@@ -40,7 +40,7 @@
 </div>
 
 <div class="modal fade" id="petModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
