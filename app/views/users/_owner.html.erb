@@ -1,5 +1,5 @@
 <h2>Your Household</h2>
-<p><small><%= link_to 'Edit Household Info', edit_user_household_path(@user.household.walker_id, @user.household) %> | <%= link_to 'Add New Pet', user_household_path(@user.household.walker_id, @user.household) %></small></p>
+<p><small class="owner"><%= link_to 'Edit Household Info', edit_user_household_path(@user.household.walker_id, @user.household) %> | <a id="pet-modal" data-target="#petModal" href="#" data-id="<%= @user.household.id %>" data-value="<%= @user.household.id %>">Add New Pet</a></small></p>
 
 <p><strong>Phone: </strong><%= @user.household.phone %></p>
 <p><strong>Address:</strong> <%= @user.household.address %></p>
@@ -20,3 +20,18 @@
   <% end %>
 </div>
 
+<div class="modal fade" id="petModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Let your client know</h4>
+      </div>
+
+      <div class="modal-body">
+        <%= render 'pets/form' %>
+      </div>
+
+    </div>
+  </div>
+</div>

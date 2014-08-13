@@ -68,6 +68,15 @@ $(function(){
     console.log(id);
     $('#petModal').modal('toggle');
   });
+
+  $(".owner").on('click', '#pet-modal', function(event){
+    event.preventDefault();
+    var household_id = $('#household').val($(this).data("id"));
+    div_id = "#"+$(this).data("id");
+    id = $(this).data("id");
+    console.log(id);
+    $('#petModal').modal('toggle');
+  });
 });
 
 
