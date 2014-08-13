@@ -30,7 +30,7 @@
 * ~~make actual README for github repo page~~
 * make 'about' section about us on the page
 * put some kind of animal pic to the right of the top div on main page?
-* let owners click on 'my walker' to see walker's page
+* ~~let owners click on 'my walker' to see walker's page~~
 * ~~seed vets?~~
 * ~~seed reviews?~~
 * ~~HEY! Clicking on client household breaks~~
