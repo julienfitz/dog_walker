@@ -34,7 +34,7 @@
 * ~~seed vets?~~
 * ~~seed reviews?~~
 * ~~HEY! Clicking on client household breaks~~
-* reviews page auto-open reviews (but not on walkers page)
+* ~~reviews page auto-open reviews (but not on walkers page)~~
 
 ## Adding owners
 * ~~Create welcome page listing walkers and explaining sign up~~
