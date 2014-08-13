@@ -37,6 +37,8 @@
 * ~~reviews page auto-open reviews (but not on walkers page)~~
 * ~~owners and clients and pets are all mixed up!~~
 * ~~footer is showing in the middle of the poop chart?!?~~
+* make a better way for owners to make appointments
+* make it possible for owners to delete their reviews
 * ~~show reviews when logged out~~
 
 ## Adding owners
@@ -51,6 +53,15 @@
 * Payment tracker
 * ~~Reviews~~
 * add pee function to poop chart (to show if peed only, or peed & pooped)
+* add ability for walkers to leave reviews for owners that are visible to walkers ONLY
+
+## Demo TODO
+* ability to "sign in" as a pre-made "walker" or "owner"
+* allows user to add poops, add to/delete from walker schedule
+* get rid of Twilio functionality - button doesn't actually do anything but give flash notice
+* Vanessa still wants all the emails to go to her
+* users can leave reviews as owners
+* run rake tasks once an hour to drop and reseed database
 
 ## License
 
