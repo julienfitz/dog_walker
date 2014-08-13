@@ -6,7 +6,7 @@ $(function(){
 
   $('#petForm').hide();
 
-  $(".appointment").on('click', '#modal-button', function(event){
+  $("#client-appts").on('click', '#modal-button', function(event){
   // $("#modal-button").click(function(event){
     event.preventDefault();
     appt_id = $('#appt').val($(this).data("id"));
@@ -70,6 +70,15 @@ $(function(){
   });
 
   $(".owner").on('click', '#pet-modal', function(event){
+    event.preventDefault();
+    var household_id = $('#household').val($(this).data("id"));
+    div_id = "#"+$(this).data("id");
+    id = $(this).data("id");
+    console.log(id);
+    $('#petModal').modal('toggle');
+  });
+
+  $(".household").on('click', '#pet-modal', function(event){
     event.preventDefault();
     var household_id = $('#household').val($(this).data("id"));
     div_id = "#"+$(this).data("id");

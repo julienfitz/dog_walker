@@ -1,50 +1,60 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-md-5 col-sm-12">
-  <div class="well">
-    <h2><%= @household.owner_name %></h4>
+  <div class="col-md-6 col-sm-12">
+    <div class="well">
+      <h2><%= @household.owner_name %></h4>
 
-    <% if @household.owner_id %>
-      <p><div class="photo-lg">
-        <%= image_tag @household.owner.avatar_url %>
-      </div></p>
-    <% end %>
-    <p>
-      <strong>Address:</strong>
-      <%= @household.address %>
-    </p>
-
-    <p>
-      <strong>Key info:</strong>
-      <%= @household.key_info %>
-    </p>
-
-    <p>
-      <strong>Phone:</strong>
-      <%= @household.phone %>
-    </p>
-
-    <p>
-      <strong>Email:</strong>
-      <%= @household.email %>
-    </p>
-
-    <h4>Pets:</h4>
-      <% @household.pets.each do |pet| %>
-        <h4><%= link_to pet.name, pet_path(pet) %><h4>
-        <p><div class="photo-lg"><%= image_tag pet.avatar_url %></div></p>
-        
+      <% if @household.owner_id %>
+        <p><div class="photo-lg">
+          <%= image_tag @household.owner.avatar_url %>
+        </div></p>
       <% end %>
+      <p>
+        <strong>Address:</strong>
+        <%= @household.address %>
+      </p>
 
-      <%= link_to 'Edit', edit_user_household_path %> |
-      <%= link_to 'Back', :back %>
+      <p>
+        <strong>Key info:</strong>
+        <%= @household.key_info %>
+      </p>
+
+      <p>
+        <strong>Phone:</strong>
+        <%= @household.phone %>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <%= @household.email %>
+      </p>
+
+      <h4>Pets:</h4>
+        <% @household.pets.each do |pet| %>
+          <h4><%= link_to pet.name, pet_path(pet) %><h4>
+          <p><div class="photo-lg"><%= image_tag pet.avatar_url %></div></p>
+          
+        <% end %>
+
+        <%= link_to 'Edit', edit_user_household_path %> |
+        <%= link_to 'Back', :back %> | <span class="household"><a id="pet-modal" data-target="#petModal" href="#" data-id="<%= @household.id %>" data-value="<%= @household.id %>">Add New Pet</a></span>
+    </div>
   </div>
 </div>
 
-  <div class="col-sm-7 col-xs-12">
-    <div class="well">
-      <h4>Add a new pet to <%= @household.address %>:</h4>
-      <%= render 'pets/form' %>
+<div class="modal fade" id="petModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add a new pet</h4>
+      </div>
+
+      <div class="modal-body">
+        <%= render 'pets/form' %>
+      </div>
+
     </div>
   </div>
+</div>
