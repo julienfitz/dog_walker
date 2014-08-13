@@ -26,10 +26,10 @@ class AppointmentsController < ApplicationController
     @user = @appointment.pet.household.owner
     @phone = @appointment.pet.household.phone
     @walker = @appointment.pet.household.walker.name
-    @fed = "fed," if params[:fed?]
-    @pee = "peed," if params[:pee?]
-    @poop = "pooped, poop:" if params[:poop?]
-    @body = "#{params[:text]} - #{@fed} #{@pee} #{@poop} #{params[:poop][:poop_quality]} - #{@walker}"
+    @fed = "fed - " if params[:fed?]
+    @pee = "peed - " if params[:pee?]
+    @poop = "pooped, poop: #{params[:poop][:poop_quality]} - " if params[:poop?]
+    @body = "#{params[:text]} - #{@fed}#{@pee}#{@poop}#{@walker}"
     @user.text_to_user(@body, @phone)
     @appointment.destroy
     @poop = Poop.create(poop_datetime: @appointment.date, poop_quality: params[:poop][:poop_quality], pet_id: @appointment.pet.id)

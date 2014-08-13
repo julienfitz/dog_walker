@@ -6,7 +6,7 @@ body {
 }
 
 .photo-lg > img {
-  max-width: 300px;
+  max-width: 250px;
 }
 
 .photo-sm > img {
