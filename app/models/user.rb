@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
     @client.account.messages.create(
       :from => '+18037674105',
       # :to => phone,
-      :to => '9175581491',
+      :to => '3478815743',
       :body => body
     )
   end
