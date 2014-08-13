@@ -4,6 +4,8 @@ $(function(){
       div_id,
       id;
 
+  $('#petForm').hide();
+
   $(".appointment").on('click', '#modal-button', function(event){
   // $("#modal-button").click(function(event){
     event.preventDefault();
@@ -56,6 +58,15 @@ $(function(){
 
   $("#send-email").click(function(){ 
     $('#myModal').modal('toggle');
+  });
+
+  $(".client").on('click', '#pet-modal', function(event){
+    event.preventDefault();
+    var household_id = $('#household').val($(this).data("id"));
+    div_id = "#"+$(this).data("id");
+    id = $(this).data("id");
+    console.log(id);
+    $('#petModal').modal('toggle');
   });
 });
 

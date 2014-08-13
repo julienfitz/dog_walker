@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-    <div class="col-sm-6 col-xs-12">
-      <% if @user.walker == true || current_user %>
+  <div class="col-sm-6 col-xs-12">
+    <% if @user.walker == true || current_user %>
       <div class="well">
         <div class="photo-lg">
         <%= image_tag @user.avatar_url.to_s %>
@@ -14,25 +14,25 @@
         <p><%= @user.household.address %></p>
       <% end %>
 
-        <% if current_user == @user %>
+      <% if current_user == @user %>
         <div class="links">
           <%= link_to 'Edit Profile', edit_user_registration_path %> | 
           <% if @user.walker == true %>
-            <%= link_to 'Add a New Client', new_user_household_path(@user.id, Household.new) %> | 
+            <%= link_to 'Add a New Client', new_user_household_path(@user) %> | 
           <% end %>
           <%= link_to 'Back', :back %>
         </div>
-        <% end %>
       <% end %>
       </div>
-    
-      <% if current_user %>
-        <% if @user.walker == true %>
-          <%= render "appointments/appointments" %>
-        <% else %>
-          <%= render "appointments/schedule" %>
-        <% end %>
+    <% end %>
+      
+    <% if current_user %>
+      <% if @user.walker == true %>
+        <%= render "appointments/appointments" %>
+      <% else %>
+        <%= render "appointments/schedule" %>
       <% end %>
+    <% end %>
   </div>
 
   <div class="col-sm-6 col-xs-12">
@@ -40,6 +40,19 @@
       <% if @user.walker == true %>
         <div class="well">
           <%= render "clients" %>
+        </div>
+
+        <div class="well well-lg">
+          <h2>Reviews
+            <button type="button" class="btn btn-danger pull-right" data-toggle="collapse" data-target="#reviews">Show</button>
+          </h2>
+          <% if user_signed_in? %>
+            <div id="reviews" class="collapse">
+          <% else %>
+            <div id="reviews" class="collapse in">
+          <% end %>
+            <%= render "reviews" %>
+            </div>
         </div>
       <% else %>
         <div class="well">
@@ -59,7 +72,7 @@
           
           <%= form_tag(user_household_path(@user.household.walker_id, @user.household), :method => :put) do %>
             <div class="field">
-              <%= label_tag "Choose a new walker" %><br>
+              <%= label_tag "Choose a new walker:" %><br>
               <%= collection_select :household, :walker_id, @walkers, :id, :name, prompt: "Select Walker" %>
             </div>
 
@@ -67,30 +80,11 @@
               <%= submit_tag("Choose Walker") %>
             </div>
           <% end %>
-
         </div>
+
+        <%= render "reviews/form" %>
       <% end %>
-    <% end %>
-
-    <% if @user.walker == false %>
-      <%= render "reviews/form" %>
-    <% else %>     
-      <div class="well well-lg">
-        <h2>Reviews
-        <button type="button" class="btn btn-danger pull-right" data-toggle="collapse" data-target="#reviews">
-      Show
-      </button>
-      </h2>
-        <% if user_signed_in? %>
-          <div id="reviews" class="collapse">
-        <% else %>
-          <div id="reviews" class="collapse in">
-        <% end %>
-          <%= render "reviews" %>
-        </div>
-      </div>
     <% end %>
   </div>
 </div>
 
-</div>

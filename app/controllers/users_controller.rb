@@ -24,9 +24,11 @@ class UsersController < ApplicationController
         @user.assign_household
         redirect_to current_user
       end
+      @pet = Pet.new
       @walkers = User.where(walker: true)
       @review = Review.new
     else
+      @pet = Pet.new
       @pets = @user.all_pets
       @appointments = @user.appointments.sort_by { |appt| appt.date }
       @appointment = Appointment.new

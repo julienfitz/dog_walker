@@ -5,9 +5,11 @@
   <div class="well">
     <h2><%= @household.owner_name %></h4>
 
-    <p><div class="photo-lg">
-      <%= image_tag @owner.avatar_url %>
-    </div></p>
+    <% if @household.owner_id %>
+      <p><div class="photo-lg">
+        <%= image_tag @owner.avatar_url %>
+      </div></p>
+    <% end %>
     <p>
       <strong>Address:</strong>
       <%= @household.address %>

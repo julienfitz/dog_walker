@@ -1,16 +1,22 @@
 <h2>Your Household</h2>
-    <p><small><%= link_to 'Edit Household Info', edit_user_household_path(@user.household.walker_id, @user.household) %> | <%= link_to 'Add New Pet', user_household_path(@user.household.walker_id, @user.household) %></small></p>
-    <p><strong>Phone: </strong><%= @user.household.phone %></p>
-    <p><strong>Address:</strong> <%= @user.household.address %></p>
-    <p><strong>Pets:</p>
-    <ul>
-    <% @user.household.pets.each do |pet| %>
+<p><small><%= link_to 'Edit Household Info', edit_user_household_path(@user.household.walker_id, @user.household) %> | <%= link_to 'Add New Pet', user_household_path(@user.household.walker_id, @user.household) %></small></p>
+
+<p><strong>Phone: </strong><%= @user.household.phone %></p>
+<p><strong>Address:</strong> <%= @user.household.address %></p>
+
+<p><strong>Pets:</strong></p>
+<div class="row">
+  <% @user.household.pets.each do |pet| %>
+    <div class="col-sm-6 col-xs-12">
       <% if pet.avatar.url.present? %>
-        <%= link_to image_tag(pet.avatar_url(:thumb).to_s), pet_path(pet) %>
+        <%= link_to image_tag(pet.avatar_url(:thumb)), pet_path(pet) %>
       <% else %>
         <%= link_to image_tag("thumb_dog_bounty.jpg"), pet_path(pet) %>
       <% end %>
-      <p><%= link_to pet.name, pet_path(pet) %> <small>| <%= link_to 'Edit Pet Info', edit_pet_path(pet) %></small></p>
+      <p><%= link_to pet.name, pet_path(pet) %></p> 
+      <p><small><%= link_to 'Edit Pet Info', edit_pet_path(pet) %></small></p>
       <br/>
-    <% end %>
-    </ul>
+    </div>
+  <% end %>
+</div>
+
