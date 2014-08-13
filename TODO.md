@@ -35,6 +35,8 @@
 * ~~seed reviews?~~
 * ~~HEY! Clicking on client household breaks~~
 * ~~reviews page auto-open reviews (but not on walkers page)~~
+* ~~owners and clients and pets are all mixed up!~~
+* ~~footer is showing in the middle of the poop chart?!?~~
 
 ## Adding owners
 * ~~Create welcome page listing walkers and explaining sign up~~
