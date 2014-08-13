@@ -37,6 +37,7 @@
 * ~~reviews page auto-open reviews (but not on walkers page)~~
 * ~~owners and clients and pets are all mixed up!~~
 * ~~footer is showing in the middle of the poop chart?!?~~
+* ~~show reviews when logged out~~
 
 ## Adding owners
 * ~~Create welcome page listing walkers and explaining sign up~~
