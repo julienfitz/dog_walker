@@ -61,7 +61,7 @@
 
         <div class="well">
           <h2>Your Walker</h2>
-          <p><%= image_tag @user.household.walker.avatar_url(:thumb) %></p>
+          <p><%= link_to image_tag(@user.household.walker.avatar_url(:thumb)), user_path(@user.household.walker.id) %></p>
           <% if @user.household.walker.id == 17 %>
             Please chose a walker below.
           <% else %>
