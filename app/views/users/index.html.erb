@@ -14,7 +14,7 @@
     <p id="notice"><%= notice %></p>
     
     <div class="well">
-      <h3>Looking for help with your pet? Check out some of our amazing pet sitters:</h3>
+      <h3>Looking for help with your pet? Click below to caheck out some of our amazing pet sitters:</h3>
       <div class="row" id="accordion">
         <% @walkers.each do |walker| %>
         <div class="col-xs-6 col-sm-3">
@@ -74,17 +74,17 @@
 
           <div class="field">
             <%= label_tag :name %><br>
-            <%= text_field_tag :name %>
+            <%= text_field_tag :name, "Joe Owner" %>
           </div>
 
           <div class="field">
             <%= label_tag :phone %><br>
-            <%= text_field_tag :phone %>
+            <%= text_field_tag :phone, "555-555-5555" %>
           </div>
 
           <div class="field">
             <%= label_tag :email %><br>
-            <%= text_field_tag :email %>
+            <%= text_field_tag :email, "joe@joe.com" %>
           </div>
 
           <div class="field">
@@ -98,7 +98,7 @@
 
           <div class="field">
             </strong>Message (optional)</strong><br/>
-            <textarea rows="2" cols="50" type="text" name="text" id="text"></textarea>
+            <textarea rows="2" cols="50" type="text" name="text" id="text" placeholder="I want to hire you!"></textarea>
           </div>
 
           <div class="actions" id="send-email">

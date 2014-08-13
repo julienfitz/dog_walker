@@ -1,8 +1,8 @@
 class Pet < ActiveRecord::Base
   belongs_to :household
   belongs_to :vet
-  has_many :appointments
-  has_many :poops
+  has_many :appointments, dependent: :destroy
+  has_many :poops, dependent: :destroy
 
   accepts_nested_attributes_for :vet, :reject_if => lambda { |c| c[:name].blank? }
 
