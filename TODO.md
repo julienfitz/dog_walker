@@ -56,6 +56,7 @@
 * add ability for walkers to leave reviews for owners that are visible to walkers ONLY
 
 ## Demo TODO
+* change date time entry to drop down menu or something else more restrictive
 * ability to "sign in" as a pre-made "walker" or "owner"
 * allows user to add poops, add to/delete from walker schedule
 * get rid of Twilio functionality - button doesn't actually do anything but give flash notice
