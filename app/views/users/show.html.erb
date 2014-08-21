@@ -16,11 +16,10 @@
 
       <% if current_user == @user %>
         <div class="links">
-          <%= link_to 'Edit Profile', edit_user_registration_path %> | 
+          <%= link_to 'Edit Profile', edit_user_registration_path %> 
           <% if @user.walker == true %>
-            <%= link_to 'Add a New Client', new_user_household_path(@user) %> |
+            | <%= link_to 'Add a New Client', new_user_household_path(@user) %>
           <% end %>
-          <%= link_to 'Back', :back %>
         </div>
       <% end %>
       </div>
