@@ -15,4 +15,6 @@
 //= require bootstrap
 //= require modal
 //= require map
+//= require combodate
+//= require moment
 //= require_tree .

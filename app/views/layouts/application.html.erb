@@ -9,6 +9,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+  <script src="js/moment.min.js"></script> 
+  <script src="js/combodate.js"></script>
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+    $('#datetime12').combodate();  
+    $('#time').combodate({
+        firstItem: 'name', //show 'hour' and 'minute' string at first item of dropdown
+        minuteStep: 15
+    });
+  });
+  </script>
+
 </head>
 <body>
 
