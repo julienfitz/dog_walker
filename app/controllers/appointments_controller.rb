@@ -3,8 +3,11 @@ class AppointmentsController < ApplicationController
   def create
     Time.zone = "EST"
     Chronic.time_class = Time.zone
-    @appointment = Appointment.new(appointment_params)
-    @date = Chronic.parse(appointment_params[:date])
+    @appointment = Appointment.new(pet_id: appointment_params[:pet_id], walker_id: appointment_params[:walker_id])
+    date = params[:date]
+    time = params[:time]
+    datetime = "#{date} at #{time}"
+    @date = Chronic.parse(datetime)
     @appointment.date = @date
     respond_to do |format|
       if @appointment.save
@@ -62,6 +65,6 @@ class AppointmentsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:date, :pet_id, :walker_id, :fed, :pee, :pooped, :text, :household_id, :appt_id, :pet_name, poop:[])
+      params.require(:appointment).permit(:date, :time, :pet_id, :walker_id, :fed, :pee, :pooped, :text, :household_id, :appt_id, :pet_name, poop:[])
     end
 end
