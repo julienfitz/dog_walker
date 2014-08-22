@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-sm-7 col-xs-12"> 
+  <div class="col-sm-12 col-xs-12"> 
     <div class="well">
     <p>
       <h1>
@@ -8,7 +8,7 @@
       <h4>Cat sitter? Armadillo wrangler?<br>
       </h4>
       <h5>
-      Or just a regular old pet owner? Sign in or create a new account to manage your pet care!
+      Or just a regular old pet owner? Sign in to demo the app.
       </h5>
     </p>
     <br />
@@ -33,32 +33,5 @@
       <% end -%>
     </div> 
   </div>
-  
-  <div class="col-sm-5 col-xs-12">
-    <div class="well">
-      <h2>Sign In</h2>
-
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
-
-        <div><%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %></div>
-
-        <div><%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "off" %></div>
-
-        <% if devise_mapping.rememberable? -%>
-          <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-        <% end -%>
-
-        <div><%= f.submit "Sign in", class: "btn-sm btn-primary", style: "color:white"  %></div>
-      <% end %>
-      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-        <br>
-
-        <%= link_to "Forgot your password?", new_password_path(resource_name) %>
-      <% end -%>
-    </div>
-</div>
 </div>
 

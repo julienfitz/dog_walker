@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'appointments/modal', to: 'appointments#modal'
   post 'appointments/send_text', to: 'appointments#send_text'
   post 'appointments/cancel', to: 'appointments#cancel'
+  
   devise_for :users
 
   resources :users, :only => [:index, :show, :send_email] do
