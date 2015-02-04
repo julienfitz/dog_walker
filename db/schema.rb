@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808145330) do
+ActiveRecord::Schema.define(version: 20140808145321) do
 
   create_table "appointments", force: true do |t|
     t.integer  "pet_id"
@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 20140808145330) do
     t.string   "poop_quality"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "pet_id"
   end
 
   create_table "reviews", force: true do |t|
