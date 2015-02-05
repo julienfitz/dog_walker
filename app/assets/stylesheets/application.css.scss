@@ -12,44 +12,6 @@
  *
  *= require_tree .
  *= require_self
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
- //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
+ *= require style
+ *= bootstrap.min
  */
-@import "bootstrap";
-/* Some Style from the Bootstrap Default Theme */
-body {
-  padding-top: 70px;
-  padding-bottom: 30px;
-}
-
-.theme-dropdown .dropdown-menu {
-  position: static;
-  display: block;
-  margin-bottom: 20px;
-}
-
-.theme-showcase > p > .btn {
-  margin: 5px 0;
-}
-
-a:hover {
-  text-decoration: none !important;
-  background-color: rgba(0,0,0,0);
-}
-
-h1 {
-  margin-top: 20px;
-  margin-bottom: 25px;
-}
-
-.footer {
-  background-color: black; 
-  color: white; 
-  padding: 10px;
-}
-
-.footer a {
-  color: #AAA !important;
-}

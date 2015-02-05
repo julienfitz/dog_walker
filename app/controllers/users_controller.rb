@@ -41,7 +41,7 @@ class UsersController < ApplicationController
       redirect_to current_user
     else
       @user = User.new
-      @walkers = User.where(:walker => true).sample(4)
+      @walkers = User.where(:walker => true).sample(3)
     end
   end
 

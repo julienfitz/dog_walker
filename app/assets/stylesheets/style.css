@@ -1,7 +1,113 @@
+@import url(http://fonts.googleapis.com/css?family=Elsie:400,900);
+@import url(http://fonts.googleapis.com/css?family=Oxygen:400,300,700);
+
+/* Some Style from the Bootstrap Default Theme */
 body {
-  background: url("dog_cat.jpg");
-  background-size: cover;
-  background-attachment:fixed;
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.navbar {
+  height: 75px;
+  background-color: purple;
+}
+
+div.navbar-collapse.collapse {
+  margin-bottom: 50px;
+}
+
+ul.nav.navbar-nav.pull-right li a {
+  color: white;
+  padding-top: 25px;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 14px;
+}
+
+ul.navbar-nav li a.navbar-brand {
+  color: white;
+  padding-top: 25px;
+  font-family: Elsie;
+  font-weight: 900, serif;
+  font-size: 36px;
+}
+
+h1, h2, h3 {
+  font-family: Elsie;
+  font-weight: 900, serif;
+  line-height: 1;
+}
+
+h1 {
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+p {
+  font-family: 'Oxygen', sans-serif;
+}
+
+li {
+  margin-left: -15px;
+  font-family: 'Oxygen', sans-serif;
+}
+
+.home-header {
+  font-size: 48px;
+}
+
+.subheader1 {
+  font-size: 36px;
+}
+
+.subheader2 {
+  padding-top: 10px;
+}
+
+.carousel-control {
+/*  position:absolute;
+  top:0;
+  bottom:0;*/
+  left:0;
+  width:5%;
+  font-size:20px;
+  color:#000;
+  text-align:center;
+  text-shadow:0 1px 2px rgba(0,0,0,.6);
+  filter:alpha(opacity=50);
+  opacity:0.5
+  }
+
+.carousel-control.left{
+  background-image:-webkit-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,.0001) 100%);background-image:-o-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,.0001) 100%);background-image:-webkit-gradient(linear,left top,right top,from(rgba(0,0,0,0)),to(rgba(0,0,0,.0001)));background-image:linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,.0001) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);background-repeat:repeat-x
+}
+
+.carousel-control.right{
+  right:0;
+  left:auto;
+  background-image:-webkit-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,0) 100%);background-image:-o-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,0) 100%);background-image:-webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.0001)),to(rgba(0,0,0,0)));background-image:linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,0) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);background-repeat:repeat-x
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.footer {
+  background-color: purple; 
+  color: white; 
+  padding: 10px;
+  font-family: Elsie;
+  font-weight: 400, serif;
+}
+
+.footer a {
+  color: white;
+  font-size: 14px;
 }
 
 .photo-lg > img {
@@ -17,8 +123,9 @@ body {
 }
 
 a:hover {
-  text-decoration: none !important;
+  color: #AAA;
+  text-decoration: none;
+  background-color: rgba(0,0,0,0);
 }
-
 
 
