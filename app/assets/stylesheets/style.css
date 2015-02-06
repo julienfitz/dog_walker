@@ -7,25 +7,33 @@ body {
   padding-bottom: 30px;
 }
 
+#page-body {
+  margin-top: 35px;
+}
+
+.container {
+  max-width: 960px;
+}
+
+.navbar-header {
+  padding-top: 15px;
+}
+
 .navbar {
   height: 75px;
   background-color: purple;
 }
 
-div.navbar-collapse.collapse {
-  margin-bottom: 50px;
-}
-
 ul.nav.navbar-nav.pull-right li a {
   color: white;
-  padding-top: 25px;
+  padding: 25px;
   font-family: 'Oxygen', sans-serif;
   font-size: 14px;
 }
 
 ul.navbar-nav li a.navbar-brand {
   color: white;
-  padding-top: 25px;
+  padding: 25px;
   font-family: Elsie;
   font-weight: 900, serif;
   font-size: 36px;
@@ -42,12 +50,12 @@ h1 {
   margin-bottom: 25px;
 }
 
-p {
+h4, h5, p {
   font-family: 'Oxygen', sans-serif;
 }
 
 li {
-  margin-left: -15px;
+  margin-left: -25px;
   font-family: 'Oxygen', sans-serif;
 }
 
@@ -57,10 +65,24 @@ li {
 
 .subheader1 {
   font-size: 36px;
+  margin-top: -50px;
 }
 
 .subheader2 {
+  font-size: 26px;
   padding-top: 10px;
+}
+
+.spaced {
+  margin: 10px;
+}
+
+.bs-generic {
+  margin-top: 15px;
+  margin-bottom: 25px;
+  background-color: #C29DC2;
+  border-radius: 10px;
+  padding: 15px;
 }
 
 .carousel-control {
@@ -110,6 +132,10 @@ li {
   font-size: 14px;
 }
 
+.footer a:hover {
+  color: #C29DC2;
+}
+
 .photo-lg > img {
   max-width: 250px;
 }
@@ -123,9 +149,25 @@ li {
 }
 
 a:hover {
-  color: #AAA;
+  color: purple;
   text-decoration: none;
   background-color: rgba(0,0,0,0);
 }
+
+.btn-primary {
+  background-color: purple;
+  border: purple;
+}
+
+.btn-primary:hover {
+  background-color: #A868A8;
+  border: purple;
+}
+
+.btn-primary:active{
+  background-color: #A868A8;
+  border: purple;
+}
+
 
 
