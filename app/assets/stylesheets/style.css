@@ -21,7 +21,8 @@ body {
 
 .navbar {
   height: 75px;
-  background-color: purple;
+  background-color: #26A628;
+  border-bottom: none;
 }
 
 ul.nav.navbar-nav.pull-right li a {
@@ -80,7 +81,7 @@ li {
 .bs-generic {
   margin-top: 15px;
   margin-bottom: 25px;
-  background-color: #C29DC2;
+  background-color: #C2EDC3;
   border-radius: 10px;
   padding: 15px;
 }
@@ -120,7 +121,7 @@ li {
 }
 
 .footer {
-  background-color: purple; 
+  background-color: #26A628; 
   color: white; 
   padding: 10px;
   font-family: Elsie;
@@ -133,7 +134,7 @@ li {
 }
 
 .footer a:hover {
-  color: #C29DC2;
+  color: #2644A6;
 }
 
 .photo-lg > img {
@@ -149,24 +150,24 @@ li {
 }
 
 a:hover {
-  color: purple;
+  color: #2644A6;
   text-decoration: none;
   background-color: rgba(0,0,0,0);
 }
 
 .btn-primary {
-  background-color: purple;
-  border: purple;
+  background-color: #26A628;
+  border: #26A628;
 }
 
 .btn-primary:hover {
-  background-color: #A868A8;
-  border: purple;
+  background-color: #2644A6;
+  border: #26A628;
 }
 
 .btn-primary:active{
-  background-color: #A868A8;
-  border: purple;
+  background-color: #2644A6;
+  border: #26A628;
 }
 
 
