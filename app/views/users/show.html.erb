@@ -1,7 +1,65 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-sm-6 col-xs-12">
+  <div class="col-sm-8 col-xs-12">
+    <% if current_user %>
+      <% if @user.walker == true %>
+        <%= render "appointments/appointments" %>
+      <% else %>
+        <%= render "appointments/schedule" %>
+      <% end %>
+    <% end %>
+
+    <% if current_user && @user.walker == true %>
+      <div class="well">
+        <%= render "clients" %>
+      </div>
+    <% elsif current_user && @user.walker == false %>
+      <div class="well">
+        <div class="row">
+          <div class="col-md-6 col-xs-12">
+            <h2>Your Walker</h2>
+            <p><%= image_tag @user.household.walker.avatar_url(:thumb) %></p>
+            <% if @user.household.walker.id == 17 %>
+              Please chose a walker below.
+            <% else %>
+              <p><%= @user.household.walker.name %></p>
+              <p><%= @user.household.walker.email %></p>
+              <p><%= @user.household.walker.phone %></p>
+            <% end %>
+            
+            <%= form_tag(user_household_path(@user.household.walker_id, @user.household), :method => :put) do %>
+              <div class="field">
+                <%= label_tag "Choose a new walker:" %><br>
+                <%= collection_select :household, :walker_id, @walkers, :id, :name, prompt: "Select Walker" %>
+              </div>
+
+              <div class="actions">
+                <%= submit_tag("Choose Walker") %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="col-md-6 col-xs-12">
+            <%= render "reviews/form" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% unless @user.walker == false %>
+      <div class="well well-lg">
+        <h2>Reviews
+          <button type="button" class="btn btn-danger pull-right" data-toggle="collapse" data-target="#reviews">Show</button>
+        </h2>
+          <div id="reviews" class="collapse in">
+            <%= render "reviews" %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-sm-4 col-xs-12">
     <% if @user.walker == true || current_user %>
       <div class="well">
         <div class="photo-lg">
@@ -24,64 +82,13 @@
       <% end %>
       </div>
     <% end %>
-      
-    <% if current_user %>
-      <% if @user.walker == true %>
-        <%= render "appointments/appointments" %>
-      <% else %>
-        <%= render "appointments/schedule" %>
-      <% end %>
+
+    <% if current_user && @user.walker == false %>
+      <div class="well">
+        <%= render "owner" %>
+      </div>
     <% end %>
-  </div>
 
-  <div class="col-sm-6 col-xs-12">
-      <% if current_user && @user.walker == true %>
-        <div class="well">
-          <%= render "clients" %>
-        </div>
-      <% end %>
-
-      <% unless @user.walker == false %>
-        <div class="well well-lg">
-          <h2>Reviews
-            <button type="button" class="btn btn-danger pull-right" data-toggle="collapse" data-target="#reviews">Show</button>
-          </h2>
-            <div id="reviews" class="collapse in">
-              <%= render "reviews" %>
-            </div>
-        </div>
-      <% end %>
-
-      <% if @user.walker == false %>
-        <div class="well">
-          <%= render "owner" %>
-        </div>
-
-        <div class="well">
-          <h2>Your Walker</h2>
-          <p><%= image_tag @user.household.walker.avatar_url(:thumb) %></p>
-          <% if @user.household.walker.id == 17 %>
-            Please chose a walker below.
-          <% else %>
-            <p><%= @user.household.walker.name %></p>
-            <p><%= @user.household.walker.email %></p>
-            <p><%= @user.household.walker.phone %></p>
-          <% end %>
-          
-          <%= form_tag(user_household_path(@user.household.walker_id, @user.household), :method => :put) do %>
-            <div class="field">
-              <%= label_tag "Choose a new walker:" %><br>
-              <%= collection_select :household, :walker_id, @walkers, :id, :name, prompt: "Select Walker" %>
-            </div>
-
-            <div class="actions">
-              <%= submit_tag("Choose Walker") %>
-            </div>
-          <% end %>
-        </div>
-
-        <%= render "reviews/form" %>
-      <% end %>
   </div>
 </div>
 

@@ -25,7 +25,7 @@
 
   <div id="create-appt"></div>
 
-  <h4>Add an appointment</h4>
+  <h3>Add an appointment</h3>
   <%= form_for @appointment, remote: true do |f| %>
 
     <div class="field">
@@ -46,7 +46,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit "Create Appointment", class: "btn btn-primary" %>
     </div>
 
   <% end %>
@@ -90,7 +90,7 @@
           <input type="hidden" name="appt_id" id="appt" value=""/>
 
           <div class="actions" id="send-text">
-            <%= submit_tag("Send Text") %>
+            <%= submit_tag("Send Text", class: "btn btn-primary")%>
           </div>
 
         <% end %>

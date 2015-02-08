@@ -11,17 +11,13 @@ body {
   margin-top: 35px;
 }
 
-.container {
-  max-width: 960px;
-}
-
 .navbar-header {
   padding-top: 15px;
 }
 
 .navbar {
   height: 75px;
-  background-color: #26A628;
+  background-color: #55008F;
   border-bottom: none;
 }
 
@@ -81,9 +77,14 @@ li {
 .bs-generic {
   margin-top: 15px;
   margin-bottom: 25px;
-  background-color: #C2EDC3;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   padding: 15px;
+}
+
+.walkers {
+  margin-top: 10px;
+  margin-bottom: 100px;
+  min-height: 300px;
 }
 
 .carousel-control {
@@ -121,7 +122,7 @@ li {
 }
 
 .footer {
-  background-color: #26A628; 
+  background-color: #55008F; 
   color: white; 
   padding: 10px;
   font-family: Elsie;
@@ -134,7 +135,7 @@ li {
 }
 
 .footer a:hover {
-  color: #2644A6;
+  color: red;
 }
 
 .photo-lg > img {
@@ -150,24 +151,24 @@ li {
 }
 
 a:hover {
-  color: #2644A6;
+  color: #55008F;
   text-decoration: none;
   background-color: rgba(0,0,0,0);
 }
 
 .btn-primary {
-  background-color: #26A628;
-  border: #26A628;
+  background-color: #55008F;
+  border: #55008F;
 }
 
 .btn-primary:hover {
-  background-color: #2644A6;
-  border: #26A628;
+  background-color: #6F00BA;
+  border: #55008F;
 }
 
 .btn-primary:active{
-  background-color: #2644A6;
-  border: #26A628;
+  background-color: #6F00BA;
+  border: #55008F;
 }
 
 
