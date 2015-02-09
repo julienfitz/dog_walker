@@ -27,7 +27,7 @@
           </div>
 
           <div class="col-md-7 col-md-offset-1">
-            <h3>Reviews</h3>
+            <h4>Reviews</h4>
             <ul>
               <% Review.where(:walker_id => walker.id).each do |review| %>
                 <li><%= review.content %></li>

@@ -50,7 +50,7 @@
     <% unless @user.walker == false %>
       <div class="well well-lg">
         <h2>Reviews
-          <button type="button" class="btn btn-danger pull-right" data-toggle="collapse" data-target="#reviews">Show</button>
+          <button type="button" class="btn btn-primary pull-right" aria-expanded="false" data-toggle="collapse" data-target="#reviews">Hide</button>
         </h2>
           <div id="reviews" class="collapse in">
             <%= render "reviews" %>
@@ -66,18 +66,18 @@
         <%= image_tag @user.avatar_url.to_s %>
         </div>
         <h1><%= @user.name %></h1>
-        <p><%= @user.email %></p>
-        <p><%= @user.phone %></p>
+        <h4><%= @user.email %></h4>
+        <h4><%= @user.phone %></h4>
       <% if @user.walker == false %>
         <p><%= @user.household.address %></p>
       <% end %>
 
       <% if current_user == @user %>
         <div class="links">
-          <%= link_to 'Edit Profile', edit_user_registration_path %> 
+          <p><%= link_to 'Edit Profile', edit_user_registration_path %> 
           <% if @user.walker == true %>
             | <%= link_to 'Add a New Client', new_user_household_path(@user) %>
-          <% end %>
+          <% end %></p>
         </div>
       <% end %>
       </div>

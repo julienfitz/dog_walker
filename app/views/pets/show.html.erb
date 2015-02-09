@@ -11,12 +11,12 @@
         <% end %>
       </div>
       <div class="links">
-        <%= link_to 'Edit', edit_pet_path(@pet) %> | <%= link_to 'Remove Pet', @pet, method: :delete, data: { confirm: 'Are you sure?' } %> | 
-        <%= link_to 'Back', :back %>
+        <p><%= link_to 'Edit', edit_pet_path(@pet) %> | <%= link_to 'Remove Pet', @pet, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+        <%= link_to 'Back', :back %></p>
       </div>
 
       <h2>
-        <strong>Name: </strong><%= link_to @pet.name, user_household_path(@pet.household.walker_id, @pet.household) %>
+        <%= link_to @pet.name, user_household_path(@pet.household.walker_id, @pet.household) %>
       </h2>
 
       <p><strong>Household:</strong>
@@ -60,7 +60,7 @@
         <% end %>
       </p>
 
-        <strong>Owner Notes:</strong>
+      <p><strong>Notes From Owner:</strong>
         <%= @pet.notes %>
       </p>
 
