@@ -4,8 +4,8 @@ class PoopsController < ApplicationController
     Time.zone = "EST"
     Chronic.time_class = Time.zone
     @pet = Pet.find(poop_params[:pet_id])
-    @poop = Poop.new(pet_id: poop_params[:pet_id], poop_quality: poop_params[:poop_quality], poop_datetime: poop_params[:poop_datetime])
-    @date = Chronic.parse(poop_params[:poop_datetime])
+    @poop = Poop.new(pet_id: poop_params[:pet_id], poop_quality: poop_params[:poop_quality])
+    @date = Chronic.parse(params[:poop_datetime])
     @poop.poop_datetime = @date
     respond_to do |format|
       if @poop.save
