@@ -32,7 +32,7 @@
     <th><h3>Day</h3></th>
     <th><h3>Time</h3></th>
     <th><h3>Quality</h3></th>
-    <th><h3>Remove?</h3></th>
+    <th class="text-center"><h3>Remove?</h3></th>
   </tr>
 
 <% if @poops.count == 0 %>
@@ -49,12 +49,12 @@
       <td><h5><%= (@today).strftime("%A (Today)") %></h5></td>
         <td><h5><%= poop.poop_datetime.strftime("%I:%M %p") %></h5></td>
         <td><h5><%= poop.poop_quality %></h5></td>
-        <td><button type="button" class="btn btn-sm btn-danger" id="delete-poop" data-id="<%= poop.id %>">X</button></td>
+        <td class="text-center"><button type="button" class="btn btn-sm btn-danger" id="delete-poop" data-id="<%= poop.id %>">X</button></td>
     <% else %>
       <td><h5><%= (poop.poop_datetime).strftime("%A") %></h5></td>
         <td><h5><%= poop.poop_datetime.strftime("%I:%M %p") %></h5></td>
         <td><h5><%= poop.poop_quality %></h5></td>
-        <td><button type="button" class="btn btn-sm btn-danger" id="delete-poop" data-id="<%= poop.id %>">X</button></td>
+        <td class="text-center"><button type="button" class="btn btn-sm btn-danger" id="delete-poop" data-id="<%= poop.id %>">X</button></td>
     <% end %>
   </tr>
   <% end %>
