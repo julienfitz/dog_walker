@@ -27,6 +27,17 @@ $(function(){
     });
   });
 
+  //to delete poop 
+  $(".poop-table").on('click', "#delete-poop", function(){
+    // id = $(this).data("id");
+    div_id = "#"+$(this).data("id");
+    $(div_id).remove();
+    // $.ajax({
+    //   url:'/poops/'+id, 
+    //   type: 'DELETE'
+    // });
+  });
+
   //Opens the cancel appointment modal
   $(".appointment").on('click', '#cancel-modal', function(event){
     event.preventDefault();
@@ -42,16 +53,6 @@ $(function(){
   $("#cancel-appt").click(function(){
     $(div_id).remove();
     $('#myModal').modal('toggle');
-  });
-
-  //to delete appointment and not text 
-  $("#no-text").click(function(){
-    $(div_id).remove();
-    $('#myModal').modal('toggle');
-    $.ajax({
-      url:'/appointments/'+id, 
-      type: 'DELETE'
-    });
   });
 
   //opens walker email modal

@@ -11,11 +11,8 @@ class PoopsController < ApplicationController
       if @poop.save
         format.html { redirect_to pet_path(@pet) }
       else
-        format.html { redirect_to pet_path(@pet), notice: 'No poop added to schedule - please select a quality' }
+        format.html { redirect_to pet_path(@pet), notice: "No poop added to schedule - poops must include quality and a valid date"}
       end
-    end
-    if @poop.poop_datetime < Date.current - 6
-      flash[:notice] = "Sorry, you can only add numbers for the past week"
     end
   end
 
