@@ -28,14 +28,15 @@ $(function(){
   });
 
   //to delete poop 
-  $(".poop-table").on('click', "#delete-poop", function(){
-    // id = $(this).data("id");
+  $(".table").on('click', "#delete-poop", function(){
+    id = $(this).data("id");
     div_id = "#"+$(this).data("id");
     $(div_id).remove();
-    // $.ajax({
-    //   url:'/poops/'+id, 
-    //   type: 'DELETE'
-    // });
+    console.log("clicked");
+    $.ajax({
+      url:'/poops/'+id, 
+      type: 'DELETE'
+    });
   });
 
   //Opens the cancel appointment modal

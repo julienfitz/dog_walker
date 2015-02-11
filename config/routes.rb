@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :pets
 
   resources :appointments, :only => [:create, :destroy]
-  resources :poops, :only => [:create, :destroy]
+  resources :poops
   
   post 'appointments/modal', to: 'appointments#modal'
   post 'appointments/send_text', to: 'appointments#send_text'

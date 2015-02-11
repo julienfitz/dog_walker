@@ -9,9 +9,9 @@ class PoopsController < ApplicationController
     @poop.poop_datetime = @date
     respond_to do |format|
       if @poop.save
-        format.html { redirect_to pet_path(@pet) }
+        format.js 
       else
-        format.html { redirect_to pet_path(@pet), notice: "No poop added to schedule - poops must include quality and a valid date"}
+        format.js { render 'failure' }
       end
     end
   end
@@ -20,7 +20,7 @@ class PoopsController < ApplicationController
     @poop = Poop.find(params[:id])
     @pet = @poop.pet
     @poop.destroy
-    redirect_to pet_path(@pet)
+    redirect_to current_user
   end
 
   private

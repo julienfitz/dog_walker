@@ -1,7 +1,7 @@
 <div class="well">
 
   <h3>Add a #2:</h3>
-  <%= form_for(@poop) do |f| %>
+  <%= form_for @poop, remote: true do |f| %>
 
     <div class="field">
       <p><%= f.label :poop_datetime, "#2 Day/Time" %><br>
@@ -25,7 +25,9 @@
   <% end %>
 </div>
 
-<table class="table table-bordered poop-table">
+<div id="create-poop"></div>
+
+<table class="table table-bordered" id="poop-table">
   <tr>
     <th><h3>Day</h3></th>
     <th><h3>Time</h3></th>
@@ -42,17 +44,17 @@
   </tr>
 <% elsif @poops %>
   <% @poops.reverse.each do |poop| %>
-  <tr>
+  <tr id="<%= poop.id %>">
     <% if poop.poop_datetime.to_date == @today %>
-      <th><h4><%= (@today).strftime("%A (Today)") %></h4></th>
-        <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
-        <td><%= poop.poop_quality %></td>
-        <td class="text-center"><%= link_to 'X', poop, method: :delete %></td>
+      <td><h5><%= (@today).strftime("%A (Today)") %></h5></td>
+        <td><h5><%= poop.poop_datetime.strftime("%I:%M %p") %></h5></td>
+        <td><h5><%= poop.poop_quality %></h5></td>
+        <td><button type="button" class="btn btn-sm btn-danger" id="delete-poop" data-id="<%= poop.id %>">X</button></td>
     <% else %>
-      <th><h4><%= (poop.poop_datetime).strftime("%A") %></h4></th>
-        <td><%= poop.poop_datetime.strftime("%I:%M %p") %></td>
-        <td><%= poop.poop_quality %></td>
-        <td class="text-center"><button type="button" class="btn btn-sm btn-danger" id="delete-poop" data-id="<%= poop.id %>">X</button></td>
+      <td><h5><%= (poop.poop_datetime).strftime("%A") %></h5></td>
+        <td><h5><%= poop.poop_datetime.strftime("%I:%M %p") %></h5></td>
+        <td><h5><%= poop.poop_quality %></h5></td>
+        <td><button type="button" class="btn btn-sm btn-danger" id="delete-poop" data-id="<%= poop.id %>">X</button></td>
     <% end %>
   </tr>
   <% end %>
