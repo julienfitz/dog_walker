@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Elsie:400,900);
 @import url(http://fonts.googleapis.com/css?family=Oxygen:400,300,700);
 @import url(http://fonts.googleapis.com/css?family=Raleway:400);
-@import url(http://fonts.googleapis.com/css?family=Merriweather:400);
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,700);
 
 /* Some Style from the Bootstrap Default Theme */
 body {
@@ -113,6 +113,10 @@ a:hover {
   color: #55008F;
   text-decoration: none;
   background-color: rgba(0,0,0,0);
+}
+
+a {
+  color: #6F00BA;
 }
 
 .btn-primary {
