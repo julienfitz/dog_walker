@@ -17,22 +17,24 @@
 
       <div id="collapse<%= house.id %>" class="panel-collapse collapse">
         <div class="panel-body client">
-          <h4><%= link_to house.address, user_household_path(@user.id, house) %>
-          <small> | <%= link_to 'Edit Household Info', edit_user_household_path(@user.id, house) %> | <a id="pet-modal" data-target="#petModal" href="#" data-id="<%= house.id %>" data-value="<%= house.id %>">Add New Pet</a></h4> 
-            <br>
+          <h3><%= link_to house.address, user_household_path(@user.id, house) %>
+          <small> | <%= link_to 'Edit Household Info', edit_user_household_path(@user.id, house) %> | <a id="pet-modal" data-target="#petModal" href="#" data-id="<%= house.id %>" data-value="<%= house.id %>">Add New Pet</a></h3> 
+          <br>
+          <div class="row">
             <% house.pets.each do |pet| %>
-              <div class="col-sm-5 col-xs-12">
-                <% if pet.avatar.url.present? %>
-                <%= link_to image_tag(pet.avatar_url(:thumb)), pet_path(pet) %>
-                <% else %>
-                <%= link_to image_tag("thumb_dog_bounty.jpg"), pet_path(pet) %>
-                <% end %>
-                <br>
-                <h5><%= link_to pet.name, pet_path(pet) %> | <small><%= link_to 'Edit Pet Info', edit_pet_path(pet) %></small></h5> 
-                <br>
-              </div>
-        <% end %>
-      </div>
+            <div class="col-sm-5 col-xs-12">
+              <% if pet.avatar.url.present? %>
+              <%= link_to image_tag(pet.avatar_url(:thumb)), pet_path(pet) %>
+              <% else %>
+              <%= link_to image_tag("thumb_dog_bounty.jpg"), pet_path(pet) %>
+              <% end %>
+              <br>
+              <h4><%= link_to pet.name, pet_path(pet) %> | <small><%= link_to 'Edit Pet Info', edit_pet_path(pet) %></small></h4> 
+              <br>
+            </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>

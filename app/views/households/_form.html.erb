@@ -14,28 +14,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :owner_name %><br>
-    <%= f.text_field :owner_name %>
+    <h5><%= f.label :owner_name %><br>
+    <%= f.text_field :owner_name %></h5>
   </div>
   <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <h5><%= f.label :address %><br>
+    <%= f.text_field :address %></h5>
   </div>
   <div class="field">
-    <%= f.label :phone %><br>
+    <h5><%= f.label :phone %><br>
     <%= f.text_field :phone, id: "inputPhone", :class => "phone_us" %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <h5><%= f.label :email %><br>
+    <%= f.text_field :email %></h5>
   </div>
   <div class="field">
-    <%= f.label :key_info %><br>
-    <%= f.text_field :key_info %>
+    <h5><%= f.label :key_info %><br>
+    <%= f.text_field :key_info %></h5>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update", class: "btn btn-primary" %>
   </div>
 
 <% end %>

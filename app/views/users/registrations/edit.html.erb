@@ -1,4 +1,4 @@
-<div class="col-sm-5 col-xs-12">
+<div class="col-sm-6 col-xs-12">
 <div class="well">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
@@ -11,34 +11,34 @@
         <%= image_tag(current_user.avatar.url)  %>
       </div>
     <% end %>
-    <%= f.label "Upload a Photo" %>
+    <p><%= f.label "Upload a Photo" %></p>
     <div class="photo-lg">
       <%= f.file_field :avatar %>
     </div>
     <%= f.hidden_field :avatar_cache %>
   </div>
+  <br>
+  <div><p><%= f.label :name %><br />
+  <%= f.text_field :name, autofocus: true %></p></div> 
 
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name, autofocus: true %></div> 
+  <div><p><%= f.label :phone %><br />
+  <%= f.text_field :phone, autofocus: true, id: "inputPhone", :class => "phone_us" %></p></div> 
 
-  <div><%= f.label :phone %><br />
-  <%= f.text_field :phone, autofocus: true, id: "inputPhone", :class => "phone_us" %></div> 
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <div><p><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %></p></div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div><p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p></div>
   <% end %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+  <div><p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %></p></div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+  <div><p><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %></p></div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
+  <div><p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %></p></div>
 
   <div style="margin-top:10px;"><%= f.submit "Update", type: "button", class: "btn btn-primary"  %></div>
 <% end %>

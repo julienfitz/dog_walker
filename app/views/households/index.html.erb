@@ -1,11 +1,11 @@
 <h1>Listing households</h1>
 
-<table>
+<table class="index-table">
   <thead>
     <tr>
       <th>Address</th>
       <th>Key info</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -14,9 +14,7 @@
       <tr>
         <td><%= household.address %></td>
         <td><%= household.key_info %></td>
-        <td><%= link_to 'Show', user_household_path(params[:user_id], household) %></td>
-        <td><%= link_to 'Edit', edit_user_household_path(params[:user_id], household) %></td>
-        <td><%= link_to 'Destroy', user_household_path(params[:user_id], household), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user_household_path(params[:user_id], household) %> | <%= link_to 'Edit', edit_user_household_path(params[:user_id], household) %> | <%= link_to 'Destroy', user_household_path(params[:user_id], household), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

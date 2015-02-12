@@ -3,12 +3,9 @@
     <% @reviews.each do |review| %>
       <div class="col-xs-12">
         <div class="well well-sm">
-          <h4>Pet owner:</h4>
-            <p><%= review.owner.name %></p>
-          <h4>Rating:</h4>
-            <p><%= review.rating %>/10</p>
-          <h4>Review: </h4>
-            <p><%= review.content %></p>
+          <h4><%= review.content %></h4>
+          <h4><% review.rating.times do |star| %><span class="star">&#9733;</span><%end%> <small>out of 10</small></h4>
+          <p>by <%= review.owner.name %></p>
         </div>
       </div>
     <% end %>

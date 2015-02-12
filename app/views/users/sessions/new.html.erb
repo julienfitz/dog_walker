@@ -1,17 +1,11 @@
 <div class="row">
   <div class="col-sm-7 col-xs-12"> 
     <div class="well">
-    <p>
-      <h1>
-      Dog walker?
-      </h1>
+      <h1>Dog walker?</h1>
       <h4>Cat sitter? Armadillo wrangler?<br>
       </h4>
-      <h5>
-      Or just a regular old pet owner? Sign in or create a new account to manage your pet care!
-      </h5>
-    </p>
-    <br />
+      <h5>Or just a regular old pet owner? Sign in or create a new account to manage your pet care!</h5>
+      <br />
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
         <div><%= f.hidden_field :email, value: "wiggles@wiggles.com" %></div>
@@ -41,14 +35,14 @@
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
 
-        <div><%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %></div>
+        <div><p><%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %></p></div>
 
-        <div><%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "off" %></div>
+        <div><p><%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off" %></p></div>
 
         <% if devise_mapping.rememberable? -%>
-          <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+          <div><p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p></div>
         <% end -%>
 
         <div><%= f.submit "Sign in", class: "btn-sm btn-primary", style: "color:white"  %></div>
@@ -56,7 +50,7 @@
       <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
         <br>
 
-        <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+        <p><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
       <% end -%>
     </div>
 </div>

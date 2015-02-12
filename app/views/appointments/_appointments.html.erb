@@ -3,11 +3,11 @@
   <h4><%= Time.now.strftime("%A, %B %d, %Y") %></h4>
   <table class="table" id="client-appts">
     <tr>
-      <th>Done?</th>
-      <th>Time</th>
-      <th>Pet</th>
-      <th>Address</th>
-      <th>Remove?</th>
+      <th><h5>Done?</h5></th>
+      <th><h5>Time</h5></th>
+      <th><h5>Pet</h5></th>
+      <th><h5>Address</h5></th>
+      <th><h5>Remove?</h5></th>
     </tr>
     <% @appointments.each do |appointment| %>
       <tr id="<%= appointment.id %>">
@@ -29,15 +29,15 @@
   <%= form_for @appointment, remote: true do |f| %>
 
     <div class="field">
-      <p><strong>Date</strong></p>
-      <input type="text" id="datepicker" name="date" ></p>
+      <h5>Date</h5>
+      <input type="text" id="datepicker" name="date" >
       <%#= f.text_field :date, id: "appt_date" %>
-      <p><strong>Time</strong></p>
+      <h5>Time</h5>
       <input type="text" id="time" data-format="h:mm a" data-template="h : mm a" name="time">
     </div>
 
     <div class="field">
-      <%= f.label :pet_id %><br>
+      <h5>Pet</h5>
       <%= f.collection_select :pet_id, @pets, :id, :name, prompt: "Select Pet" %>
     </div>
 

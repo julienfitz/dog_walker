@@ -12,7 +12,7 @@
       </div>
     <% end %>
 
-  <div class="col-xs-6">
+  <div class="col-sm-6 col-xs-12">
     <div>
       <% if @pet.avatar.url.present? %>
         <div class="photo-sm">
@@ -23,86 +23,86 @@
          <%= image_tag "dog_bounty.jpg" %>
         </div>
       <% end %>
-      <%= f.label "Upload a Photo" %>
+      <br>
+      <p><%= f.label "Upload a Photo" %></p>
       <%= f.file_field :avatar  %>
       <%= f.hidden_field :avatar_cache %>
     </div>
-
+    <br>
     <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
+      <p><%= f.label :name %><br>
+      <%= f.text_field :name %></p>
     </div>
     <div class="field">
-      <%= f.label :species %><br>
-      <%= f.select :species, ["cat","dog","other"] %>
+      <p><%= f.label :species %><br>
+      <%= f.select :species, ["cat","dog","other"] %></p>
     </div>
     <div class="field">
-      <%= f.label :size %><br>
-      <%= f.select :size, ["extra small","small","medium","large","extra large"] %>
+      <p><%= f.label :size %><br>
+      <%= f.select :size, ["extra small","small","medium","large","extra large"] %></p>
     </div>
     <div class="field">
-      <%= f.label :allergies %><br>
-      <%= f.text_field :allergies %>
+      <p><%= f.label :allergies %><br>
+      <%= f.text_field :allergies %></p>
     </div>
     <div class="field">
-      <%= f.label :age %><br>
-      <%= f.select :age, ["baby", "young", "adult", "older", "senior"] %>
+      <p><%= f.label :age %><br>
+      <%= f.select :age, ["baby", "young", "adult", "older", "senior"] %></p>
     </div>
     <div class="field">
-      <%= f.label :feeding %><br>
-      <%= f.text_field :feeding %>
+      <p><%= f.label :feeding %><br>
+      <%= f.text_field :feeding %></p>
     </div>
     <div class="field">
-      <%= f.label :notes %><br>
-      <%= f.text_field :notes %>
+      <p><strong>Notes from owner</strong><br>
+      <%= f.text_area :notes %></p>
     </div>
 
   </div>
 
-  <div class="col-xs-6">
+  <div class="col-sm-6 col-xs-12">
     <div class="field">
-      <%= f.label :vet_id %><br>
-      <%= f.collection_select :vet_id, Vet.all, :id, :all_details, prompt: "Select Your Vet" %>
+      <p><%= f.label :vet_id %><br>
+      <%= f.collection_select :vet_id, Vet.all, :id, :all_details, prompt: "Select Your Vet" %></p>
     </div>
 
-    Add a New Vet:
-    <p>
+    <p><strong>Add a New Vet:</strong></p>
+    
     <div class="field">
     <%= f.fields_for :vet, Vet.new do |vet_form| %>
-      <%= vet_form.label :name, "Name" %>
-      <%= vet_form.text_field :name %><br><br>
-      <%= vet_form.label :phone, "Phone" %>
-      <%= vet_form.text_field :phone %><br><br>
-      <%= vet_form.label :address, "Address" %>
-      <%= vet_form.text_field :address %>
+      <p>Name
+      <%= vet_form.text_field :name %></p>
+      <p>Phone
+      <%= vet_form.text_field :phone %></p>
+      <p>Address
+      <%= vet_form.text_field :address %></p>
     <% end %>
     </div>
-    </p>
+    <br>
 
     <div class="field">
       <%= f.hidden_field :household_id, id: "household" %>
     </div>
-    <br>
 
     <% if @user.walker == true %>
       <div class="field">
-        <strong>Behavior:</strong><br />
-        <%= f.label "Dog Aggressive?" %>
-        <%= f.check_box :dog_aggro? %><br>
-        <%= f.label "Human Aggressive?" %>
-        <%= f.check_box :human_aggro? %><br>
-        Other Behavior Notes:<br>
-        <%= f.text_area :behavior_notes %>
+        <p><strong>Behavior:</strong></p>
+        <p>Dog Aggressive?
+        <%= f.check_box :dog_aggro? %></p>
+        <p>Human Aggressive?
+        <%= f.check_box :human_aggro? %></p>
+        <p>Other Behavior Notes:<br>
+        <%= f.text_area :behavior_notes %></p>
       </div>
       
       <div class="field">
-        <%= f.label "Supply Locations" %><br>
-        <%= f.text_area :supply %>
+        <p><%= f.label "Supply Locations" %><br>
+        <%= f.text_area :supply %></p>
       </div>
     <% end %>
     
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit "Update", class: "btn btn-primary" %>
     </div>
   </div>
   <% end %>

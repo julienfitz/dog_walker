@@ -23,19 +23,19 @@
             <% if @user.household.walker.id == 17 %>
               Please chose a walker below.
             <% else %>
-              <p><%= @user.household.walker.name %></p>
-              <p><%= @user.household.walker.email %></p>
-              <p><%= @user.household.walker.phone %></p>
+              <h3><%= @user.household.walker.name %></h3>
+              <h5><%= @user.household.walker.email %></h5>
+              <h5><%= @user.household.walker.phone %></h5>
             <% end %>
-            
+            <br>
             <%= form_tag(user_household_path(@user.household.walker_id, @user.household), :method => :put) do %>
               <div class="field">
-                <%= label_tag "Choose a new walker:" %><br>
-                <%= collection_select :household, :walker_id, @walkers, :id, :name, prompt: "Select Walker" %>
+                <p><%= label_tag "Choose a new walker:" %><br>
+                <%= collection_select :household, :walker_id, @walkers, :id, :name, prompt: "Select Walker" %></p>
               </div>
 
               <div class="actions">
-                <%= submit_tag("Choose Walker") %>
+                <%= submit_tag "Choose Walker", class:"btn btn-primary" %>
               </div>
             <% end %>
           </div>
@@ -69,11 +69,12 @@
         <h4><%= @user.email %></h4>
         <h4><%= @user.phone %></h4>
       <% if @user.walker == false %>
-        <p><%= @user.household.address %></p>
+        <h4><%= @user.household.address %></h4>
       <% end %>
 
       <% if current_user == @user %>
         <div class="links">
+          <br>
           <p><%= link_to 'Edit Profile', edit_user_registration_path %> 
           <% if @user.walker == true %>
             | <%= link_to 'Add a New Client', new_user_household_path(@user) %>

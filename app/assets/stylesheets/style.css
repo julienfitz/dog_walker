@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Elsie:400,900);
 @import url(http://fonts.googleapis.com/css?family=Oxygen:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400);
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400);
 
 /* Some Style from the Bootstrap Default Theme */
 body {
@@ -24,21 +26,19 @@ body {
 ul.nav.navbar-nav.pull-right li a {
   color: white;
   padding: 25px;
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Merriweather', serif;
   font-size: 14px;
 }
 
 ul.navbar-nav li a.navbar-brand {
   color: white;
   padding: 25px;
-  font-family: Elsie;
-  font-weight: 900, serif;
+  font-family: Raleway;
   font-size: 36px;
 }
 
 h1, h2, h3 {
-  font-family: Elsie;
-  font-weight: 900, serif;
+  font-family: Raleway;
   line-height: 1;
 }
 
@@ -48,12 +48,12 @@ h1 {
 }
 
 h4, h5, p, td {
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Merriweather', serif;
 }
 
 li {
   margin-left: -25px;
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Merriweather', serif;
 }
 
 .home-header {
@@ -87,30 +87,6 @@ li {
   min-height: 300px;
 }
 
-.carousel-control {
-/*  position:absolute;
-  top:0;
-  bottom:0;*/
-  left:0;
-  width:5%;
-  font-size:20px;
-  color:#000;
-  text-align:center;
-  text-shadow:0 1px 2px rgba(0,0,0,.6);
-  filter:alpha(opacity=50);
-  opacity:0.5
-  }
-
-.carousel-control.left{
-  background-image:-webkit-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,.0001) 100%);background-image:-o-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,.0001) 100%);background-image:-webkit-gradient(linear,left top,right top,from(rgba(0,0,0,0)),to(rgba(0,0,0,.0001)));background-image:linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,.0001) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);background-repeat:repeat-x
-}
-
-.carousel-control.right{
-  right:0;
-  left:auto;
-  background-image:-webkit-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,0) 100%);background-image:-o-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,0) 100%);background-image:-webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.0001)),to(rgba(0,0,0,0)));background-image:linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,0) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);background-repeat:repeat-x
-}
-
 .theme-dropdown .dropdown-menu {
   position: static;
   display: block;
@@ -119,23 +95,6 @@ li {
 
 .theme-showcase > p > .btn {
   margin: 5px 0;
-}
-
-.footer {
-  background-color: #55008F; 
-  color: white; 
-  padding: 10px;
-  font-family: Elsie;
-  font-weight: 400, serif;
-}
-
-.footer a {
-  color: white;
-  font-size: 14px;
-}
-
-.footer a:hover {
-  color: red;
 }
 
 .photo-lg > img {
@@ -159,6 +118,7 @@ a:hover {
 .btn-primary {
   background-color: #55008F;
   border: #55008F;
+  font-family: 'Raleway', sans-serif;
 }
 
 .btn-primary:hover {
@@ -171,5 +131,49 @@ a:hover {
   border: #55008F;
 }
 
+.star {
+  color: #55008F;
+}
 
+.dog-stats h5 {
+  padding-top: 5px;
+}
+
+#pets-index td, th {
+  width: 75px;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+#pets-index a {
+  color: purple;
+  font-weight: bold;
+}
+
+#pets-index .links {
+  width: 50px;
+}
+
+.index-table td, th {
+  width: 150px;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+.footer {
+  background-color: #55008F; 
+  color: white; 
+  padding: 10px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400, serif;
+}
+
+.footer a {
+  color: white;
+  font-size: 14px;
+}
+
+.footer a:hover {
+  color: red;
+}
 

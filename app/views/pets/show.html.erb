@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-sm-5 col-xs-12">
-    <div class="well">
+    <div class="well dog-stats">
       <div class="photo-lg"> 
         <% if @pet.avatar.url.present? %>
           <%= image_tag @pet.avatar_url.to_s %>
@@ -19,37 +19,37 @@
         <%= link_to @pet.name, user_household_path(@pet.household.walker_id, @pet.household) %>
       </h2>
 
-      <p><strong>Household:</strong>
-      <%= @pet.household.address %></p>
+      <h5><strong>Household:</strong>
+      <%= @pet.household.address %></h5>
 
-      <p><strong>Owner:</strong> <%= @pet.household.owner_name %></p>
+      <h5><strong>Owner:</strong> <%= @pet.household.owner_name %></h5>
 
-      <p>
+      <h5>
         <strong>Species:</strong>
         <%= @pet.species %>
-      </p>
+      </h5>
 
-      <p>
+      <h5>
         <strong>Size:</strong>
         <%= @pet.size %>
-      </p>
+      </h5>
 
-      <p>
+      <h5>
         <strong>Age:</strong>
         <%= @pet.age %>
-      </p>
+      </h5>
 
-      <p>
+      <h5>
         <strong>Feeding:</strong>
         <%= @pet.feeding %>
-      </p>
+      </h5>
 
-      <p>
+      <h5>
         <strong>Allergies:</strong>
         <%= @pet.allergies %>
-      </p>
+      </h5>
 
-      <p>
+      <h5>
         <strong>Vet:</strong>
         <% if @pet.vet %>
           <%= @pet.vet.name %>
@@ -58,27 +58,27 @@
         <% else %>
           <%= "No Vet Listed" %>
         <% end %>
-      </p>
+      </h5>
 
-      <p><strong>Notes From Owner:</strong>
+      <h5><strong>Notes From Owner:</strong>
         <%= @pet.notes %>
-      </p>
+      </h5>
 
       <% if @user.walker == true %>
-        <p>
+        <h5>
         <strong>Dog Aggressive:</strong> <%= @pet.dog_aggro %>
-        </p>
-        <p>
+        </h5>
+        <h5>
         <strong>Human Aggressive:</strong> <%= @pet.human_aggro %>
-        </p>
-        <p>
+        </h5>
+        <h5>
         <strong>Behavior Notes:</strong><br>
         <%= @pet.behavior_notes %>
-        </p>
-        <p>
+        </h5>
+        <h5>
         <strong>Supply Locations:</strong><br>
         <%= @pet.supply %>
-        </p>
+        </h5>
       <% end %>
 
     </div>

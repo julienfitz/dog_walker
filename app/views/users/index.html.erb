@@ -30,7 +30,7 @@
             <h4>Reviews</h4>
             <ul>
               <% Review.where(:walker_id => walker.id).each do |review| %>
-                <li><%= review.content %></li>
+                <li><%= review.content %> <p><% review.rating.times do |star| %><span class="star">&#9733;</span><%end%></p></li>
               <% end %>
             </ul> 
           </div>

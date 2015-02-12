@@ -10,33 +10,24 @@
           <%= image_tag @household.owner.avatar_url %>
         </div></p>
       <% end %>
-      <p>
-        <strong>Address:</strong>
-        <%= @household.address %>
-      </p>
+      <h4>Address:</h4>
+      <p><%= @household.address %></p>
 
-      <p>
-        <strong>Key info:</strong>
-        <%= @household.key_info %>
-      </p>
+      <h4>Key info:</h4>
+      <p><%= @household.key_info %></p>
 
-      <p>
-        <strong>Phone:</strong>
-        <%= @household.phone %>
-      </p>
+      <h4>Phone:</h4>
+      <p><%= @household.phone %></p>
 
-      <p>
-        <strong>Email:</strong>
-        <%= @household.email %>
-      </p>
+      <h4>Email:</h4>
+      <p><%= @household.email %></p>
 
       <h4>Pets:</h4>
         <% @household.pets.each do |pet| %>
-          <h4><%= link_to pet.name, pet_path(pet) %><h4>
+          <p><%= link_to pet.name, pet_path(pet) %></p>
           <p><div class="photo-lg"><%= image_tag pet.avatar_url %></div></p>
-          
         <% end %>
-
+        <br>
         <%= link_to 'Edit', edit_user_household_path %> |
         <%= link_to 'Back', :back %> | <span class="household"><a id="pet-modal" data-target="#petModal" href="#" data-id="<%= @household.id %>" data-value="<%= @household.id %>">Add New Pet</a></span>
     </div>
